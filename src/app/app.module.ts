@@ -8,8 +8,12 @@ import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { FooterComponent } from './components/admin/footer/footer.component';
 import { ErrorComponent } from './pages/error/error.component';
 import {RouterModule, Routes} from '@angular/router';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const appRoutes : Routes = [
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
   {path: '**', component: ErrorComponent}
 ]
 
@@ -20,6 +24,8 @@ const appRoutes : Routes = [
     SidebarComponent,
     FooterComponent,
     ErrorComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

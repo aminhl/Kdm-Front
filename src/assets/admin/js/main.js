@@ -1,8 +1,8 @@
 /**
 * Template Name: NextHope - v2.2.2
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Template URL: https://NextHope.com/nice-admin-bootstrap-admin-html-template/
+* Author: NextHope.com
+* License: https://NextHope.com/license/
 */
 (function() {
   "use strict";
