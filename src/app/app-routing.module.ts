@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { LoginComponent } from './pages/login/login.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { ErrorComponent } from './pages/error/error.component';
-import { ContratComponent } from './pages/contrat/contrat.component';
+import { ContactComponent } from './pages/admin/contact/contact.component';
+import { RegisterComponent } from './pages/admin/register/register.component';
+import { LoginComponent } from './pages/admin/login/login.component';
+import { ProfileComponent } from './pages/admin/profile/profile.component';
+import { ErrorComponent } from './pages/admin/error/error.component';
+import { ContratComponent } from './pages/admin/contrat/contrat.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
