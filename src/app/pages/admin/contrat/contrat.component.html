@@ -1,60 +1,105 @@
-<section class="section my-4">
-  <div class="card">
-    <div class="card-body">
-      <!-- Vertical Form -->
-      <form class="row g-3" [formGroup]="contratForm" (ngSubmit)="onSubmit()">
-        <div class="col-6 offset-3">
-          <label class="form-label">Date Debut</label>
-          <input type="date" class="form-control" formControlName="dateDebut" />
-        </div>
-        <div class="col-6 offset-3">
-          <label class="form-label">Date Fin</label>
-          <input type="date" class="form-control" formControlName="dateFin" />
-        </div>
-        <div class="col-6 offset-3">
-          <label class="form-label">Specialite</label>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            formControlName="specialite"
-          >
-            <option selected="">Select Your Specialite</option>
-            <option value="IA">IA</option>
-            <option value="RESEAUX">RESEAUX</option>
-            <option value="CLOUD">CLOUD</option>
-            <option value="SECURITE">SECURITE</option>
-          </select>
-        </div>
-        <div class="col-6 offset-3">
-          <label for="flexSwitchCheckDefault" class="form-label">Archive</label>
-          <div class="form-check form-switch">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              id="flexSwitchCheckDefault"
-              formControlName="archivee"
-            />
-          </div>
-        </div>
-        <div class="col-6 offset-3">
-          <label class="form-label">Montant</label>
-          <div class="input-group mb-3">
-            <span class="input-group-text">$</span>
-            <input
-              type="number"
-              class="form-control"
-              formControlName="montant"
-            />
-            <span class="input-group-text">.00</span>
-          </div>
-        </div>
+<section class="section" style="margin-top: 100px">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Contrats</h5>
 
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-warning">Reset</button>
+          <!-- Table with stripped rows -->
+          <div
+            class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
+          >
+            <!--            <div class="dataTable-top">-->
+            <!--              <div class="dataTable-dropdown">-->
+            <!--                <label-->
+            <!--                  ><select class="dataTable-selector">-->
+            <!--                    <option value="5">5</option>-->
+            <!--                    <option value="10" selected="">10</option>-->
+            <!--                    <option value="15">15</option>-->
+            <!--                    <option value="20">20</option>-->
+            <!--                    <option value="25">25</option>-->
+            <!--                  </select>-->
+            <!--                  entries per page</label-->
+            <!--                >-->
+            <!--              </div>-->
+            <!--              <div class="dataTable-search">-->
+            <!--                <input-->
+            <!--                  class="dataTable-input"-->
+            <!--                  placeholder="Search..."-->
+            <!--                  type="text"-->
+            <!--                />-->
+            <!--              </div>-->
+            <!--            </div>-->
+            <div class="dataTable-container">
+              <table class="table datatable dataTable-table">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sortable="" style="width: 5.62902%">
+                      #
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 9.203%">
+                      Specialite
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 28.0558%">
+                      Date Debut
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 37.7949%">
+                      Date Fin
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 19.2995%">
+                      Status
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 19.2995%">
+                      Montant
+                    </th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let contrat of contrats">
+                  <tr>
+                    <th scope="row">{{ contrat.idContrat }}</th>
+                    <td>{{ contrat.specialite }}</td>
+                    <td>{{ contrat.dateDebutContrat }}</td>
+                    <td>{{ contrat.dateFinContrat }}</td>
+                    <td
+                      style="font-weight: bold"
+                      [ngStyle]="
+                        contrat.archive ? { color: 'green' } : { color: 'red' }
+                      "
+                    >
+                      {{ contrat.archive }}
+                    </td>
+                    <td>{{ contrat.montantContrat }}</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="deleteContrat(contrat.idContrat)"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-warning">
+                        <i class="bi bi-gear"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="dataTable-bottom">
+              <button type="button" class="btn btn-primary">
+                <a style="color: #fff" routerLink="/addcontrat"
+                  ><i class="fa-regular fa-square-plus pe-2"></i>Add New
+                  Contrat</a
+                >
+              </button>
+            </div>
+          </div>
+          <!-- End Table with stripped rows -->
         </div>
-      </form>
-      <!-- Vertical Form -->
+      </div>
     </div>
   </div>
 </section>

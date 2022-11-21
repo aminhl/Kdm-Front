@@ -7,10 +7,12 @@ import { LoginComponent } from './pages/admin/login/login.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { ErrorComponent } from './pages/admin/error/error.component';
 import { ContratComponent } from './pages/admin/contrat/contrat.component';
+import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contrat.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'contrat', component: ContratComponent },
+  { path: 'addcontrat', component: AddContratComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },

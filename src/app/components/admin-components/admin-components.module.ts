@@ -9,6 +9,6 @@ import { AppRoutingModule } from '../../app-routing.module';
 @NgModule({
   declarations: [HeaderComponent, SidebarComponent, FooterComponent],
   imports: [CommonModule, AppRoutingModule],
-  exports: [HeaderComponent, SidebarComponent],
+  exports: [HeaderComponent, SidebarComponent, FooterComponent],
 })
 export class AdminComponentsModule {}
