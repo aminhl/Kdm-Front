@@ -22,7 +22,8 @@ export class ContratComponent implements OnInit {
   }
 
   deleteContrat(elementId: number) {
-    this.apiService.delete('deleteContrat', elementId).subscribe(() => null);
-    location.reload();
+    this.apiService
+      .delete('deleteContrat', elementId)
+      .subscribe(() => location.reload());
   }
 }

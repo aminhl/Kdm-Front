@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../../../core/services/admin/api.service';
 
 @Component({
@@ -23,11 +23,11 @@ export class AddContratComponent implements OnInit {
   ngOnInit(): void {}
 
   initForm() {
-    this.dateDebut = new FormControl('');
-    this.dateFin = new FormControl('');
-    this.specialite = new FormControl('');
+    this.dateDebut = new FormControl('', [Validators.required]);
+    this.dateFin = new FormControl('', [Validators.required]);
+    this.specialite = new FormControl('', [Validators.required]);
     this.archivee = new FormControl('');
-    this.montant = new FormControl('');
+    this.montant = new FormControl('', [Validators.required]);
   }
 
   createForm() {
