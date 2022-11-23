@@ -11,8 +11,19 @@ import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { ContratComponent } from './pages/admin/contrat/contrat.component';
 import { AdminComponentsModule } from './components/admin-components/admin-components.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contrat.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditContratComponent } from './pages/admin/contrat/edit-contrat/edit-contrat.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {
+  MatDatepicker,
+  MatDatepickerModule,
+} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -24,6 +35,7 @@ import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contr
     ProfileComponent,
     ContratComponent,
     AddContratComponent,
+    EditContratComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +43,13 @@ import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contr
     AdminComponentsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

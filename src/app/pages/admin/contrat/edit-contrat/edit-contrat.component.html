@@ -1,0 +1,216 @@
+<h2 class="card-title">Edit Contrat</h2>
+
+<!--<form [formGroup]="contratForm">-->
+<!--  <div mat-dialog-content class="position-relative">-->
+<!--    <div class="col-6 offset-3 mb-4">-->
+<!--      <label class="form-label">Date Debut</label>-->
+<!--      <input-->
+<!--        type="date"-->
+<!--        class="form-control position-relative"-->
+<!--        formControlName="dateDebut"-->
+<!--        [ngClass]="{-->
+<!--          'input-invalid': dateDebut.touched && dateDebut.invalid,-->
+<!--          'input-valid': dateDebut.touched && dateDebut.valid-->
+<!--        }"-->
+<!--      />-->
+<!--    </div>-->
+<!--    <div class="col-6 offset-3 mb-4">-->
+<!--      <label class="form-label">Date Fin</label>-->
+<!--      <input-->
+<!--        type="date"-->
+<!--        class="form-control position-relative"-->
+<!--        formControlName="dateFin"-->
+<!--      />-->
+<!--    </div>-->
+<!--    <div class="col-6 offset-3 mb-4">-->
+<!--      <label class="form-label">Specialite</label>-->
+<!--      <select-->
+<!--        class="form-select"-->
+<!--        aria-label="Default select example"-->
+<!--        formControlName="specialite"-->
+<!--      >-->
+<!--        <option value="IA" selected>IA</option>-->
+<!--        <option value="RESEAUX">RESEAUX</option>-->
+<!--        <option value="CLOUD">CLOUD</option>-->
+<!--        <option value="SECURITE">SECURITE</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="col-6 offset-3 d-flex gap-4 mb-4">-->
+<!--      <label for="flexSwitchCheckDefault" class="form-label">Archive</label>-->
+<!--      <div class="form-check form-switch" style="font-size: 18px">-->
+<!--        <input-->
+<!--          class="form-check-input"-->
+<!--          type="checkbox"-->
+<!--          id="flexSwitchCheckDefault"-->
+<!--          formControlName="archivee"-->
+<!--        />-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-6 offset-3 mb-4">-->
+<!--      <label class="form-label">Montant</label>-->
+<!--      <div class="input-group mb-3">-->
+<!--        <span class="input-group-text">$</span>-->
+<!--        <input-->
+<!--          type="number"-->
+<!--          class="form-control"-->
+<!--          aria-label="Amount (to the nearest dollar)"-->
+<!--          formControlName="montant"-->
+<!--        />-->
+<!--        <span class="input-group-text">.00</span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</form>-->
+
+<form class="row g-3" [formGroup]="contratForm">
+  <div class="col-6 offset-3">
+    <label class="form-label">Date Debut</label>
+    <input
+      type="date"
+      class="form-control position-relative"
+      formControlName="dateDebut"
+      [ngClass]="{
+        'input-invalid': dateDebut.touched && dateDebut.invalid,
+        'input-valid': dateDebut.touched && dateDebut.valid
+      }"
+    />
+    <!--error message-->
+    <div
+      class="message-invalid"
+      *ngIf="dateDebut.touched && dateDebut.hasError('required')"
+    >
+      Date Debut Is Required
+    </div>
+    <!--success message-->
+    <div class="message-valid" *ngIf="dateDebut.touched && !dateDebut.errors">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-6 offset-3">
+    <label class="form-label">Date Fin</label>
+    <input
+      type="date"
+      class="form-control"
+      formControlName="dateFin"
+      [ngClass]="{
+        'input-invalid':
+          (dateFin.touched && dateFin.invalid) ||
+          (dateFin.touched && dateFin.value <= dateDebut.value),
+        'input-valid':
+          dateFin.touched && dateFin.valid && dateFin.value > dateDebut.value
+      }"
+    />
+    <!--error message-->
+    <div
+      class="message-invalid"
+      *ngIf="dateFin.touched && dateFin.hasError('required')"
+    >
+      Date Fin Is Required
+    </div>
+    <div
+      class="message-invalid"
+      *ngIf="dateFin.touched && dateFin.value <= dateDebut.value"
+    >
+      Date Fin Must Be Greater Than Date Debut
+    </div>
+    <!--success message-->
+    <div
+      class="message-valid"
+      *ngIf="
+        dateFin.touched && !dateFin.errors && dateFin.value > dateDebut.value
+      "
+    >
+      Looks good!
+    </div>
+  </div>
+  <div class="col-6 offset-3">
+    <label class="form-label">Specialite</label>
+    <select
+      [ngClass]="{
+        'input-invalid': specialite.touched && specialite.invalid,
+        'input-valid': specialite.touched && specialite.valid
+      }"
+      class="form-select"
+      aria-label="Default select example"
+      formControlName="specialite"
+    >
+      <option value="IA" selected>IA</option>
+      <option value="RESEAUX">RESEAUX</option>
+      <option value="CLOUD">CLOUD</option>
+      <option value="SECURITE">SECURITE</option>
+    </select>
+    <div
+      class="message-invalid"
+      *ngIf="specialite.touched && specialite.hasError('required')"
+    >
+      Specialite Is Required
+    </div>
+    <!--success message-->
+    <div class="message-valid" *ngIf="specialite.touched && !specialite.errors">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-6 offset-3 d-flex gap-4">
+    <label for="flexSwitchCheckDefault" class="form-label">Archive</label>
+    <div class="form-check form-switch" style="font-size: 18px">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="flexSwitchCheckDefault"
+        formControlName="archivee"
+      />
+    </div>
+  </div>
+  <div class="col-6 offset-3">
+    <label class="form-label">Montant</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input
+        [ngClass]="{
+          'input-invalid': montant.touched && montant.invalid,
+          'input-valid': montant.touched && montant.valid
+        }"
+        type="number"
+        class="form-control"
+        aria-label="Amount (to the nearest dollar)"
+        formControlName="montant"
+      />
+      <span class="input-group-text">.00</span>
+      <div
+        class="message-invalid"
+        *ngIf="montant.touched && montant.hasError('required')"
+      >
+        Montant Is Required
+      </div>
+      <!--success message-->
+      <div class="message-valid" *ngIf="montant.touched && !montant.errors">
+        Looks good!
+      </div>
+    </div>
+  </div>
+  <!--          [disabled]="this.contratForm.status == 'INVALID'"-->
+  <div class="text-center">
+    <button
+      (click)="upadteContrat(receivedRow.contrat.idContrat)"
+      type="submit"
+      class="btn btn-primary mx-2"
+    >
+      <i class="fa-solid fa-pen-nib pe-2"></i>Edit
+    </button>
+    <button
+      (click)="resetControls()"
+      type="button"
+      class="btn btn-warning mx-2"
+    >
+      <i class="fa-solid fa-broom pe-2"></i>
+      Reset
+    </button>
+    <button (click)="closeDialog()" type="button" class="btn btn-danger">
+      <i class="bi bi-x-circle pe-2"></i>
+      Close
+    </button>
+  </div>
+</form>
+<pre>
+<!--  {{ receivedRow | json }}-->
+</pre>

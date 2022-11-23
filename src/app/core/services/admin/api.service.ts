@@ -19,4 +19,11 @@ export class ApiService {
   delete(target: string, elementId: number) {
     return this.httpClient.delete(env.apiRoot + target + '/' + elementId);
   }
+
+  update(target: string, elementId: number, requestBody: Object) {
+    return this.httpClient.put(
+      env.apiRoot + target + '/' + elementId,
+      requestBody
+    );
+  }
 }

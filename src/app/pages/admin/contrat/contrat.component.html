@@ -3,7 +3,7 @@
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Contrats</h5>
+          <h2 class="card-title">Vos Contrats</h2>
 
           <!-- Table with stripped rows -->
           <div
@@ -80,7 +80,11 @@
                       </button>
                     </td>
                     <td>
-                      <button type="button" class="btn btn-warning">
+                      <button
+                        (click)="openEditDialog(contrat)"
+                        type="button"
+                        class="btn btn-warning"
+                      >
                         <i class="bi bi-gear"></i>
                       </button>
                     </td>
