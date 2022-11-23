@@ -34,9 +34,6 @@
               <table class="table datatable dataTable-table">
                 <thead>
                   <tr>
-                    <th scope="col" data-sortable="" style="width: 5.62902%">
-                      #
-                    </th>
                     <th scope="col" data-sortable="" style="width: 9.203%">
                       Specialite
                     </th>
@@ -57,47 +54,84 @@
                 </thead>
                 <tbody *ngFor="let contrat of contrats">
                   <tr>
-                    <th scope="row">{{ contrat.idContrat }}</th>
-                    <td>{{ contrat.specialite }}</td>
-                    <td>{{ contrat.dateDebutContrat }}</td>
-                    <td>{{ contrat.dateFinContrat }}</td>
+                    <!--                    <th scope="row">{{ contrat.idContrat }}</th>-->
+                    <td style="color: #256d85">{{ contrat.specialite }}</td>
+                    <td style="color: #7743db">
+                      {{ contrat.dateDebutContrat }}
+                    </td>
+                    <td style="color: #d23369">{{ contrat.dateFinContrat }}</td>
                     <td
                       style="font-weight: bold"
                       [ngStyle]="
                         contrat.archive ? { color: 'green' } : { color: 'red' }
                       "
                     >
-                      {{ contrat.archive }}
+                      {{ contrat.archive ? 'Archive' : 'Not Archive' }}
                     </td>
-                    <td>{{ contrat.montantContrat }}</td>
                     <td>
+                      {{ contrat.montantContrat }}
+                      <i
+                        style="color: green; font-weight: bold"
+                        class="fa-solid fa-dollar-sign"
+                      ></i>
+                    </td>
+                    <td style="display: flex; gap: 8px">
                       <button
-                        type="button"
-                        class="btn btn-danger"
+                        mat-fab
                         (click)="deleteContrat(contrat.idContrat)"
+                        style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                        color="primary"
+                        aria-label="Example icon button with a delete icon"
                       >
-                        <i class="bi bi-trash"></i>
+                        <mat-icon
+                          style="height: 18px; width: 18px; font-size: 18px"
+                          >delete</mat-icon
+                        >
                       </button>
-                    </td>
-                    <td>
                       <button
-                        (click)="openEditDialog(contrat)"
-                        type="button"
-                        class="btn btn-warning"
+                        mat-fab
+                        (click)="openEditContratDialog(contrat)"
+                        style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                        color="accent"
+                        aria-label="Example icon button with a delete icon"
                       >
-                        <i class="bi bi-gear"></i>
+                        <i style="font-size: 12px" class="bi bi-gear"></i>
                       </button>
                     </td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="dataTable-bottom">
-              <button type="button" class="btn btn-primary">
-                <a style="color: #fff" routerLink="/addcontrat"
-                  ><i class="fa-regular fa-square-plus pe-2"></i>Add New
-                  Contrat</a
-                >
+              <button
+                (click)="openAddContratDialog()"
+                mat-raised-button=""
+                color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                ></span
+                ><span class="mdc-button__label">Add Contrat</span
+                ><span class="mat-mdc-focus-indicator"></span
+                ><span
+                  matripple=""
+                  class="mat-ripple mat-mdc-button-ripple"
+                ></span
+                ><span class="mat-mdc-button-touch-target"></span>
               </button>
             </div>
           </div>

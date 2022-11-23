@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../../../core/services/admin/api.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ContratComponent } from '../contrat.component';
 
 @Component({
   selector: 'app-add-contrat',
@@ -15,7 +17,10 @@ export class AddContratComponent implements OnInit {
   archivee!: FormControl;
   montant!: FormControl;
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private apiService: ApiService,
+    public dialogRef: MatDialogRef<AddContratComponent>
+  ) {
     this.initForm();
     this.createForm();
   }
@@ -50,6 +55,8 @@ export class AddContratComponent implements OnInit {
     };
     this.addContrat(contratToAdd);
     this.resetControls();
+    this.closeDialog();
+    location.reload();
   }
 
   addContrat(contratBody: Object) {
@@ -58,5 +65,9 @@ export class AddContratComponent implements OnInit {
 
   resetControls() {
     this.contratForm.reset();
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 }

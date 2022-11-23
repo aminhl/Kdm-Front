@@ -1,71 +1,10 @@
 <h2 class="card-title">Edit Contrat</h2>
 
-<!--<form [formGroup]="contratForm">-->
-<!--  <div mat-dialog-content class="position-relative">-->
-<!--    <div class="col-6 offset-3 mb-4">-->
-<!--      <label class="form-label">Date Debut</label>-->
-<!--      <input-->
-<!--        type="date"-->
-<!--        class="form-control position-relative"-->
-<!--        formControlName="dateDebut"-->
-<!--        [ngClass]="{-->
-<!--          'input-invalid': dateDebut.touched && dateDebut.invalid,-->
-<!--          'input-valid': dateDebut.touched && dateDebut.valid-->
-<!--        }"-->
-<!--      />-->
-<!--    </div>-->
-<!--    <div class="col-6 offset-3 mb-4">-->
-<!--      <label class="form-label">Date Fin</label>-->
-<!--      <input-->
-<!--        type="date"-->
-<!--        class="form-control position-relative"-->
-<!--        formControlName="dateFin"-->
-<!--      />-->
-<!--    </div>-->
-<!--    <div class="col-6 offset-3 mb-4">-->
-<!--      <label class="form-label">Specialite</label>-->
-<!--      <select-->
-<!--        class="form-select"-->
-<!--        aria-label="Default select example"-->
-<!--        formControlName="specialite"-->
-<!--      >-->
-<!--        <option value="IA" selected>IA</option>-->
-<!--        <option value="RESEAUX">RESEAUX</option>-->
-<!--        <option value="CLOUD">CLOUD</option>-->
-<!--        <option value="SECURITE">SECURITE</option>-->
-<!--      </select>-->
-<!--    </div>-->
-<!--    <div class="col-6 offset-3 d-flex gap-4 mb-4">-->
-<!--      <label for="flexSwitchCheckDefault" class="form-label">Archive</label>-->
-<!--      <div class="form-check form-switch" style="font-size: 18px">-->
-<!--        <input-->
-<!--          class="form-check-input"-->
-<!--          type="checkbox"-->
-<!--          id="flexSwitchCheckDefault"-->
-<!--          formControlName="archivee"-->
-<!--        />-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="col-6 offset-3 mb-4">-->
-<!--      <label class="form-label">Montant</label>-->
-<!--      <div class="input-group mb-3">-->
-<!--        <span class="input-group-text">$</span>-->
-<!--        <input-->
-<!--          type="number"-->
-<!--          class="form-control"-->
-<!--          aria-label="Amount (to the nearest dollar)"-->
-<!--          formControlName="montant"-->
-<!--        />-->
-<!--        <span class="input-group-text">.00</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</form>-->
-
 <form class="row g-3" [formGroup]="contratForm">
   <div class="col-6 offset-3">
     <label class="form-label">Date Debut</label>
     <input
+      tabindex="-1"
       type="date"
       class="form-control position-relative"
       formControlName="dateDebut"
@@ -89,6 +28,7 @@
   <div class="col-6 offset-3">
     <label class="form-label">Date Fin</label>
     <input
+      tabindex="-1"
       type="date"
       class="form-control"
       formControlName="dateFin"
@@ -131,6 +71,7 @@
         'input-valid': specialite.touched && specialite.valid
       }"
       class="form-select"
+      tabindex="-1"
       aria-label="Default select example"
       formControlName="specialite"
     >
@@ -154,6 +95,7 @@
     <label for="flexSwitchCheckDefault" class="form-label">Archive</label>
     <div class="form-check form-switch" style="font-size: 18px">
       <input
+        tabindex="-1"
         class="form-check-input"
         type="checkbox"
         id="flexSwitchCheckDefault"
@@ -170,6 +112,7 @@
           'input-invalid': montant.touched && montant.invalid,
           'input-valid': montant.touched && montant.valid
         }"
+        tabindex="-1"
         type="number"
         class="form-control"
         aria-label="Amount (to the nearest dollar)"
