@@ -12,12 +12,18 @@ export class ApiService {
     return this.httpClient.get(env.apiRoot + target);
   }
 
-  add(target: string, contratBody: Object) {
-    return this.httpClient.post(env.apiRoot + target, contratBody);
+  add(target: string, requestBody: Object) {
+    return this.httpClient.post(env.apiRoot + target, requestBody);
   }
 
   delete(target: string, elementId: number) {
     return this.httpClient.delete(env.apiRoot + target + '/' + elementId);
   }
 
+  update(target: string, elementId: number, requestBody: Object) {
+    return this.httpClient.put(
+      env.apiRoot + target + '/' + elementId,
+      requestBody
+    );
+  }
 }

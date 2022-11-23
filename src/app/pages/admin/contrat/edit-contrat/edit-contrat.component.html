@@ -1,10 +1,6 @@
-<!--<main id="main" class="main">-->
-<!--  <section class="section">-->
-<!--    <div class="card">-->
-<!--      <div class="card-body">-->
-<h2 class="card-title">Add Contrat</h2>
-<!-- Vertical Form -->
-<form class="row g-3" [formGroup]="contratForm" (ngSubmit)="onSubmit()">
+<h2 class="card-title">Edit Contrat</h2>
+
+<form class="row g-3" [formGroup]="contratForm">
   <div class="col-6 offset-3">
     <label class="form-label">Date Debut</label>
     <input
@@ -70,12 +66,12 @@
   <div class="col-6 offset-3">
     <label class="form-label">Specialite</label>
     <select
-      tabindex="-1"
       [ngClass]="{
         'input-invalid': specialite.touched && specialite.invalid,
         'input-valid': specialite.touched && specialite.valid
       }"
       class="form-select"
+      tabindex="-1"
       aria-label="Default select example"
       formControlName="specialite"
     >
@@ -116,11 +112,11 @@
           'input-invalid': montant.touched && montant.invalid,
           'input-valid': montant.touched && montant.valid
         }"
+        tabindex="-1"
         type="number"
         class="form-control"
         aria-label="Amount (to the nearest dollar)"
         formControlName="montant"
-        tabindex="-1"
       />
       <span class="input-group-text">.00</span>
       <div
@@ -137,28 +133,27 @@
   </div>
   <!--          [disabled]="this.contratForm.status == 'INVALID'"-->
   <div class="text-center">
-    <button type="submit" class="btn btn-primary mx-2">
-      <i class="fa-regular fa-floppy-disk pe-2"></i>Save
+    <button
+      (click)="upadteContrat(receivedRow.contrat.idContrat)"
+      type="submit"
+      class="btn btn-primary mx-2"
+    >
+      <i class="fa-solid fa-pen-nib pe-2"></i>Edit
     </button>
     <button
+      (click)="resetControls()"
       type="button"
       class="btn btn-warning mx-2"
-      (click)="resetControls()"
     >
       <i class="fa-solid fa-broom pe-2"></i>
       Reset
     </button>
-    <button
-      (click)="closeDialog()"
-      type="button"
-      class="btn btn-outline-danger"
-    >
-      <i class="fa-solid fa-rotate-left pe-2"></i>Back To Contracts Page
+    <button (click)="closeDialog()" type="button" class="btn btn-danger">
+      <i class="bi bi-x-circle pe-2"></i>
+      Close
     </button>
   </div>
 </form>
-<!-- Vertical Form -->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </section>-->
-<!--</main>-->
+<pre>
+<!--  {{ receivedRow | json }}-->
+</pre>
