@@ -1,0 +1,91 @@
+<!--<main id="main" class="main">-->
+<!--  <section class="section">-->
+<!--    <div class="card">-->
+<!--      <div class="card-body">-->
+<h2 class="card-title">Add Equipe</h2>
+<!-- Vertical Form -->
+<form class="row g-3" [formGroup]="equipeForm" (ngSubmit)="onSubmit()">
+  <div class="col-6 offset-3">
+
+  <div class="col-6 offset-3">
+    <label class="form-label">Niveau</label>
+    <select
+      tabindex="-1"
+      [ngClass]="{
+        'input-invalid': niveau.touched && niveau.invalid,
+        'input-valid': niveau.touched && niveau.valid
+      }"
+      class="form-select"
+      aria-label="Default select example"
+      formControlName="Niveau"
+    >
+      <option value="JUNIOR" selected>JUNIOR</option>
+      <option value="SENIOR">SENIOR</option>
+      <option value="EXPERT">EXPERT</option>
+
+    </select>
+    <div
+      class="message-invalid"
+      *ngIf="niveau.touched && niveau.hasError('required')"
+    >
+      Niveau Is Required
+    </div>
+    <!--success message-->
+    <div class="message-valid" *ngIf="niveau.touched && !niveau.errors">
+      Looks good!
+    </div>
+  </div>
+
+  <div class="col-6 offset-3">
+    <label class="form-label">Nom Equipe</label>
+    <div class="input-group mb-3">
+      <input
+        [ngClass]="{
+          'input-invalid': nom.touched && nom.invalid,
+          'input-valid': nom.touched && nom.valid
+        }"
+        type="text"
+        class="form-control"
+        formControlName="nom"
+        tabindex="-1"
+      />
+      <div
+        class="message-invalid"
+        *ngIf="nom.touched && nom.hasError('required')"
+      >
+        Nom Is Required
+      </div>
+      <!--success message-->
+      <div class="message-valid" *ngIf="nom.touched && !nom.errors">
+        Looks good!
+      </div>
+    </div>
+  </div>
+  <!--          [disabled]="this.contratForm.status == 'INVALID'"-->
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary mx-2">
+      <i class="fa-regular fa-floppy-disk pe-2"></i>Save
+    </button>
+    <button
+      type="button"
+      class="btn btn-warning mx-2"
+      (click)="resetControls()"
+    >
+      <i class="fa-solid fa-broom pe-2"></i>
+      Reset
+    </button>
+    <button
+      (click)="closeDialog()"
+      type="button"
+      class="btn btn-outline-danger"
+    >
+      <i class="fa-solid fa-rotate-left pe-2"></i>Back To Contracts Page
+    </button>
+  </div>
+  </div>
+</form>
+<!-- Vertical Form -->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--</main>-->
