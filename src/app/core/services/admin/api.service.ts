@@ -12,8 +12,8 @@ export class ApiService {
     return this.httpClient.get(env.apiRoot + target);
   }
 
-  add(target: string, Body: Object) {
-    return this.httpClient.post(env.apiRoot + target, Body);
+  add(target: string, contratBody: Object) {
+    return this.httpClient.post(env.apiRoot + target, contratBody);
   }
 
   delete(target: string, elementId: number) {
