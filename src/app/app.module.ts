@@ -13,6 +13,7 @@ import { AdminComponentsModule } from './components/admin-components/admin-compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contrat.component';
+import { EquipeComponent } from './pages/admin/equipe/equipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditContratComponent } from './pages/admin/contrat/edit-contrat/edit-contrat.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -25,6 +26,7 @@ import {
   MatDatepickerModule,
 } from '@angular/material/datepicker';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import {
     ProfileComponent,
     ContratComponent,
     AddContratComponent,
+    EquipeComponent,
     EditContratComponent,
+
   ],
   imports: [
     BrowserModule,
