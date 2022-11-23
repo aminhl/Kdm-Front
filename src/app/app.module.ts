@@ -13,6 +13,7 @@ import { AdminComponentsModule } from './components/admin-components/admin-compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contrat.component';
+import { EquipeComponent } from './pages/admin/equipe/equipe.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contr
     ProfileComponent,
     ContratComponent,
     AddContratComponent,
+    EquipeComponent,
   ],
   imports: [
     BrowserModule,
