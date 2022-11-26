@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Equipe} from "./Equipe";
 import {ApiService} from "../../../core/services/admin/api.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {MatDialog} from "@angular/material/dialog";
+import {AddEquipeComponent} from "./add-equipe/add-equipe.component";
+import {UpdateEquipeComponent} from "./update-equipe/update-equipe.component";
 
 
 @Component({
@@ -10,27 +12,35 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./equipe.component.css']
 })
 export class EquipeComponent implements OnInit {
-   equipes!: any;
-
-  constructor(private equipeService: ApiService) { }
-
-
-  public getEquipes(){
-    this.equipeService.get("getContrats").subscribe(
-      (equipes)=>{
-        this.equipes=equipes;
-
-      },
-      (error: HttpErrorResponse)=>{
-        alert(error.message);
-      }
-    )
-  }
-
+  constructor(private apiService: ApiService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-   this.getEquipes();
-   // this.getContrats();
+    this.getEquipes();
+  }
+
+  equipes!: any;
+
+  getEquipes() {
+    this.apiService
+      .get('getEquipes')
+      .subscribe((equipes) => (this.equipes = equipes));
+  }
+
+  deleteEquipe(elementId: number) {
+    this.apiService
+      .delete('deleteEquipe', elementId)
+      .subscribe(() => location.reload());
+  }
+
+  openAddEquipeDialog() {
+    this.dialog.open(AddEquipeComponent, { width: '40%' });
+  }
+
+  openEditEquipeDialog(contrat: Object) {
+    this.dialog.open(UpdateEquipeComponent, {
+      width: '40%',
+      data: { contrat },
+    });
   }
 
 }

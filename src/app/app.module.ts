@@ -25,6 +25,8 @@ import {
   MatDatepicker,
   MatDatepickerModule,
 } from '@angular/material/datepicker';
+import { AddEquipeComponent } from './pages/admin/equipe/add-equipe/add-equipe.component';
+import { UpdateEquipeComponent } from './pages/admin/equipe/update-equipe/update-equipe.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import {
     AddContratComponent,
     EquipeComponent,
     EditContratComponent,
+    AddEquipeComponent,
+    UpdateEquipeComponent,
 
   ],
   imports: [
