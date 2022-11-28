@@ -17,7 +17,7 @@
       }"
       class="form-select"
       aria-label="Default select example"
-      formControlName="Niveau"
+      formControlName="niveau"
     >
       <option value="JUNIOR" selected>JUNIOR</option>
       <option value="SENIOR">SENIOR</option>
@@ -41,22 +41,22 @@
     <div class="input-group mb-3">
       <input
         [ngClass]="{
-          'input-invalid': nom.touched && nom.invalid,
-          'input-valid': nom.touched && nom.valid
+          'input-invalid': nomEquipe.touched && nomEquipe.invalid,
+          'input-valid': nomEquipe.touched && nomEquipe.valid
         }"
         type="text"
         class="form-control"
-        formControlName="nom"
+        formControlName="nomEquipe"
         tabindex="-1"
       />
       <div
         class="message-invalid"
-        *ngIf="nom.touched && nom.hasError('required')"
+        *ngIf="nomEquipe.touched && nomEquipe.hasError('required')"
       >
         Nom Is Required
       </div>
       <!--success message-->
-      <div class="message-valid" *ngIf="nom.touched && !nom.errors">
+      <div class="message-valid" *ngIf="nomEquipe.touched && !nomEquipe.errors">
         Looks good!
       </div>
     </div>
@@ -79,7 +79,7 @@
       type="button"
       class="btn btn-outline-danger"
     >
-      <i class="fa-solid fa-rotate-left pe-2"></i>Back To Contracts Page
+      <i class="fa-solid fa-rotate-left pe-2"></i>Close
     </button>
   </div>
   </div>

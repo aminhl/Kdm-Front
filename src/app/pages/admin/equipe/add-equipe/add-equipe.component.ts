@@ -12,7 +12,7 @@ export class AddEquipeComponent implements OnInit {
 
   equipeForm!: FormGroup;
   niveau!: FormControl;
-  nom!: FormControl;
+  nomEquipe !: FormControl;
 
   constructor(
     private apiService: ApiService,
@@ -27,26 +27,20 @@ export class AddEquipeComponent implements OnInit {
   initForm() {
   ;
     this.niveau = new FormControl('', [Validators.required]);
-    this.nom = new FormControl('', [Validators.required]);
+    this.nomEquipe = new FormControl('', [Validators.required]);
   }
 
   createForm() {
     this.equipeForm = new FormGroup({
-
       niveau: this.niveau,
-      nom: this.nom,
+      nomEquipe: this.nomEquipe,
     });
   }
 
   onSubmit() {
-    const contratToAdd = {
-      niveau: this.equipeForm.value.specialite,
-      nom: this.equipeForm.value.montant,
-    };
-    this.addEquipe(contratToAdd);
-    this.resetControls();
-    this.closeDialog();
-    location.reload();
+   this.addEquipe(this.equipeForm.value);
+   this.closeDialog();
+   location.reload();
   }
 
   addEquipe(contratBody: Object) {
