@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment as env } from '../../../../environments/environment';
+import {map, Observable} from "rxjs";
+import {IArchivePercentType} from "../../models/ArchivePercentType";
 
 @Injectable({
   providedIn: 'root',
@@ -25,5 +27,14 @@ export class ApiService {
       env.apiRoot + target + '/' + elementId,
       requestBody
     );
+  }
+
+  // ContratArchiveStats
+  getStats(): Observable<Array<IArchivePercentType>> {
+    return this.httpClient
+      .get<Array<IArchivePercentType>>(
+        'http://localhost:8080/vData/percentArchiveStatus'
+      )
+      .pipe(map((d: Array<IArchivePercentType>) => d));
   }
 }

@@ -27,6 +27,8 @@ import {
 } from '@angular/material/datepicker';
 import { AddEquipeComponent } from './pages/admin/equipe/add-equipe/add-equipe.component';
 import { UpdateEquipeComponent } from './pages/admin/equipe/update-equipe/update-equipe.component';
+import {ArchiveStatsComponent} from "./pages/admin/contrat/archive-stats/archive-stats.component";
+import {NgChartsModule} from "ng2-charts";
 
 
 @NgModule({
@@ -43,7 +45,7 @@ import { UpdateEquipeComponent } from './pages/admin/equipe/update-equipe/update
     EditContratComponent,
     AddEquipeComponent,
     UpdateEquipeComponent,
-
+    ArchiveStatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import { UpdateEquipeComponent } from './pages/admin/equipe/update-equipe/update
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
