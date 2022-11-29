@@ -32,9 +32,15 @@ import { AddetudiantComponent } from './pages/admin/etudiant/addetudiant/addetud
 import { EditetudiantComponent } from './pages/admin/etudiant/editetudiant/editetudiant.component';
 import {ArchiveStatsComponent} from "./pages/admin/contrat/archive-stats/archive-stats.component";
 import {NgChartsModule} from "ng2-charts";
+
 import { UniversiteComponent } from './pages/admin/universite/universite.component';
 import { AddUniversiteComponent } from './pages/admin/universite/add-universite/add-universite.component';
 import { EditUniversiteComponent } from './pages/admin/universite/edit-universite/edit-universite.component';
+
+import { DepartementComponent } from './pages/admin/departement/departement.component';
+import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
+import { EditDepartementComponent } from './pages/admin/departement/edit-departement/edit-departement.component';
+
 
 
 
@@ -56,9 +62,15 @@ import { EditUniversiteComponent } from './pages/admin/universite/edit-universit
     AddetudiantComponent,
     EditetudiantComponent,
     ArchiveStatsComponent,
+
     UniversiteComponent,
     AddUniversiteComponent,
     EditUniversiteComponent,
+
+    DepartementComponent,
+    AddDepartementComponent,
+    EditDepartementComponent,
+
 
   ],
   imports: [
