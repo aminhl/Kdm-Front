@@ -1,0 +1,60 @@
+
+<!-- prefix departement -->
+
+  <h2 class="card-title">Add Departement</h2>
+  <!-- Vertical Form -->
+  <form class="row g-3" [formGroup]="departementForm" >
+
+    <div class="col-6 offset-3">
+      <label class="form-label">Nom Departement</label>
+      <div class="input-group mb-3">
+        <input
+          [ngClass]="{
+            'input-invalid': nomDepart.touched && nomDepart.invalid,
+            'input-valid': nomDepart.touched && nomDepart.valid
+          }"
+          type="text"
+          class="form-control"
+          formControlName="nomDepart"
+        />
+        <div
+          class="message-invalid"
+          *ngIf="nomDepart.touched && nomDepart.hasError('required')"
+        >
+          Nom  Departement Is Required
+        </div>
+        <div
+          class="message-invalid"
+          *ngIf="nomDepart.touched && nomDepart.hasError('pattern')"
+        >
+          Nom  Departement be lettre
+        </div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="nomDepart.touched && !nomDepart.errors">
+          Looks good!
+        </div>
+
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary mx-2" (click)="updateDepartement(receivedRow.departement.idDepart)" [disabled]="!departementForm.valid">
+        <i class="fa-regular fa-floppy-disk pe-2" ></i>Save
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning mx-2"
+        (click)="resetControls()"
+      >
+        <i class="fa-solid fa-broom pe-2"></i>
+        Reset
+      </button>
+      <button
+        (click)="closeDialog()"
+        type="button"
+        class="btn btn-outline-danger"
+      >
+        <i class="fa-solid fa-rotate-left pe-2"></i>Back
+      </button>
+    </div>
+  </form>
