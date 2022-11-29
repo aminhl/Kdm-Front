@@ -11,6 +11,8 @@ import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contr
 import { EquipeComponent } from "./pages/admin/equipe/equipe.component";
 import { AddEquipeComponent } from "./pages/admin/equipe/add-equipe/add-equipe.component";
 import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
+import { UniversiteComponent } from './pages/admin/universite/universite.component';
+
 import { DepartementComponent } from './pages/admin/departement/departement.component';
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'universite', component: UniversiteComponent },
   { path: '**', component: ErrorComponent },
 ];
 
