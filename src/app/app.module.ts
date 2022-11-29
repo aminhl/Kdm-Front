@@ -27,6 +27,9 @@ import {
 } from '@angular/material/datepicker';
 import { AddEquipeComponent } from './pages/admin/equipe/add-equipe/add-equipe.component';
 import { UpdateEquipeComponent } from './pages/admin/equipe/update-equipe/update-equipe.component';
+import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
+import { AddetudiantComponent } from './pages/admin/etudiant/addetudiant/addetudiant.component';
+import { EditetudiantComponent } from './pages/admin/etudiant/editetudiant/editetudiant.component';
 
 
 @NgModule({
@@ -43,6 +46,9 @@ import { UpdateEquipeComponent } from './pages/admin/equipe/update-equipe/update
     EditContratComponent,
     AddEquipeComponent,
     UpdateEquipeComponent,
+    EtudiantComponent,
+    AddetudiantComponent,
+    EditetudiantComponent,
 
   ],
   imports: [

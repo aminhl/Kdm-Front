@@ -1,0 +1,80 @@
+
+<section class="section" style="margin-top: 100px">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-body">
+             <i class='fas fa-id-card	' style='font-size:36px'></i>
+            <h2 class="card-title">Etudiants</h2>                       
+
+  
+            <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+              <div class="dataTable-bottom">
+                <button
+                  (click)="openAddEtudiantDialog()"
+                  mat-raised-button=""
+                  color="primary"
+                  class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+                >
+                  <span
+                    class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                  ></span
+                  ><span class="mdc-button__label">Add Etudiant</span
+                  ><span class="mat-mdc-focus-indicator"></span
+                  ><span
+                    matripple=""
+                    class="mat-ripple mat-mdc-button-ripple"
+                  ></span
+                  ><span class="mat-mdc-button-touch-target"></span>
+                </button>
+              </div>
+              <div class="dataTable-container">
+                <table class="table datatable dataTable-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" data-sortable="" style="width: 9.203%">
+                        Nom
+                      </th>
+                      <th scope="col" data-sortable="" style="width: 28.0558%">
+                        Prenom
+                      </th>
+                      <th scope="col" data-sortable="" style="width: 37.7949%">
+                        Option
+                      </th>
+                      <th scope="col" data-sortable="" style="width: 9.203%">
+                        Departement
+                      </th>
+                      <th scope="col" >
+                        Contart
+                      </th>
+                      <th scope="col" data-sortable="" style="width: 9.203%">
+                        Equipe
+                      <th scope="col" data-sortable="" style="width: 9.203%">
+                            <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let etudiant of etudiants">
+                    <tr>
+                      <td style="color: #256d85">{{ etudiant.nomE }}</td>
+                      <td style="color: #256d85">{{ etudiant.prenomE }}</td>
+                      <td style="color: #256d85">{{ etudiant.option }}</td>
+                      <td style="color: #256d85"><button type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button></td>
+                      <td style="color: #256d85"><button type="button" class="btn btn-outline-success"><i class='fas fa-file-contract' ></i></button></td>
+                      <td style="color: #256d85"><button type="button" class="btn btn-outline-info"><i class="fas fa-users	"></i></button></td>
+                      <td style="display: flex; gap: 8px">
+                        <button mat-fab (click)="deleteEtudiants(etudiant.idEtudiant)" style="width: 30px; height: 30px;display: flex;justify-content: center;align-items: center;"color="primary"aria-label="Example icon button with a delete icon">
+                          <mat-icon style="height: 18px; width: 18px; font-size: 18px">delete</mat-icon></button>
+                          <button mat-fab (click)="openEditEtudiantDialog(etudiant)"style="width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;"color="accent"aria-label="Example icon button with a delete icon">
+                            <i style="font-size: 12px" class="bi bi-gear"></i>
+                          </button>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

@@ -10,6 +10,7 @@ import { ContratComponent } from './pages/admin/contrat/contrat.component';
 import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contrat.component';
 import {EquipeComponent} from "./pages/admin/equipe/equipe.component";
 import {AddEquipeComponent} from "./pages/admin/equipe/add-equipe/add-equipe.component";
+import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'addcontrat', component: AddContratComponent },
   { path: 'equipe', component: EquipeComponent },
   { path: 'addequipe', component: AddEquipeComponent },
+  { path: 'etudiant', component: EtudiantComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },

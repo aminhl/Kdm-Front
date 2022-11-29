@@ -1,0 +1,57 @@
+
+    <h2 class="card-title">Add Etudiant</h2>
+    <!-- Vertical Form -->
+    <form class="row g-3" [formGroup]="etudiantFrom" (ngSubmit)="onSubmit()">
+      
+      <div class="col-6 offset-3">
+        <label class="form-label">Nom Etudiant</label>
+        <input tab index="-1" type="text" class="form-control position-relative"formControlName="nomE"[ngClass]="{'input-invalid': nomE.touched && nomE.invalid,'input-valid': nomE.touched && nomE.valid}"/>
+        <!--error message-->
+        <div class="message-invalid"*ngIf="nomE.touched && nomE.hasError('required')">Nom Etudiant Is Required</div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="nomE.touched && !nomE.errors">Looks good!</div>
+      </div>
+
+      <div class="col-6 offset-3">
+        <label class="form-label">Prenom Etudiant</label>
+        <input tab index="-1"type="text"class="form-control"formControlName="prenomE"[ngClass]="{'input-invalid':(prenomE.touched && prenomE.invalid),'input-valid':prenomE.touched && prenomE.valid }"/>
+        <!--error message-->
+        <div class="message-invalid"*ngIf="prenomE.touched && prenomE.hasError('required')">prenom Is Required</div>
+       
+        <!--success message-->
+        <div class="message-valid" *ngIf="prenomE.touched && !prenomE.errors">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-6 offset-3">
+        <label class="form-label">Option</label>
+        <select tab index="-1" [ngClass]="{ 'input-invalid': option.touched && option.invalid, 'input-valid': option.touched && option.valid}" class="form-select"aria-label="Default select example"formControlName="option">
+          <option value="Gamix" selected>Gamix</option>
+          <option value="SE">SE</option>
+          <option value="SIM">SIM</option>
+          <option value="NIDS">NIDS</option>
+        </select>
+        <div class="message-invalid"*ngIf="option.touched && option.hasError('required')">option Is Required
+        </div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="option.touched && !option.errors">
+          Looks good!
+        </div>
+      </div>
+    
+      <!--[disabled]="this.contratForm.status == 'INVALID'"-->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary mx-2">
+          <i class="fa-regular fa-floppy-disk pe-2"></i>Add
+        </button>
+        <button type="button"class="btn btn-warning mx-2"(click)="resetControls()">
+          <i class="fa-solid fa-broom pe-2"></i>
+          Reset
+        </button>
+        <button (click)="closeDialog()" type="button"class="btn btn-outline-danger">
+          <i class="fa-solid fa-rotate-left pe-2"></i>Back To Etudiant Page
+        </button>
+      </div>
+    </form>
+   
+    
