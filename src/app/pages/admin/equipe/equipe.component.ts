@@ -36,10 +36,10 @@ export class EquipeComponent implements OnInit {
     this.dialog.open(AddEquipeComponent, { width: '40%' });
   }
 
-  openEditEquipeDialog(contrat: Object) {
+  openEditEquipeDialog(equipe: Object) {
     this.dialog.open(UpdateEquipeComponent, {
       width: '40%',
-      data: { contrat },
+      data: { equipe },
     });
   }
 
