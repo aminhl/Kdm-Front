@@ -27,8 +27,12 @@ import {
 } from '@angular/material/datepicker';
 import { AddEquipeComponent } from './pages/admin/equipe/add-equipe/add-equipe.component';
 import { UpdateEquipeComponent } from './pages/admin/equipe/update-equipe/update-equipe.component';
+import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
+import { AddetudiantComponent } from './pages/admin/etudiant/addetudiant/addetudiant.component';
+import { EditetudiantComponent } from './pages/admin/etudiant/editetudiant/editetudiant.component';
 import {ArchiveStatsComponent} from "./pages/admin/contrat/archive-stats/archive-stats.component";
 import {NgChartsModule} from "ng2-charts";
+
 
 
 @NgModule({
@@ -45,7 +49,11 @@ import {NgChartsModule} from "ng2-charts";
     EditContratComponent,
     AddEquipeComponent,
     UpdateEquipeComponent,
+    EtudiantComponent,
+    AddetudiantComponent,
+    EditetudiantComponent,
     ArchiveStatsComponent,
+
   ],
   imports: [
     BrowserModule,
