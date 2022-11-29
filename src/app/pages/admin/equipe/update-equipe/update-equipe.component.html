@@ -1,1 +1,86 @@
-<p>update-equipe works!</p>
+<h2 class="card-title">Edit Contrat</h2>
+
+<form class="row g-3" [formGroup]="equipeForm">
+
+
+
+
+  <div class="col-6 offset-3">
+    <label class="form-label">Niveau</label>
+    <select
+      tabindex="-1"
+      [ngClass]="{
+        'input-invalid': niveau.touched && niveau.invalid,
+        'input-valid': niveau.touched && niveau.valid
+      }"
+      class="form-select"
+      aria-label="Default select example"
+      formControlName="niveau"
+    >
+      <option value="JUNIOR" selected>JUNIOR</option>
+      <option value="SENIOR">SENIOR</option>
+      <option value="EXPERT">EXPERT</option>
+
+    </select>
+    <div
+      class="message-invalid"
+      *ngIf="niveau.touched && niveau.hasError('required')"
+    >
+      Niveau Is Required
+    </div>
+    <!--success message-->
+    <div class="message-valid" *ngIf="niveau.touched && !niveau.errors">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-6 offset-3">
+    <label class="form-label">Nom Equipe</label>
+    <div class="input-group mb-3">
+      <input
+        [ngClass]="{
+          'input-invalid': nomEquipe.touched && nomEquipe.invalid,
+          'input-valid': nomEquipe.touched && nomEquipe.valid
+        }"
+        type="text"
+        class="form-control"
+        formControlName="nomEquipe"
+        tabindex="-1"
+      />
+      <div
+        class="message-invalid"
+        *ngIf="nomEquipe.touched && nomEquipe.hasError('required')"
+      >
+        Nom Is Required
+      </div>
+      <!--success message-->
+      <div class="message-valid" *ngIf="nomEquipe.touched && !nomEquipe.errors">
+        Looks good!
+      </div>
+    </div>
+  </div>
+  <!--          [disabled]="this.contratForm.status == 'INVALID'"-->
+  <div class="text-center">
+    <button
+      (click)="updateEquipe(receivedRow.equipe.idEquipe)"
+      type="submit"
+      class="btn btn-primary mx-2"
+    >
+      <i class="fa-solid fa-pen-nib pe-2"></i>Edit
+    </button>
+    <button
+      (click)="resetControls()"
+      type="button"
+      class="btn btn-warning mx-2"
+    >
+      <i class="fa-solid fa-broom pe-2"></i>
+      Reset
+    </button>
+    <button (click)="closeDialog()" type="button" class="btn btn-danger">
+      <i class="bi bi-x-circle pe-2"></i>
+      Close
+    </button>
+  </div>
+</form>
+<pre>
+<!--  {{ receivedRow | json }}-->
+</pre>

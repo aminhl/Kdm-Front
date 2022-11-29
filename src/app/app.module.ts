@@ -30,6 +30,9 @@ import { UpdateEquipeComponent } from './pages/admin/equipe/update-equipe/update
 import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
 import { AddetudiantComponent } from './pages/admin/etudiant/addetudiant/addetudiant.component';
 import { EditetudiantComponent } from './pages/admin/etudiant/editetudiant/editetudiant.component';
+import {ArchiveStatsComponent} from "./pages/admin/contrat/archive-stats/archive-stats.component";
+import {NgChartsModule} from "ng2-charts";
+
 
 
 @NgModule({
@@ -49,6 +52,7 @@ import { EditetudiantComponent } from './pages/admin/etudiant/editetudiant/edite
     EtudiantComponent,
     AddetudiantComponent,
     EditetudiantComponent,
+    ArchiveStatsComponent,
 
   ],
   imports: [
@@ -64,6 +68,7 @@ import { EditetudiantComponent } from './pages/admin/etudiant/editetudiant/edite
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
