@@ -40,6 +40,7 @@ import { EditUniversiteComponent } from './pages/admin/universite/edit-universit
 import { DepartementComponent } from './pages/admin/departement/departement.component';
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 import { EditDepartementComponent } from './pages/admin/departement/edit-departement/edit-departement.component';
+import { ShowEtudiantsComponent } from './pages/admin/departement/show-etudiants/show-etudiants.component';
 
 
 
@@ -70,6 +71,7 @@ import { EditDepartementComponent } from './pages/admin/departement/edit-departe
     DepartementComponent,
     AddDepartementComponent,
     EditDepartementComponent,
+    ShowEtudiantsComponent,
 
 
   ],

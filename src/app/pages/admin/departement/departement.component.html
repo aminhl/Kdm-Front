@@ -43,7 +43,7 @@
                 <tbody *ngFor="let departement of departements">
                   <tr>
                     <td style="color: #256d85">{{ departement.nomDepart }}</td>
-                    <td style="color: #256d85"><button type="button" class="btn btn-outline-success"><i
+                    <td style="color: #256d85"><button type="button" (click)="openEtudiantDialog(departement)" class="btn btn-outline-success"><i
                           class="fas fa-users	"></i></button></td>
                     <td style="color: #256d85"><button type="button" class="btn btn-outline-primary"><i
                           class="fas fa-chalkboard-user	"></i></button></td>

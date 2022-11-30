@@ -5,6 +5,7 @@ import { AddDepartementComponent } from './add-departement/add-departement.compo
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from './../../../core/services/admin/api.service';
 import { Component, OnInit } from '@angular/core';
+import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.component';
 
 @Component({
   selector: 'app-departement',
@@ -37,8 +38,8 @@ export class DepartementComponent implements OnInit {
     this.dialog.open(AddDepartementComponent, { width: '40%' });
   }
 
-  openEtudiantDialog(){
-    // this.dialog.open()
+  openEtudiantDialog(departement:Object) {
+    this.dialog.open(ShowEtudiantsComponent, { width: '60%', data: { departement}, })
   }
 
   openEditDepartementDialog(departement: Object) {
