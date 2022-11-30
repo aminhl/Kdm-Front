@@ -37,6 +37,10 @@ export class DepartementComponent implements OnInit {
     this.dialog.open(AddDepartementComponent, { width: '40%' });
   }
 
+  openEtudiantDialog(){
+    // this.dialog.open()
+  }
+
   openEditDepartementDialog(departement: Object) {
     this.dialog.open(EditDepartementComponent, {
       width: '40%',

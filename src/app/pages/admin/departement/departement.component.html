@@ -2,89 +2,69 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">Vos departements</h2>
+        <div class="card-header  p-1 m-0 d-flex align-items-center">
+          <div class="row justify-content-start  ">
+            <i class='fa-solid fa-building fa-lg mt-3 col ' style='font-size:36px'></i>
+            <h2 class="card-title col ">Departements</h2>
+          </div>
 
-          <!-- Table with stripped rows -->
-          <div
-            class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
-          >
+        </div>
+
+        <div class="card-body">
+        
+          <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+            <div class="dataTable-bottom">
+              <button (click)="openAddDepartementDialog()" mat-raised-button="" color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
+                <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span
+                  class="mdc-button__label">Add Departement</span><span class="mat-mdc-focus-indicator"></span><span
+                  matripple="" class="mat-ripple mat-mdc-button-ripple"></span><span
+                  class="mat-mdc-button-touch-target"></span>
+              </button>
+            </div>
             <div class="dataTable-container">
-              <table class="table datatable dataTable-table">
-                <thead>
+              <table class="table datatable dataTable-table ">
+                <thead class="">
                   <tr>
-                    <th scope="col" data-sortable="" style="width: 9.203%">
-                      Nom Departement
+                    <th scope="col" data-sortable="" style="width: 75.0537%">
+                      Nom
                     </th>
-                    <th></th>
+
+                    <th scope="col" data-sortable="" style="width: 9.203%">
+                      Etudiants
+                    </th>
+                    <th scope="col">
+                      Enseignants
+                    </th>
+                    
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody *ngFor="let departement of departements">
                   <tr>
-                    <!--                    <th scope="row">{{ departement.nomDepart }}</th>-->
                     <td style="color: #256d85">{{ departement.nomDepart }}</td>
+                    <td style="color: #256d85"><button type="button" class="btn btn-outline-success"><i
+                          class="fas fa-users	"></i></button></td>
+                    <td style="color: #256d85"><button type="button" class="btn btn-outline-primary"><i
+                          class="fas fa-chalkboard-user	"></i></button></td>
+                
 
-                    <td style="display: flex; gap: 8px">
-                      <button
-                        mat-fab
-                        (click)="deleteDepartement(departement.idDepart)"
-                        style="
-                          width: 30px;
-                          height: 30px;
-                          display: flex;
-                          justify-content: center;
-                          align-items: center;
-                        "
-                        color="primary"
-                        aria-label="Example icon button with a delete icon"
-                      >
-                        <mat-icon
-                          style="height: 18px; width: 18px; font-size: 18px"
-                          >delete</mat-icon
-                        >
+                    <td style="display: flex; gap: 8px;" class="mt-2">
+                      <button mat-fab (click)="deleteDepartement(departement.idDepart)"
+                        style="width: 30px; height: 30px;display: flex;justify-content: center;align-items: center;"
+                        color="primary" aria-label="Example icon button with a delete icon">
+                        <mat-icon style="height: 18px; width: 18px; font-size: 18px">delete</mat-icon>
                       </button>
-                      <button
-                        mat-fab
-                        (click)="openEditDepartementDialog(departement)"
-                        style="
-                          width: 30px;
-                          height: 30px;
-                          display: flex;
-                          justify-content: center;
-                          align-items: center;
-                        "
-                        color="accent"
-                        aria-label="Example icon button with a delete icon"
-                      >
+                      <button mat-fab (click)="openEditDepartementDialog(departement)"
+                        style="width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;"
+                        color="accent" aria-label="Example icon button with a delete icon">
                         <i style="font-size: 12px" class="bi bi-gear"></i>
                       </button>
-                    </td>
-                    <td></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div class="dataTable-bottom">
-              <button
-                (click)="openAddDepartementDialog()"
-                mat-raised-button=""
-                color="primary"
-                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
-              >
-                <span
-                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
-                ></span
-                ><span class="mdc-button__label">Add Departement</span
-                ><span class="mat-mdc-focus-indicator"></span
-                ><span
-                  matripple=""
-                  class="mat-ripple mat-mdc-button-ripple"
-                ></span
-                ><span class="mat-mdc-button-touch-target"></span>
-              </button>
-            </div>
           </div>
-          <!-- End Table with stripped rows -->
         </div>
       </div>
     </div>
