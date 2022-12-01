@@ -10,7 +10,7 @@ import { ContactComponent } from './pages/admin/contact/contact.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { ContratComponent } from './pages/admin/contrat/contrat.component';
 import { AdminComponentsModule } from './components/admin-components/admin-components.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contrat.component';
 import { EquipeComponent } from './pages/admin/equipe/equipe.component';
@@ -43,6 +43,7 @@ import { EditDepartementComponent } from './pages/admin/departement/edit-departe
 import { DepartDetailsStudComponent } from './pages/admin/etudiant/depart-details-stud/depart-details-stud.component';
 import { ContratDetailsStudComponent } from './pages/admin/etudiant/contrat-details-stud/contrat-details-stud.component';
 import { EquipeDetailsStudComponent } from './pages/admin/etudiant/equipe-details-stud/equipe-details-stud.component';
+import {SearchContratPipe} from "./core/search-contrat.pipe";
 
 
 
@@ -76,24 +77,25 @@ import { EquipeDetailsStudComponent } from './pages/admin/etudiant/equipe-detail
     DepartDetailsStudComponent,
     ContratDetailsStudComponent,
     EquipeDetailsStudComponent,
-
+    SearchContratPipe
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AdminComponentsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    NgChartsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AdminComponentsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatIconModule,
+        MatButtonModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        NgChartsModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
