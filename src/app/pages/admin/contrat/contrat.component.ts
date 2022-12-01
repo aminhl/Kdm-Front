@@ -22,9 +22,6 @@ export class ContratComponent implements OnInit {
   contrats!: any;
   searchedContrat: any;
   floatLabelControl = new FormControl('auto' as FloatLabelType)
-  getFloatLabelValue(): FloatLabelType {
-    return this.floatLabelControl.value || 'auto';
-  }
 
   getContrats() {
     this.apiService
@@ -47,5 +44,9 @@ export class ContratComponent implements OnInit {
       width: '40%',
       data: { contrat },
     });
+  }
+
+  getFloatLabelValue(): FloatLabelType {
+    return this.floatLabelControl.value || 'auto';
   }
 }
