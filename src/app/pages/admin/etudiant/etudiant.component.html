@@ -5,9 +5,9 @@
         <div class="card">
           <div class="card-body">
              <i class='fas fa-id-card	' style='font-size:36px'></i>
-            <h2 class="card-title">Etudiants</h2>                       
+            <h2 class="card-title">Etudiants</h2>
 
-  
+
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
               <div class="dataTable-bottom">
                 <button
@@ -53,14 +53,24 @@
                             <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody *ngFor="let etudiant of etudiants">
+                  <tbody *ngFor="let etudiant of etudiants; let index = index; ">
                     <tr>
                       <td style="color: #256d85">{{ etudiant.nomE }}</td>
                       <td style="color: #256d85">{{ etudiant.prenomE }}</td>
                       <td style="color: #256d85">{{ etudiant.option }}</td>
-                      <td style="color: #256d85"><button type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button></td>
-                      <td style="color: #256d85"><button type="button" class="btn btn-outline-success"><i class='fas fa-file-contract' ></i></button></td>
-                      <td style="color: #256d85"><button type="button" class="btn btn-outline-info"><i class="fas fa-users	"></i></button></td>
+
+                      <td style="color: #256d85">
+                        <div *ngIf="etudiant.departement !=null ; else DepnotFound">
+                          <button (click)="openDetailsDepartEtudiantDialog(etudiant.departement.idDepart,etudiant.nomE,etudiant.prenomE)"  type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button>
+                        </div>
+                        <ng-template #DepnotFound>
+                      <td style="color: #256d85">Not assigned </td>
+                        </ng-template>
+                      </td>
+
+                      <td style="color: #256d85"><button (click)="openDetailsContratEtudiantDialog(etudiant.idEtudiant,etudiant.nomE,etudiant.prenomE)"  type="button" class="btn btn-outline-success"><i class='fas fa-file-contract' ></i></button></td>
+
+                      <td style="color: #256d85"><button (click)="openDetailsEquipeEtudiantDialog(etudiant.idEtudiant,etudiant.nomE,etudiant.prenomE)" type="button" class="btn btn-outline-info"><i class="fas fa-users	"></i></button></td>
                       <td style="display: flex; gap: 8px">
                         <button mat-fab (click)="deleteEtudiants(etudiant.idEtudiant)" style="width: 30px; height: 30px;display: flex;justify-content: center;align-items: center;"color="primary"aria-label="Example icon button with a delete icon">
                           <mat-icon style="height: 18px; width: 18px; font-size: 18px">delete</mat-icon></button>
@@ -77,4 +87,3 @@
       </div>
     </div>
   </section>
-  
