@@ -1,0 +1,63 @@
+<div *ngIf="equipes.length >=1; else OnlyoneContrat">
+  <div class="card" *ngFor="let e of equipes " >
+    <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
+    <div class="card-body">
+      <h5 class="card-title">Numero d'equipe : {{e.idEquipe}}</h5>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Nom d'equipe</th>
+          <th>Niveau</th>
+          <th>Details Equipe</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{e.nomEquipe}}</td>
+          <td>{{e.niveau}}</td>
+          <td style="color: #256d85"><button (click)="openDetailsEquipeDetaileeDialog(equipes.idEquipe)" type="button" class="btn btn-outline-info"><i class="fas fa-users	"></i></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<ng-template #OnlyoneContrat>
+  <div *ngIf="equipes.length == 1; else NoOneContrat">
+
+    <div class="card" >
+      <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
+      <div class="card-body">
+        <h5 class="card-title">Numero de contrat : {{equipes[0].idEquipe}}</h5>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Nom d'equipe</th>
+            <th>Niveau</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>{{equipes.nomEquipe}}</td>
+            <td>{{equipes.niveau}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #NoOneContrat >
+  <div >
+    <div class="card" >
+      <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
+      <div class="card-body">
+        <div class="alert alert-danger" role="alert">
+          NO EQUIPE FOUND
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+

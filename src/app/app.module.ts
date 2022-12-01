@@ -40,6 +40,9 @@ import { EditUniversiteComponent } from './pages/admin/universite/edit-universit
 import { DepartementComponent } from './pages/admin/departement/departement.component';
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 import { EditDepartementComponent } from './pages/admin/departement/edit-departement/edit-departement.component';
+import { DepartDetailsStudComponent } from './pages/admin/etudiant/depart-details-stud/depart-details-stud.component';
+import { ContratDetailsStudComponent } from './pages/admin/etudiant/contrat-details-stud/contrat-details-stud.component';
+import { EquipeDetailsStudComponent } from './pages/admin/etudiant/equipe-details-stud/equipe-details-stud.component';
 
 
 
@@ -70,6 +73,9 @@ import { EditDepartementComponent } from './pages/admin/departement/edit-departe
     DepartementComponent,
     AddDepartementComponent,
     EditDepartementComponent,
+    DepartDetailsStudComponent,
+    ContratDetailsStudComponent,
+    EquipeDetailsStudComponent,
 
 
   ],

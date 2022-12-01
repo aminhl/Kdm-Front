@@ -37,4 +37,8 @@ export class ApiService {
       )
       .pipe(map((d: Array<IArchivePercentType>) => d));
   }
+  // get anything by id
+  getbyID(target: string,elementId: number) {
+    return this.httpClient.get(env.apiRoot + target + '/' + elementId);
+  }
 }

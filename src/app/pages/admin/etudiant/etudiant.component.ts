@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ApiService } from 'src/app/core/services/admin/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddetudiantComponent } from './addetudiant/addetudiant.component';
 import { EditetudiantComponent } from './editetudiant/editetudiant.component';
+import {DepartDetailsStudComponent} from "./depart-details-stud/depart-details-stud.component";
+import {ContratDetailsStudComponent} from "./contrat-details-stud/contrat-details-stud.component";
+import {EquipeDetailsStudComponent} from "./equipe-details-stud/equipe-details-stud.component";
+
 @Component({
   selector: 'app-etudiant',
   templateUrl: './etudiant.component.html',
@@ -10,19 +14,21 @@ import { EditetudiantComponent } from './editetudiant/editetudiant.component';
 })
 export class EtudiantComponent implements OnInit {
  etudiants! : any;
- userloggedOut 
-  constructor(private apiService: ApiService, private dialog: MatDialog) 
-  { 
+ departement! :any
+
+ userloggedOut
+  constructor(private apiService: ApiService, private dialog: MatDialog)
+  {
 
   }
 
   ngOnInit(): void {this.getEtudiant();}
- 
+
   getEtudiant()
   {
     this.apiService.get
     ('getEtudiants').subscribe((etudiants) => (this.etudiants = etudiants));
-  
+
   }
 
   deleteEtudiants(etudiantid: number) {
@@ -41,5 +47,37 @@ export class EtudiantComponent implements OnInit {
     });
   }
 
-  
+  openDetailsDepartEtudiantDialog(departementId: number,nomE : string,prenomE : string)
+  {
+console.log(departementId)
+    this.dialog.open(DepartDetailsStudComponent, {
+      width: '20%',
+      data: { departementId,
+        nomE,
+        prenomE
+      },
+    });
+  }
+  openDetailsContratEtudiantDialog(etudiantID: number,nomE : string,prenomE : string)
+  {
+console.log()
+    this.dialog.open(ContratDetailsStudComponent, {
+      width: '50%',
+      data: { etudiantID,
+        nomE,
+        prenomE
+      },
+    });
+  }
+  openDetailsEquipeEtudiantDialog(etudiantID: number,nomE : string,prenomE : string)
+  {
+    console.log()
+    this.dialog.open(EquipeDetailsStudComponent, {
+      width: '50%',
+      data: { etudiantID,
+        nomE,
+        prenomE
+      },
+    });
+  }
 }
