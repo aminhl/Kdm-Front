@@ -19,7 +19,7 @@
                   <span
                     class="mat-mdc-button-persistent-ripple mdc-button__ripple"
                   ></span
-                  ><span class="mdc-button__label">Add Etudiant</span
+                  ><span class="mdc-button__label">Ajouter un etudiant</span
                   ><span class="mat-mdc-focus-indicator"></span
                   ><span
                     matripple=""
@@ -27,7 +27,11 @@
                   ></span
                   ><span class="mat-mdc-button-touch-target"></span>
                 </button>
+                <button (click)="openAssignEtudiantToDepartementDialog()" type="button" class="btn btn-warning">Affecter un departement a un etudiant</button>
+                <button (click)="openaddAndAssignEtudiantToEquipeAndContractDialog()"type="button" class="btn btn-success">Affecter un contrat et une equipe a un etudiant</button>
+
               </div>
+
               <div class="dataTable-container">
                 <table class="table datatable dataTable-table">
                   <thead>
@@ -63,10 +67,11 @@
                         <div *ngIf="etudiant.departement !=null ; else DepnotFound">
                           <button (click)="openDetailsDepartEtudiantDialog(etudiant.departement.idDepart,etudiant.nomE,etudiant.prenomE)"  type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button>
                         </div>
+                      </td>
                         <ng-template #DepnotFound>
                       <td style="color: #256d85">Not assigned </td>
                         </ng-template>
-                      </td>
+
 
                       <td style="color: #256d85"><button (click)="openDetailsContratEtudiantDialog(etudiant.idEtudiant,etudiant.nomE,etudiant.prenomE)"  type="button" class="btn btn-outline-success"><i class='fas fa-file-contract' ></i></button></td>
 
@@ -86,4 +91,5 @@
         </div>
       </div>
     </div>
+  <h1>fff</h1>
   </section>

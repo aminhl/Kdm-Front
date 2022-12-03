@@ -43,8 +43,8 @@ import { EditDepartementComponent } from './pages/admin/departement/edit-departe
 import { DepartDetailsStudComponent } from './pages/admin/etudiant/depart-details-stud/depart-details-stud.component';
 import { ContratDetailsStudComponent } from './pages/admin/etudiant/contrat-details-stud/contrat-details-stud.component';
 import { EquipeDetailsStudComponent } from './pages/admin/etudiant/equipe-details-stud/equipe-details-stud.component';
-
-
+import { AssignEtudiantToDepartementComponent } from './pages/admin/etudiant/assign-etudiant-to-departement/assign-etudiant-to-departement.component';
+import { AddAndAssignEtudiantToEquipeAndContractComponent } from './pages/admin/etudiant/add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component';
 
 
 @NgModule({
@@ -76,6 +76,8 @@ import { EquipeDetailsStudComponent } from './pages/admin/etudiant/equipe-detail
     DepartDetailsStudComponent,
     ContratDetailsStudComponent,
     EquipeDetailsStudComponent,
+    AssignEtudiantToDepartementComponent,
+    AddAndAssignEtudiantToEquipeAndContractComponent,
 
 
   ],

@@ -1,8 +1,9 @@
-<div *ngIf="contrats.length > 1; else OnlyoneContrat">
+<div *ngIf="contrats.length > 1; else OnlyoneContrat" >
 <div class="card" *ngFor="let contrat of contrats " >
   <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
-  <div class="card-body">
+  <div class="card-body" >
     <h5 class="card-title">Numero de contrat : {{contrat.idContrat}}</h5>
+    <div  id="content" #content >
     <table class="table">
       <thead>
       <tr>
@@ -24,6 +25,9 @@
       </tr>
       </tbody>
     </table>
+    </div>
+    <button (click)="generateContratPDF(contrat.idContrat)"  type="button" class="btn btn-outline-primary">Generate PDF</button>
+
   </div>
 </div>
 </div>
@@ -34,6 +38,7 @@
     <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
     <div class="card-body">
       <h5 class="card-title">Numero de contrat : {{contrats[0].idContrat}}</h5>
+      <div  id="content" #content >
       <table class="table">
         <thead>
         <tr>
@@ -55,6 +60,9 @@
         </tr>
         </tbody>
       </table>
+      </div>
+      <button (click)="generateContratPDF(contrats[0].idContrat)"  type="button" class="btn btn-outline-primary">Generate PDF</button>
+
     </div>
   </div>
   </div>
