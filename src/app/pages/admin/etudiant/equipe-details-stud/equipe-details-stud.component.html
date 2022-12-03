@@ -24,7 +24,6 @@
 </div>
 <ng-template #OnlyoneContrat>
   <div *ngIf="equipes.length == 1; else NoOneContrat">
-
     <div class="card" >
       <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
       <div class="card-body">
@@ -40,6 +39,7 @@
           <tr>
             <td>{{equipes.nomEquipe}}</td>
             <td>{{equipes.niveau}}</td>
+            <td style="color: #256d85"><button (click)="openDetailsEquipeDetaileeDialog(equipes.idEquipe)" type="button" class="btn btn-outline-info"><i class="fas fa-users	"></i></button></td>
           </tr>
           </tbody>
         </table>

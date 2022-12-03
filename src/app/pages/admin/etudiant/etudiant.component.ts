@@ -6,6 +6,12 @@ import { EditetudiantComponent } from './editetudiant/editetudiant.component';
 import {DepartDetailsStudComponent} from "./depart-details-stud/depart-details-stud.component";
 import {ContratDetailsStudComponent} from "./contrat-details-stud/contrat-details-stud.component";
 import {EquipeDetailsStudComponent} from "./equipe-details-stud/equipe-details-stud.component";
+import {
+  AssignEtudiantToDepartementComponent
+} from "./assign-etudiant-to-departement/assign-etudiant-to-departement.component";
+import {
+  AddAndAssignEtudiantToEquipeAndContractComponent
+} from "./add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component";
 
 @Component({
   selector: 'app-etudiant',
@@ -71,13 +77,24 @@ console.log()
   }
   openDetailsEquipeEtudiantDialog(etudiantID: number,nomE : string,prenomE : string)
   {
-    console.log()
     this.dialog.open(EquipeDetailsStudComponent, {
       width: '50%',
       data: { etudiantID,
         nomE,
         prenomE
       },
+    });
+  }
+  openAssignEtudiantToDepartementDialog() {
+    this.dialog.open(AssignEtudiantToDepartementComponent, {
+      width: '40%',
+
+    });
+  }
+  openaddAndAssignEtudiantToEquipeAndContractDialog() {
+    this.dialog.open(AddAndAssignEtudiantToEquipeAndContractComponent, {
+      width: '40%',
+
     });
   }
 }
