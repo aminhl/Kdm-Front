@@ -4,7 +4,11 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title">Vos Contrats</h2>
-
+          <mat-form-field appearance="outline">
+            <mat-label>Search Contrat</mat-label>
+            <input matInput  [(ngModel)]="searchedContrat">
+            <mat-icon style="color: navy" matSuffix>search</mat-icon>
+          </mat-form-field>
           <!-- Table with stripped rows -->
           <div
             class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
@@ -52,7 +56,7 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let contrat of contrats">
+                <tbody *ngFor="let contrat of contrats | searchContrat:searchedContrat">
                   <tr>
                     <!--                    <th scope="row">{{ contrat.idContrat }}</th>-->
                     <td style="color: #256d85">{{ contrat.specialite }}</td>
