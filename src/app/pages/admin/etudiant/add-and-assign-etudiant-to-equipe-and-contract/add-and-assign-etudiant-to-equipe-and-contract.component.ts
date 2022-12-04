@@ -66,6 +66,7 @@ export class AddAndAssignEtudiantToEquipeAndContractComponent implements OnInit 
   upadteEtudiant()
   {
     this.apiService.addAndAssignEtudiantToEquipeAndContract(
-      'addAndAssignEtudiantToEquipeAndContract',this.SelectedCon,this.SelectedEqu,this.etudiant).subscribe((ss) => null);
+      'addAndAssignEtudiantToEquipeAndContract',this.SelectedCon,this.SelectedEqu,this.etudiant).subscribe((ss) =>
+    location.reload());
   }
 }

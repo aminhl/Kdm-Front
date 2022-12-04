@@ -21,7 +21,7 @@ import {
 export class EtudiantComponent implements OnInit {
  etudiants! : any;
  departement! :any
-
+  searchText:any;
  userloggedOut
   constructor(private apiService: ApiService, private dialog: MatDialog)
   {

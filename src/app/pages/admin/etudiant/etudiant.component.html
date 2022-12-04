@@ -7,7 +7,11 @@
              <i class='fas fa-id-card	' style='font-size:36px'></i>
             <h2 class="card-title">Etudiants</h2>
 
-
+            <mat-form-field appearance="outline">
+              <mat-label>Rechercher un etudiant</mat-label>
+              <input matInput  [(ngModel)]="searchText">
+              <mat-icon style="color: navy" matSuffix>search</mat-icon>
+            </mat-form-field>
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
               <div class="dataTable-bottom">
                 <button
@@ -22,13 +26,13 @@
                   ><span class="mdc-button__label">Ajouter un etudiant</span
                   ><span class="mat-mdc-focus-indicator"></span
                   ><span
-                    matripple=""
+
                     class="mat-ripple mat-mdc-button-ripple"
                   ></span
                   ><span class="mat-mdc-button-touch-target"></span>
                 </button>
                 <button (click)="openAssignEtudiantToDepartementDialog()" type="button" class="btn btn-warning">Affecter un departement a un etudiant</button>
-                <button (click)="openaddAndAssignEtudiantToEquipeAndContractDialog()"type="button" class="btn btn-success">Affecter un contrat et une equipe a un etudiant</button>
+                <button (click)="openaddAndAssignEtudiantToEquipeAndContractDialog()" type="button" class="btn btn-success">Affecter un contrat et une equipe a un etudiant</button>
 
               </div>
 
@@ -57,7 +61,7 @@
                             <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody *ngFor="let etudiant of etudiants; let index = index; ">
+                  <tbody *ngFor="let etudiant of etudiants | filter:searchText">
                     <tr>
                       <td style="color: #256d85">{{ etudiant.nomE }}</td>
                       <td style="color: #256d85">{{ etudiant.prenomE }}</td>
@@ -77,9 +81,9 @@
 
                       <td style="color: #256d85"><button (click)="openDetailsEquipeEtudiantDialog(etudiant.idEtudiant,etudiant.nomE,etudiant.prenomE)" type="button" class="btn btn-outline-info"><i class="fas fa-users	"></i></button></td>
                       <td style="display: flex; gap: 8px">
-                        <button mat-fab (click)="deleteEtudiants(etudiant.idEtudiant)" style="width: 30px; height: 30px;display: flex;justify-content: center;align-items: center;"color="primary"aria-label="Example icon button with a delete icon">
+                        <button mat-fab (click)="deleteEtudiants(etudiant.idEtudiant)" style="width: 30px; height: 30px;display: flex;justify-content: center;align-items: center;" color="primary" aria-label="Example icon button with a delete icon">
                           <mat-icon style="height: 18px; width: 18px; font-size: 18px">delete</mat-icon></button>
-                          <button mat-fab (click)="openEditEtudiantDialog(etudiant)"style="width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;"color="accent"aria-label="Example icon button with a delete icon">
+                          <button mat-fab (click)="openEditEtudiantDialog(etudiant)" style="width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;" color="accent" aria-label="Example icon button with a delete icon">
                             <i style="font-size: 12px" class="bi bi-gear"></i>
                           </button>
                     </tr>

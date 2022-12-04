@@ -52,7 +52,7 @@ departements! :any
   upadteEtudiant()
   {
     this.apiService.assignEtudiantToDepartement(
-      'assignEtudiantToDepartement',this.SelectedEtu,this.SelectedDep).subscribe((ss) => null);
+      'assignEtudiantToDepartement',this.SelectedEtu,this.SelectedDep).subscribe((ss) => location.reload());
   }
 
 }
