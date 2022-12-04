@@ -11,7 +11,7 @@ import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { ContratComponent } from './pages/admin/contrat/contrat.component';
 import { AdminComponentsModule } from './components/admin-components/admin-components.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contrat.component';
 import { EquipeComponent } from './pages/admin/equipe/equipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +35,7 @@ import {NgChartsModule} from "ng2-charts";
 import { DepartementComponent } from './pages/admin/departement/departement.component';
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 import { EditDepartementComponent } from './pages/admin/departement/edit-departement/edit-departement.component';
+import {authInterceptorProviders} from "./_helpers/auth.interceptor";
 
 
 
@@ -74,9 +75,10 @@ import { EditDepartementComponent } from './pages/admin/departement/edit-departe
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    NgChartsModule
+    NgChartsModule,
+
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,18 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { environment as env } from '../../../../environments/environment';
 import {map, Observable} from "rxjs";
 import {IArchivePercentType} from "../../models/ArchivePercentType";
 
+
+
+
 @Injectable({
   providedIn: 'root',
 })
+
 export class ApiService {
-  constructor(private httpClient: HttpClient) {}
+
+
+  constructor(private httpClient: HttpClient) {
+  }
 
   get(target: string) {
     return this.httpClient.get(env.apiRoot + target);
   }
+
 
   add(target: string, requestBody: Object) {
     return this.httpClient.post(env.apiRoot + target, requestBody);
@@ -37,4 +45,27 @@ export class ApiService {
       )
       .pipe(map((d: Array<IArchivePercentType>) => d));
   }
+
+  login(username, password): Observable<any> {
+    const body = new HttpParams()
+      .set('username', username)
+      .set('password', password);
+    return this.httpClient.post("http://localhost:8080/login",
+      body.toString(),
+      {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+
+      }
+    );
+  }
+
+
+  register(target: string, requestBody: Object){
+    return this.httpClient.post(env.apiRoot + target, requestBody);
+  }
+
+
+
+
 }
