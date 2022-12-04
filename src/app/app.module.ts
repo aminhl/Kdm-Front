@@ -50,10 +50,7 @@ import { AddAndAssignEtudiantToEquipeAndContractComponent } from './pages/admin/
 
 
 import {SearchContratPipe} from "./core/search-contrat.pipe";
-
-
-
-
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 
 @NgModule({
@@ -110,7 +107,8 @@ import {SearchContratPipe} from "./core/search-contrat.pipe";
         MatFormFieldModule,
         MatDatepickerModule,
         NgChartsModule,
-        FormsModule
+        FormsModule,
+      Ng2SearchPipeModule
     ],
   providers: [],
   bootstrap: [AppComponent],
