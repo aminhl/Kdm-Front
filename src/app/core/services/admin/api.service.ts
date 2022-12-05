@@ -80,4 +80,7 @@ export class ApiService {
   addAndAssignEtudiantToEquipeAndContract(target : string, elementId1: number, elementId2: number,requestBody: Object) {
     return this.httpClient.post(env.apiRoot+target +'/'+elementId1+ '/' +elementId2,requestBody )
   }
+  findContratBySpecialiteAndDateDebutContratAndDateFinContrat(target : string, elementId1: string, elementId2: string,elementId3: string,elementId4: string) {
+    return this.httpClient.post(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4,null )
+  }
 }

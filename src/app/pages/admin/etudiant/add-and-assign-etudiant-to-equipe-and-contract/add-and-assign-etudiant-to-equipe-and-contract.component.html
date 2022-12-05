@@ -4,19 +4,16 @@
 
   <select  name="cars" class="form-control form-control-lg" (change)="ChangeEtu($event)">
     <option selected="selected">Choisisser un etudiant</option>
-    <option *ngFor="let etudiant of etudiants;">{{etudiant.idEtudiant}}</option>
+    <option *ngFor="let etudiant of etudiants;">{{etudiant.nomE}}</option>
   </select>
-  <label *ngIf="etudiant!=null">Etudiant:&nbsp;&nbsp;<strong>{{etudiant.nomE}}&nbsp;&nbsp;{{etudiant.prenomE}}</strong></label>
   <select class="form-control form-control-lg" (change)="ChangeEqu($event)">
     <option selected="selected">Choisisser une equipe</option>
-    <option *ngFor="let equipe of equipes;">{{equipe.idEquipe}}</option>
+    <option *ngFor="let equipe of equipes;">{{equipe.nomEquipe}}</option>
   </select>
-  <label *ngIf="equipe!=null">Equipe:&nbsp;&nbsp;<strong>{{equipe.nomEquipe}}</strong></label>
   <select  name="cars" class="form-control form-control-lg" (change)="ChangeCon($event)">
     <option selected="selected">Choisisser un contrat</option>
-    <option *ngFor="let contrat of contrats;">{{contrat.idContrat}}</option>
+    <option *ngFor="let contrat of contrats;"><p>{{contrat.specialite}} </p> &nbsp;<p>{{contrat.dateDebutContrat}}</p> &nbsp;<p>{{contrat.dateFinContrat}}</p> &nbsp;<p>{{contrat.montantContrat}}</p> </option>
   </select>
-  <label *ngIf="contrat!=null">Contrat:&nbsp;&nbsp;<strong><p>Date Debut :&nbsp;{{contrat.dateDebutContrat}}</p> &nbsp; <p>Date Fin :{{contrat.dateFinContrat}}</p> &nbsp; <p>Montant :{{contrat.montantContrat}}Dt</p></strong></label>
 
   <button
     (click)="upadteEtudiant()"
