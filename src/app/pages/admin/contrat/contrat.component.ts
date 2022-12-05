@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { ApiService } from 'src/app/core/services/admin/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditContratComponent } from './edit-contrat/edit-contrat.component';
 import { AddContratComponent } from './add-contrat/add-contrat.component';
+import {co} from "chart.js/dist/chunks/helpers.core";
+import {FormControl} from "@angular/forms";
+import {FloatLabelType} from "@angular/material/form-field";
 
 @Component({
   selector: 'app-contrat',
@@ -17,6 +20,8 @@ export class ContratComponent implements OnInit {
   }
 
   contrats!: any;
+  searchedContrat: any;
+  floatLabelControl = new FormControl('auto' as FloatLabelType)
 
   getContrats() {
     this.apiService
@@ -39,5 +44,9 @@ export class ContratComponent implements OnInit {
       width: '40%',
       data: { contrat },
     });
+  }
+
+  getFloatLabelValue(): FloatLabelType {
+    return this.floatLabelControl.value || 'auto';
   }
 }

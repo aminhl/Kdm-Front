@@ -1,0 +1,60 @@
+<!--<main id="main" class="main">-->
+<!--  <section class="section">-->
+<!--    <div class="card">-->
+<!--      <div class="card-body">-->
+    <h5 class="card-title">Add University</h5>
+    <!-- Vertical Form -->
+    <form class="row g-3" [formGroup]="universiteForm" (ngSubmit)="onSubmit()">
+      
+      <div class="col-6 offset-3">
+        <label class="form-label">Nom Université</label>
+        <div class="input-group mb-3">
+          <input
+          [ngClass]="{
+              'input-invalid': nomUniv.touched && nomUniv.invalid,
+              'input-valid': nomUniv.touched && nomUniv.valid
+            }"
+            type="text"
+            class="form-control"
+            formControlName="nomUniv"
+            tabindex="-1"
+          />
+          <div
+          class="message-invalid"
+          *ngIf="nomUniv.touched && nomUniv.hasError('required')"
+        >
+          Nom université Is Required
+        </div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="nomUniv.touched && !nomUniv.errors">
+          Looks good!
+        </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary mx-2">
+          <i class="fa-regular fa-floppy-disk pe-2"></i>Submit
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning mx-2"
+          (click)="resetControls()"
+        >
+          <i class="fa-solid fa-broom pe-2"></i>
+          Reset
+        </button>
+        <button type="button" class="btn btn-outline-info" (click)="closeDialog()">
+          <a style="color: #000" routerLink="/universite">
+            <i class="fa-solid fa-rotate-left pe-2"></i>Back To University
+            Page</a
+          >
+        </button>
+      </div>
+    </form>
+<!-- Vertical Form -->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--</main>-->
+

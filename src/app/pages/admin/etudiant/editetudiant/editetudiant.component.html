@@ -1,8 +1,8 @@
 
     <h2 class="card-title">Edit Etudiant</h2>
     <!-- Vertical Form -->
-    <form class="row g-3" [formGroup]="etudiantFrom" >
-      
+    <form class="row g-3" [formGroup]="etudiantFrom">
+
       <div class="col-6 offset-3">
         <label class="form-label">Nom Etudiant</label>
         <input tab index="-1" type="text" class="form-control position-relative"formControlName="nomE"[ngClass]="{'input-invalid': nomE.touched && nomE.invalid,'input-valid': nomE.touched && nomE.valid}"/>
@@ -17,7 +17,7 @@
         <input tab index="-1"type="text"class="form-control"formControlName="prenomE"[ngClass]="{'input-invalid':(prenomE.touched && prenomE.invalid),'input-valid':prenomE.touched && prenomE.valid }"/>
         <!--error message-->
         <div class="message-invalid"*ngIf="prenomE.touched && prenomE.hasError('required')">prenom Is Required</div>
-       
+
         <!--success message-->
         <div class="message-valid" *ngIf="prenomE.touched && !prenomE.errors">
           Looks good!
@@ -38,7 +38,7 @@
           Looks good!
         </div>
       </div>
-    
+
       <div class="text-center">
         <button
         (click)="upadteEtudiant(receivedRow.etudiant.idEtudiant)"
@@ -56,5 +56,4 @@
         </button>
       </div>
     </form>
-   
-    
+

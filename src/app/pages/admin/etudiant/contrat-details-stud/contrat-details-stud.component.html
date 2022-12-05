@@ -1,0 +1,83 @@
+<div *ngIf="contrats.length > 1; else OnlyoneContrat" >
+<div class="card" *ngFor="let contrat of contrats " >
+  <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
+  <div class="card-body" >
+    <h5 class="card-title">Numero de contrat : {{contrat.idContrat}}</h5>
+    <div  id="content" #content >
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Specialite</th>
+        <th>Date Debut</th>
+        <th>Date fin</th>
+        <th>Status</th>
+        <th>Montant</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+
+        <td>{{contrat.specialite}}</td>
+        <td>{{contrat.dateDebutContrat}}</td>
+        <td>{{contrat.dateFinContrat}}</td>
+        <td>{{contrat.archive}}</td>
+        <td>{{contrat.montantContrat}}</td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    <button (click)="generateContratPDF(contrat.idContrat)"  type="button" class="btn btn-outline-primary">Generate PDF</button>
+
+  </div>
+</div>
+</div>
+<ng-template #OnlyoneContrat>
+  <div *ngIf="contrats.length == 1; else NoOneContrat">
+
+  <div class="card" >
+    <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
+    <div class="card-body">
+      <h5 class="card-title">Numero de contrat : {{contrats[0].idContrat}}</h5>
+      <div  id="content" #content >
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Specialite</th>
+          <th>Date Debut</th>
+          <th>Date fin</th>
+          <th>Status</th>
+          <th>Montant</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+
+          <td>{{contrats[0].specialite}}</td>
+          <td>{{contrats[0].dateDebutContrat}}</td>
+          <td>{{contrats[0].dateFinContrat}}</td>
+          <td>{{contrats[0].archive}}</td>
+          <td>{{contrats[0].montantContrat}}</td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+      <button (click)="generateContratPDF(contrats[0].idContrat)"  type="button" class="btn btn-outline-primary">Generate PDF</button>
+
+    </div>
+  </div>
+  </div>
+</ng-template>
+<ng-template #NoOneContrat >
+  <div >
+    <div class="card" >
+      <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
+      <div class="card-body">
+        <div class="alert alert-danger" role="alert">
+          NO CONTRAT FOUND
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+

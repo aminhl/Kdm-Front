@@ -1,0 +1,53 @@
+<h5 class="card-title">Update University</h5>
+<!-- Vertical Form -->
+<form class="row g-3" [formGroup]="universiteForm" >
+  
+  <div class="col-6 offset-3">
+    <label class="form-label">Nom Université</label>
+    <div class="input-group mb-3">
+      <input
+      [ngClass]="{
+          'input-invalid': nomUniv.touched && nomUniv.invalid,
+          'input-valid': nomUniv.touched && nomUniv.valid
+        }"
+        type="text"
+        class="form-control"
+        formControlName="nomUniv"
+        tabindex="-1"
+      />
+      <div
+      class="message-invalid"
+      *ngIf="nomUniv.touched && nomUniv.hasError('required')"
+    >
+      Nom université Is Required
+    </div>
+    <!--success message-->
+    <div class="message-valid" *ngIf="nomUniv.touched && !nomUniv.errors">
+      Looks good!
+    </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button
+      (click)="upadteUniversite(receivedRow.universite.idUniv)"
+      type="submit"
+      class="btn btn-primary mx-2"
+    >
+      <i class="fa-solid fa-pen-nib pe-2"></i>Edit
+    </button>
+    <button
+      (click)="resetControls()"
+      type="button"
+      class="btn btn-warning mx-2"
+    >
+      <i class="fa-solid fa-broom pe-2"></i>
+      Reset
+    </button>
+    <button (click)="closeDialog()" type="button" class="btn btn-danger">
+      <i class="bi bi-x-circle pe-2"></i>
+      Close
+    </button>
+  </div>
+</form>
+

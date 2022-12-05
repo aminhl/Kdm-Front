@@ -11,6 +11,8 @@ import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contr
 import { EquipeComponent } from "./pages/admin/equipe/equipe.component";
 import { AddEquipeComponent } from "./pages/admin/equipe/add-equipe/add-equipe.component";
 import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
+import { UniversiteComponent } from './pages/admin/universite/universite.component';
+
 import { DepartementComponent } from './pages/admin/departement/departement.component';
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 import {LoggedInGuard} from "./pages/LoggedInGuard";
@@ -30,6 +32,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent,canActivate:[LoggedInGuard] },
   { path: 'profile', component: ProfileComponent,canActivate:[LoggedInGuard] },
   { path: 'register', component: RegisterComponent },
+  { path: 'universite', component: UniversiteComponent },
   { path: '**', component: ErrorComponent },
 ];
 

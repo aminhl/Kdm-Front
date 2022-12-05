@@ -46,6 +46,7 @@ export class ApiService {
       .pipe(map((d: Array<IArchivePercentType>) => d));
   }
 
+
   login(username, password): Observable<any> {
     const body = new HttpParams()
       .set('username', username)
@@ -66,6 +67,17 @@ export class ApiService {
   }
 
 
+  // get anything by id
+  getbyID(target: string,elementId: number) {
+    return this.httpClient.get(env.apiRoot + target + '/' + elementId);
+  }
+  // assignEtudiantToDepartement
+  assignEtudiantToDepartement(target : string, elementId1: number, elementId2: number)
+  {
+    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null);
+  }
 
-
+  addAndAssignEtudiantToEquipeAndContract(target : string, elementId1: number, elementId2: number,requestBody: Object) {
+    return this.httpClient.post(env.apiRoot+target +'/'+elementId1+ '/' +elementId2,requestBody )
+  }
 }
