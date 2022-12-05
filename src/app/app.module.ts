@@ -36,6 +36,7 @@ import { DepartementComponent } from './pages/admin/departement/departement.comp
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 import { EditDepartementComponent } from './pages/admin/departement/edit-departement/edit-departement.component';
 import {authInterceptorProviders} from "./_helpers/auth.interceptor";
+import {LoggedInGuard} from "./pages/LoggedInGuard";
 
 
 
@@ -78,7 +79,7 @@ import {authInterceptorProviders} from "./_helpers/auth.interceptor";
     NgChartsModule,
 
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,LoggedInGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
