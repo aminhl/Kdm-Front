@@ -10,8 +10,8 @@ import { ContactComponent } from './pages/admin/contact/contact.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { ContratComponent } from './pages/admin/contrat/contrat.component';
 import { AdminComponentsModule } from './components/admin-components/admin-components.module';
+import {HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { AddContratComponent } from './pages/admin/contrat/add-contrat/add-contrat.component';
 import { EquipeComponent } from './pages/admin/equipe/equipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +40,8 @@ import { EditUniversiteComponent } from './pages/admin/universite/edit-universit
 import { DepartementComponent } from './pages/admin/departement/departement.component';
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 import { EditDepartementComponent } from './pages/admin/departement/edit-departement/edit-departement.component';
+import {authInterceptorProviders} from "./_helpers/auth.interceptor";
+import {LoggedInGuard} from "./pages/LoggedInGuard";
 
 import { ShowEtudiantsComponent } from './pages/admin/departement/show-etudiants/show-etudiants.component';
 import { DepartDetailsStudComponent } from './pages/admin/etudiant/depart-details-stud/depart-details-stud.component';
@@ -73,31 +75,21 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     AddetudiantComponent,
     EditetudiantComponent,
     ArchiveStatsComponent,
-
     UniversiteComponent,
     AddUniversiteComponent,
     EditUniversiteComponent,
-
     DepartementComponent,
     AddDepartementComponent,
     EditDepartementComponent,
-
     ShowEtudiantsComponent,
-
     DepartDetailsStudComponent,
     ContratDetailsStudComponent,
     EquipeDetailsStudComponent,
-
-
     AssignEtudiantToDepartementComponent,
     AddAndAssignEtudiantToEquipeAndContractComponent,
-
-
     SearchContratPipe
-
-
-
   ],
+
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -115,7 +107,7 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
         FormsModule,
       Ng2SearchPipeModule
     ],
-  providers: [],
+ providers: [authInterceptorProviders,LoggedInGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -15,23 +15,27 @@ import { UniversiteComponent } from './pages/admin/universite/universite.compone
 
 import { DepartementComponent } from './pages/admin/departement/departement.component';
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
+import {LoggedInGuard} from "./pages/LoggedInGuard";
+
+
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'contrat', component: ContratComponent },
-  { path: 'addcontrat', component: AddContratComponent },
-  { path: 'departement', component: DepartementComponent },
-  { path: 'adddepartement', component: AddDepartementComponent },
-  { path: 'equipe', component: EquipeComponent },
-  { path: 'addequipe', component: AddEquipeComponent },
-  { path: 'etudiant', component: EtudiantComponent },
+  { path: '', component: LoginComponent },
+  { path: 'contrat', component: ContratComponent,canActivate:[LoggedInGuard] },
+  { path: 'addcontrat', component: AddContratComponent,canActivate:[LoggedInGuard] },
+  { path: 'departement', component: DepartementComponent ,canActivate:[LoggedInGuard]},
+  { path: 'adddepartement', component: AddDepartementComponent,canActivate:[LoggedInGuard] },
+  { path: 'equipe', component: EquipeComponent,canActivate:[LoggedInGuard], },
+  { path: 'addequipe', component: AddEquipeComponent,canActivate:[LoggedInGuard] },
+  { path: 'etudiant', component: EtudiantComponent,canActivate:[LoggedInGuard] },
+  { path: 'login', component: LoginComponent,},
+  { path: 'contact', component: ContactComponent,canActivate:[LoggedInGuard] },
+  { path: 'profile', component: ProfileComponent,canActivate:[LoggedInGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'profile', component: ProfileComponent },
   { path: 'universite', component: UniversiteComponent },
   { path: '**', component: ErrorComponent },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
