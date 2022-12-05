@@ -48,5 +48,6 @@ export class DepartementComponent implements OnInit {
       data: { departement },
     });
   }
-
+  nbrPage!:any;
+  
 }

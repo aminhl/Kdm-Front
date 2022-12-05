@@ -26,10 +26,12 @@
               <table class="table datatable dataTable-table ">
                 <thead class="">
                   <tr>
-                    <th scope="col" data-sortable="" style="width: 75.0537%">
+                    <th scope="col" data-sortable="" style="width: 65.8507%">
                       Nom
                     </th>
-
+                    <th scope="col" data-sortable="" style="width: 9.203%;">
+                    Chef departement
+                    </th>
                     <th scope="col" data-sortable="" style="width: 9.203%">
                       Etudiants
                     </th>
@@ -40,9 +42,13 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let departement of departements">
+                <tbody *ngFor="let departement of departements | paginate: { itemsPerPage: 1, currentPage: nbrPage }">
                   <tr>
                     <td style="color: #256d85">{{ departement.nomDepart }}</td>
+                    
+                    <td style="color: #256d85"><button type="button" (click)="openEtudiantDialog(departement)" class="btn btn-outline-success"><i
+                      class="fas fa-users-gear	"></i></button></td>
+                    
                     <td style="color: #256d85"><button type="button" (click)="openEtudiantDialog(departement)" class="btn btn-outline-success"><i
                           class="fas fa-users	"></i></button></td>
                     <td style="color: #256d85"><button type="button" class="btn btn-outline-primary"><i
@@ -63,6 +69,7 @@
                   </tr>
                 </tbody>
               </table>
+              <pagination-controls (pageChange)="nbrPage = $event"></pagination-controls>
             </div>
           </div>
         </div>

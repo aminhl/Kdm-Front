@@ -13,15 +13,11 @@ import { AddEquipeComponent } from "./pages/admin/equipe/add-equipe/add-equipe.c
 import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
 import { UniversiteComponent } from './pages/admin/universite/universite.component';
 
-import { DepartementComponent } from './pages/admin/departement/departement.component';
-import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'contrat', component: ContratComponent },
   { path: 'addcontrat', component: AddContratComponent },
-  { path: 'departement', component: DepartementComponent },
-  { path: 'adddepartement', component: AddDepartementComponent },
   { path: 'equipe', component: EquipeComponent },
   { path: 'addequipe', component: AddEquipeComponent },
   { path: 'etudiant', component: EtudiantComponent },
@@ -30,6 +26,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'universite', component: UniversiteComponent },
+  { path: 'departement', loadChildren: () => import('./pages/admin/departement/departement.module').then(m => m.DepartementsModule) },
   { path: '**', component: ErrorComponent },
 ];
 

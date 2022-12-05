@@ -78,11 +78,7 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     AddUniversiteComponent,
     EditUniversiteComponent,
 
-    DepartementComponent,
-    AddDepartementComponent,
-    EditDepartementComponent,
 
-    ShowEtudiantsComponent,
 
     DepartDetailsStudComponent,
     ContratDetailsStudComponent,
