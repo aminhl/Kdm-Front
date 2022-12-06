@@ -12,7 +12,7 @@
         <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
 
             <div class="dataTable-container">
-                <!-- <table class="table datatable dataTable-table">
+                <table class="table datatable dataTable-table">
                     <thead>
                         <tr>
                             <th scope="col" data-sortable="" style="width: 9.203%">
@@ -22,22 +22,22 @@
                                 Prenom
                             </th>
                             <th scope="col" data-sortable="" style="width: 37.7949%">
-                                email
+                                Specialté
                             </th>
 
                         </tr>
                     </thead>
-                    <tbody *ngFor="let etudiant of etudiants">
+                    <tbody *ngFor="let professor of professors">
 
                         <tr>
-                            <td style="color: #256d85">{{ etudiant.nomE }}</td>
-                            <td style="color: #256d85">{{ etudiant.prenomE }}</td>
-                            <td style="color: #256d85">{{ etudiant.option }}</td>
+                            <td style="color: #256d85">{{ professor.lastName }}</td>
+                            <td style="color: #256d85">{{ professor.firstName }}</td>
+                            <td style="color: #256d85">{{ professor.speciality }}</td>
 
                         </tr>
 
                     </tbody>
-                </table> -->
+                </table>
             </div>
         </div>
     </div>

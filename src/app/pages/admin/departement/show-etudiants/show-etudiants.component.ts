@@ -29,7 +29,9 @@ export class ShowEtudiantsComponent implements OnInit {
   getEtudiatnByDepartement(idDepart: number) {
     this.apiService
       .get('getEtudiantsByDepartement/' + idDepart)
-      .subscribe((etudiants) => this.etudiants = etudiants)
+      .subscribe((etudiants) => {
+          console.log(etudiants)
+        this.etudiants = etudiants})
 
   }
 
