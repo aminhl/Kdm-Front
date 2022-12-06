@@ -21,7 +21,7 @@ export class ShowUnivEtudiantsComponent implements OnInit {
   }
 
   getEtudiantByUniversite(idUniv :number){
-    this.apiService.get('retrieveEtudiantByUniversite/' + idUniv)
+    this.apiService.get('retrieveEtudiantsByUniversite/' + idUniv)
     .subscribe((etudiants) => this.etudiants = etudiants)
   }
 }

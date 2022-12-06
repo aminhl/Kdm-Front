@@ -22,7 +22,7 @@ export class UniversiteComponent implements OnInit {
 
   getUniversites() {
     this.apiService
-      .get('getUniversites')
+      .get('getUniversitiesSorted')
       .subscribe((universites) => (this.universites = universites));
   }
 
