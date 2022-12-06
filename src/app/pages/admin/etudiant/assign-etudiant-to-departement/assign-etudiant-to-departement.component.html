@@ -1,15 +1,13 @@
 <h2 class="card-title">Affecter un departement a un etudiant</h2>
 
 <form class="row g-3" >
-  <label *ngIf="etudiant!=null">Etudiant:&nbsp;&nbsp;<strong>{{etudiant.nomE}}&nbsp;&nbsp;{{etudiant.prenomE}}</strong></label>
   <select  name="cars" class="form-control form-control-lg" (change)="ChangeEtu($event)">
     <option selected="selected">Choisisser un etudiant</option>
-    <option *ngFor="let etudiant of etudiants;">{{etudiant.idEtudiant}}</option>
+    <option *ngFor="let etudiant of etudiants;">{{etudiant.nomE}}</option>
   </select>
-  <label *ngIf="departement!=null">Departement:&nbsp;&nbsp;<strong>{{departement.nomDepart}}</strong></label>
   <select class="form-control form-control-lg" (change)="ChangeDep($event)">
     <option selected="selected">Choisisser un departement</option>
-    <option *ngFor="let departement of departements;">{{departement.idDepart}}</option>
+    <option *ngFor="let departement of departements;">{{departement.nomDepart}}</option>
   </select>
   <button
     (click)="upadteEtudiant()"

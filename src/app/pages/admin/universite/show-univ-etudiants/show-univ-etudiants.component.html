@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header  pl-1 pb-0 m-0 d-flex align-items-center">
+        <div class="row justify-content-start   ">
+            <i class='col fas fa-id-card mt-3 mb-0 ' style='font-size:36px '></i>
+            <h2 class="col card-title mb-0 text-nowrap">Etudiants {{receivedRow.universite.nomUniv}} :</h2>
+        </div>
+    </div>
+    <div class="card-body">
+
+
+
+        <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+
+            <div class="dataTable-container">
+                <table class="table datatable dataTable-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-sortable="" style="width: 9.203%">
+                                Nom
+                            </th>
+                            <th scope="col" data-sortable="" style="width: 28.0558%">
+                                Prenom
+                            </th>
+                            <th scope="col" data-sortable="" style="width: 37.7949%">
+                                Option
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <!-- *ngFor="let etudiant of etudiants" -->
+                    <tbody *ngFor="let etudiant of etudiants">
+
+                        <tr>
+                            <td style="color: #256d85">{{ etudiant.nomE }}</td>
+                            <td style="color: #256d85">{{ etudiant.prenomE }}</td>
+                            <td style="color: #256d85">{{ etudiant.option }}</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

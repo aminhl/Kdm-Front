@@ -4,6 +4,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {MatDialog} from "@angular/material/dialog";
 import {AddEquipeComponent} from "./add-equipe/add-equipe.component";
 import {UpdateEquipeComponent} from "./update-equipe/update-equipe.component";
+import {TokenStorageService} from "../../../_services/token-storage.service";
 
 
 @Component({
@@ -12,10 +13,12 @@ import {UpdateEquipeComponent} from "./update-equipe/update-equipe.component";
   styleUrls: ['./equipe.component.css']
 })
 export class EquipeComponent implements OnInit {
-  constructor(private apiService: ApiService, private dialog: MatDialog) {}
+  constructor(private apiService: ApiService, private dialog: MatDialog,private token: TokenStorageService) {}
 
   ngOnInit(): void {
     this.getEquipes();
+    console.log("token from equipe:: "+this.token.getToken());
+
   }
 
   equipes!: any;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../core/services/admin/api.service";
 import {MatDialogRef} from "@angular/material/dialog";
+import {TokenStorageService} from "../../../../_services/token-storage.service";
 
 @Component({
   selector: 'app-add-equipe',
@@ -13,10 +14,12 @@ export class AddEquipeComponent implements OnInit {
   equipeForm!: FormGroup;
   niveau!: FormControl;
   nomEquipe !: FormControl;
+  currentUser: any;
 
   constructor(
     private apiService: ApiService,
-    public dialogRef: MatDialogRef<AddEquipeComponent>
+    public dialogRef: MatDialogRef<AddEquipeComponent>,
+    private token: TokenStorageService
   ) {
     this.initForm();
     this.createForm();
@@ -25,7 +28,8 @@ export class AddEquipeComponent implements OnInit {
   ngOnInit(): void {}
 
   initForm() {
-  ;
+    this.currentUser = this.token.getUser();
+    console.log(this.token.getUser());
     this.niveau = new FormControl('', [Validators.required]);
     this.nomEquipe = new FormControl('', [Validators.required]);
   }
@@ -43,8 +47,8 @@ export class AddEquipeComponent implements OnInit {
    location.reload();
   }
 
-  addEquipe(contratBody: Object) {
-    this.apiService.add('addEquipe', contratBody).subscribe((contrat) => null);
+  addEquipe(equipeBody: Object) {
+    this.apiService.add('addEquipe', equipeBody).subscribe((contrat) => null);
   }
 
   resetControls() {
