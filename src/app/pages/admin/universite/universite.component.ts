@@ -17,7 +17,7 @@ export class UniversiteComponent implements OnInit {
   ngOnInit(): void {
     this.getUniversites();
   }
-
+  nomUniv!: any;
   universites!: any;
 
   getUniversites() {

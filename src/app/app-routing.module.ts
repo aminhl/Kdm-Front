@@ -27,8 +27,11 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent, canActivate: [LoggedInGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'universite', component: UniversiteComponent },
+
   { path: 'departement', loadChildren: () => import('./pages/admin/departement/departement.module').then(m => m.DepartementsModule), canActivate: [LoggedInGuard] },
+
+  { path: 'universite', component: UniversiteComponent,canActivate:[LoggedInGuard] },
+
   { path: '**', component: ErrorComponent },
 ];
 
