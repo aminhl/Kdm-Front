@@ -57,6 +57,7 @@ import {SearchContratPipe} from "./core/search-contrat.pipe";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { ShowUnivEtudiantsComponent } from './pages/admin/universite/show-univ-etudiants/show-univ-etudiants.component';
 import { ShowUnivDepartsComponent } from './pages/admin/universite/show-univ-departs/show-univ-departs.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { ShowUnivDepartsComponent } from './pages/admin/universite/show-univ-dep
     imports: [
         BrowserModule,
         AppRoutingModule,
+        NgxPaginationModule,
         AdminComponentsModule,
         ReactiveFormsModule,
         HttpClientModule,
