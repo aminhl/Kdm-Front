@@ -16,11 +16,12 @@ import { AddDepartementComponent } from './add-departement/add-departement.compo
 import { EditDepartementComponent } from './edit-departement/edit-departement.component';
 import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ShowProfessorComponent } from './show-professor/show-professor.component';
 
 
 @NgModule({
   declarations: [
-    DepartementComponent, AddDepartementComponent, EditDepartementComponent, ShowEtudiantsComponent
+    DepartementComponent, AddDepartementComponent, EditDepartementComponent, ShowEtudiantsComponent, ShowProfessorComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +37,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     Ng2SearchPipeModule,
     NgxPaginationModule,
   ],
-  exports: [DepartementComponent, AddDepartementComponent, EditDepartementComponent, ShowEtudiantsComponent
-  ]
+  // exports: [DepartementComponent, AddDepartementComponent, EditDepartementComponent, ShowEtudiantsComponent
+  // ]
 })
 export class DepartementsModule { }
