@@ -2,16 +2,20 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
-        <div class="card-header  p-1 m-0 d-flex align-items-center">
-          <div class="row justify-content-start  ">
+        <div class="card-header  p-1 m-0 d-flex align-items-center  justify-content-between p-3">
+          <div class="d-flex justify-content-start ">
             <i class='fa-solid fa-building fa-lg mt-3 col ' style='font-size:36px'></i>
             <h2 class="card-title col ">Departements</h2>
           </div>
-
+          <mat-form-field appearance="outline">
+            <mat-label>Rechercher Departement</mat-label>
+            <input matInput  [(ngModel)]="nomDepartement">
+            <mat-icon style="color: navy" matSuffix>search</mat-icon>
+          </mat-form-field>
         </div>
 
         <div class="card-body">
-        
+
           <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
             <div class="dataTable-bottom">
               <button (click)="openAddDepartementDialog()" mat-raised-button="" color="primary"
@@ -26,28 +30,34 @@
               <table class="table datatable dataTable-table ">
                 <thead class="">
                   <tr>
-                    <th scope="col" data-sortable="" style="width: 75.0537%">
+                    <th scope="col" data-sortable="" style="width: 65.8507%">
                       Nom
                     </th>
-
+                    <th scope="col" data-sortable="" style="width: 9.203%;">
+                      Chef departement
+                    </th>
                     <th scope="col" data-sortable="" style="width: 9.203%">
                       Etudiants
                     </th>
                     <th scope="col">
                       Enseignants
                     </th>
-                    
+
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let departement of departements">
+                <tbody *ngFor="let departement of departements | filter:nomDepartement  | paginate: { itemsPerPage: 1, currentPage: nbrPage } ">
                   <tr>
                     <td style="color: #256d85">{{ departement.nomDepart }}</td>
-                    <td style="color: #256d85"><button type="button" (click)="openEtudiantDialog(departement)" class="btn btn-outline-success"><i
-                          class="fas fa-users	"></i></button></td>
-                    <td style="color: #256d85"><button type="button" class="btn btn-outline-primary"><i
-                          class="fas fa-chalkboard-user	"></i></button></td>
-                
+
+                    <td style="color: #256d85"><button type="button" (click)="openEtudiantDialog(departement)"
+                        class="btn btn-outline-warning"><i class="fas fa-users-gear	"></i></button></td>
+
+                    <td style="color: #256d85"><button type="button" (click)="openEtudiantDialog(departement)"
+                        class="btn btn-outline-success"><i class="fas fa-users	"></i></button></td>
+                    <td style="color: #256d85"><button type="button" (click)="openProfessorDialog(departement)"
+                        class="btn btn-outline-primary"><i class="fas fa-chalkboard-user	"></i></button></td>
+
 
                     <td style="display: flex; gap: 8px;" class="mt-2">
                       <button mat-fab (click)="deleteDepartement(departement.idDepart)"
@@ -63,8 +73,12 @@
                   </tr>
                 </tbody>
               </table>
+              
             </div>
           </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <pagination-controls (pageChange)="nbrPage = $event"></pagination-controls>
         </div>
       </div>
     </div>
