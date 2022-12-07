@@ -23,7 +23,7 @@
               <button (click)="openAddUniversiteDialog()" mat-raised-button="" color="primary"
                 class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
                 <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span
-                  class="mdc-button__label">Ajouter Une Université</span><span class="mat-mdc-focus-indicator"></span><span
+                  class="mdc-button__label">Ajouter Université</span><span class="mat-mdc-focus-indicator"></span><span
                   matripple="" class="mat-ripple mat-mdc-button-ripple"></span><span
                   class="mat-mdc-button-touch-target"></span>
               </button>
@@ -46,7 +46,7 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let universite of universites | filter:nomUniv">
+                <tbody *ngFor="let universite of universites | filter:nomUniv | paginate: { itemsPerPage: 4, currentPage: PageNumber  }">
                   <tr>
                     <td style="color: #256d85">{{ universite.nomUniv }}</td>
                     <td style="color: #256d85"><button type="button" (click)="openEtudiantUnivDialog(universite)" class="btn btn-outline-success"><i
@@ -71,6 +71,9 @@
               </table>
             </div>
           </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <pagination-controls (pageChange)="PageNumber = $event"></pagination-controls>
         </div>
       </div>
     </div>
