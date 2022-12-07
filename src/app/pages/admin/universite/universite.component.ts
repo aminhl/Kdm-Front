@@ -19,6 +19,7 @@ export class UniversiteComponent implements OnInit {
   }
   nomUniv!: any;
   universites!: any;
+  PageNumber!: any;
 
   getUniversites() {
     this.apiService
