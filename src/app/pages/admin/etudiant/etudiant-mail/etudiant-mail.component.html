@@ -1,0 +1,51 @@
+
+<h2 class="card-title">Envoyer un email </h2>
+<!-- Vertical Form -->
+
+<div class="col-6 offset-3">
+
+
+
+</div>
+<form class="row g-3" [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+
+  <div class="col-6 offset-3">
+    <label class="form-label">To</label><br>
+    <input tab index="-1" type="text"  class="form-control position-relative" disabled value="{{etudiantEmail}}"   >
+    <label class="form-label">Titre</label>
+    <input tab index="-1" type="text" class="form-control position-relative"formControlName="object"[ngClass]="{'input-invalid': object.touched && object.invalid,'input-valid': object.touched && object.valid}"/>
+    <!--error message-->
+    <div class="message-invalid"*ngIf="object.touched && object.hasError('required')">Titre de mail est obligatoire</div>
+    <!--success message-->
+    <div class="message-valid" *ngIf="object.touched && !object.errors">Looks good!</div>
+  </div>
+
+  <div class="col-6 offset-3">
+    <label class="form-label">Message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+              formControlName="message"[ngClass]="{'input-invalid':(message.touched && message.invalid),'input-valid':message.touched && message.valid }"
+    ></textarea>
+
+
+    <!--error message-->
+    <div class="message-invalid"*ngIf="message.touched && message.hasError('required')">Message de l'email est obligatoire</div>
+
+    <!--success message-->
+    <div class="message-valid" *ngIf="message.touched && !message.errors">
+      Looks good!
+    </div>
+  </div>
+
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary mx-2">
+      <i class="fa-regular fa-floppy-disk pe-2"></i>Add
+    </button>
+    <button type="button"class="btn btn-warning mx-2"(click)="resetControls()">
+      <i class="fa-solid fa-broom pe-2"></i>
+      Reset
+    </button>
+
+  </div>
+</form>
+

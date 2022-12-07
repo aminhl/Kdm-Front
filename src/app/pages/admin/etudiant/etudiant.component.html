@@ -49,6 +49,9 @@
                       <th scope="col" data-sortable="" style="width: 37.7949%">
                         Option
                       </th>
+                      <th scope="col" data-sortable="" style="width: 37.7949%">
+                        Envoyer un mail
+                      </th>
                       <th scope="col" data-sortable="" style="width: 9.203%">
                         Departement
                       </th>
@@ -57,8 +60,8 @@
                       </th>
                       <th scope="col" data-sortable="" style="width: 9.203%">
                         Equipe
-                      <th scope="col" data-sortable="" style="width: 9.203%">
-                            <th>Action</th>
+                      </th>
+                      <th scope="col" data-sortable="" style="width: 9.203%">Action</th>
                     </tr>
                   </thead>
                   <tbody *ngFor="let etudiant of etudiants | filter:searchText">
@@ -66,7 +69,7 @@
                       <td style="color: #256d85">{{ etudiant.nomE }}</td>
                       <td style="color: #256d85">{{ etudiant.prenomE }}</td>
                       <td style="color: #256d85">{{ etudiant.option }}</td>
-
+                      <td style="color: #256d85"><button (click)="openMailDialog(etudiant.emailE)" type="button" class="btn btn-outline-primary"><i class="fas fa-mail-bulk	"></i></button></td>
                       <td style="color: #256d85">
                         <div *ngIf="etudiant.departement !=null ; else DepnotFound">
                           <button (click)="openDetailsDepartEtudiantDialog(etudiant.departement.idDepart,etudiant.nomE,etudiant.prenomE)"  type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button>
@@ -85,7 +88,8 @@
                           <mat-icon style="height: 18px; width: 18px; font-size: 18px">delete</mat-icon></button>
                           <button mat-fab (click)="openEditEtudiantDialog(etudiant)" style="width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;" color="accent" aria-label="Example icon button with a delete icon">
                             <i style="font-size: 12px" class="bi bi-gear"></i>
-                          </button>
+                          </button></td>
+
                     </tr>
                   </tbody>
                 </table>

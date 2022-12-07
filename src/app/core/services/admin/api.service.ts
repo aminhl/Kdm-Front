@@ -71,6 +71,9 @@ export class ApiService {
   getbyID(target: string,elementId: number) {
     return this.httpClient.get(env.apiRoot + target + '/' + elementId);
   }
+  getbyName(target: string,elementId: string) {
+    return this.httpClient.get(env.apiRoot + target + '/' + elementId);
+  }
   // assignEtudiantToDepartement
   assignEtudiantToDepartement(target : string, elementId1: number, elementId2: number)
   {
@@ -78,9 +81,10 @@ export class ApiService {
   }
 
   addAndAssignEtudiantToEquipeAndContract(target : string, elementId1: number, elementId2: number,requestBody: Object) {
-    return this.httpClient.post(env.apiRoot+target +'/'+elementId1+ '/' +elementId2,requestBody )
+    return this.httpClient.put(env.apiRoot+target +'/'+elementId1+ '/' +elementId2,requestBody )
   }
   findContratBySpecialiteAndDateDebutContratAndDateFinContrat(target : string, elementId1: string, elementId2: string,elementId3: string,elementId4: string) {
-    return this.httpClient.post(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4,null )
+    return this.httpClient.get(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4 )
   }
+
 }
