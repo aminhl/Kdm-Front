@@ -12,6 +12,7 @@ import {
 import {
   AddAndAssignEtudiantToEquipeAndContractComponent
 } from "./add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component";
+import {EtudiantMailComponent} from "./etudiant-mail/etudiant-mail.component";
 
 @Component({
   selector: 'app-etudiant',
@@ -97,4 +98,12 @@ console.log()
 
     });
   }
+
+  openMailDialog(emailE: any) {
+   this.dialog.open(EtudiantMailComponent,{
+     width: '40%',
+      data: { emailE,
+    },
+  });
+}
 }

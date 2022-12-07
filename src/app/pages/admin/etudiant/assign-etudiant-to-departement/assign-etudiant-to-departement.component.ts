@@ -39,8 +39,8 @@ departements! :any
   {
 
    this.SelectedEtu=e.target.value;
-    this.apiService.getbyID
-    ('findetudiantByName',this.SelectedEtu).subscribe((etudiant) => {this.etudiant = etudiant; this.SelectedEtu=this.etudiant[0].idEtudiant ;   });
+    this.apiService.getbyName
+    ('findetudiantByName',this.SelectedEtu).subscribe((etudiant) => {this.etudiant = etudiant; this.SelectedEtu=this.etudiant.idEtudiant ; console.log(this.etudiant)  });
 
 
   }

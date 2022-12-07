@@ -50,11 +50,17 @@ import { AssignEtudiantToDepartementComponent } from './pages/admin/etudiant/ass
 import { AddAndAssignEtudiantToEquipeAndContractComponent } from './pages/admin/etudiant/add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component';
 
 
+
+import {SearchContratPipe} from "./core/search-contrat.pipe";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { EtudiantMailComponent } from './pages/admin/etudiant/etudiant-mail/etudiant-mail.component';
+
 import { SearchContratPipe } from "./core/search-contrat.pipe";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { ShowUnivEtudiantsComponent } from './pages/admin/universite/show-univ-etudiants/show-univ-etudiants.component';
 import { ShowUnivDepartsComponent } from './pages/admin/universite/show-univ-departs/show-univ-departs.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+
 
 
 @NgModule({
@@ -85,8 +91,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AssignEtudiantToDepartementComponent,
     AddAndAssignEtudiantToEquipeAndContractComponent,
     SearchContratPipe,
+
+    EtudiantMailComponent
+
     ShowUnivEtudiantsComponent,
     ShowUnivDepartsComponent
+ master
   ],
 
   imports: [
