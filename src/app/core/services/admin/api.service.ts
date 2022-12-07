@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { environment as env } from '../../../../environments/environment';
+import { environment as env, environment } from '../../../../environments/environment';
 import {map, Observable} from "rxjs";
 import {IArchivePercentType} from "../../models/ArchivePercentType";
 
@@ -61,6 +61,13 @@ export class ApiService {
     );
   }
 
+
+  //pdf
+  exportPDF(path: string):Observable<Blob> {
+    return this.httpClient.get(environment.apiRoot + path, {responseType: 'blob'});
+  }
+
+  
 
   register(target: string, requestBody: Object){
     return this.httpClient.post(env.apiRoot + target, requestBody);
