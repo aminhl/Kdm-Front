@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { environment as env } from '../../../../environments/environment';
+import { environment as env, environment } from '../../../../environments/environment';
 import {map, Observable} from "rxjs";
 import {IArchivePercentType} from "../../models/ArchivePercentType";
 
@@ -62,6 +62,13 @@ export class ApiService {
   }
 
 
+  //pdf
+  exportPDF(path: string):Observable<Blob> {
+    return this.httpClient.get(environment.apiRoot + path, {responseType: 'blob'});
+  }
+
+  
+
   register(target: string, requestBody: Object){
     return this.httpClient.post(env.apiRoot + target, requestBody);
   }
@@ -71,6 +78,9 @@ export class ApiService {
   getbyID(target: string,elementId: number) {
     return this.httpClient.get(env.apiRoot + target + '/' + elementId);
   }
+  getbyName(target: string,elementId: string) {
+    return this.httpClient.get(env.apiRoot + target + '/' + elementId);
+  }
   // assignEtudiantToDepartement
   assignEtudiantToDepartement(target : string, elementId1: number, elementId2: number)
   {
@@ -78,6 +88,10 @@ export class ApiService {
   }
 
   addAndAssignEtudiantToEquipeAndContract(target : string, elementId1: number, elementId2: number,requestBody: Object) {
-    return this.httpClient.post(env.apiRoot+target +'/'+elementId1+ '/' +elementId2,requestBody )
+    return this.httpClient.put(env.apiRoot+target +'/'+elementId1+ '/' +elementId2,requestBody )
   }
+  findContratBySpecialiteAndDateDebutContratAndDateFinContrat(target : string, elementId1: string, elementId2: string,elementId3: string,elementId4: string) {
+    return this.httpClient.get(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4 )
+  }
+
 }

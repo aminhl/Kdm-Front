@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from './../../../core/services/admin/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.component';
+import { ShowProfessorComponent } from './show-professor/show-professor.component';
 
 @Component({
   selector: 'app-departement',
@@ -15,8 +16,9 @@ import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.componen
 export class DepartementComponent implements OnInit {
 
   constructor(private apiService: ApiService, private dialog: MatDialog) { }
-
+  nomDepartement!: any;
   departements!: any;
+  nbrPage!: any;
 
   ngOnInit(): void {
     this.getDepartements()
@@ -38,8 +40,8 @@ export class DepartementComponent implements OnInit {
     this.dialog.open(AddDepartementComponent, { width: '40%' });
   }
 
-  openEtudiantDialog(departement:Object) {
-    this.dialog.open(ShowEtudiantsComponent, { width: '60%', data: { departement}, })
+  openEtudiantDialog(departement: Object) {
+    this.dialog.open(ShowEtudiantsComponent, { width: '60%', data: { departement }, })
   }
 
   openEditDepartementDialog(departement: Object) {
@@ -48,5 +50,29 @@ export class DepartementComponent implements OnInit {
       data: { departement },
     });
   }
+
+  openProfessorDialog(departement: Object) {
+    this.dialog.open(ShowProfessorComponent, { width: '60%', data: { departement } })
+  }
+
+
+  exportPDF() {
+    this.apiService
+      .exportPDF('exportdepartpdf/')
+      .subscribe(x =>{
+          const blob = new Blob([x], {type: 'application/pdf'});
+          const data = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = data;
+          link.download = 'departements.pdf';
+          link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+ 
+          setTimeout(function() {
+            window.URL.revokeObjectURL(data);
+            link.remove();
+          }, 100 );
+      })
+  }
+
 
 }

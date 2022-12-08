@@ -3,10 +3,10 @@
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-body">
-          <h2 class="card-title">Vos Contrats</h2>
+          <h2 class="card-title">Vos Clubs</h2>
           <mat-form-field appearance="outline">
-            <mat-label>Search Contrat</mat-label>
-            <input matInput  [(ngModel)]="searchedContrat">
+            <mat-label>Search Club</mat-label>
+            <input matInput />
             <mat-icon style="color: navy" matSuffix>search</mat-icon>
           </mat-form-field>
           <!-- Table with stripped rows -->
@@ -18,50 +18,31 @@
                 <thead>
                   <tr>
                     <th scope="col" data-sortable="" style="width: 9.203%">
-                      Specialite
+                      Nom
                     </th>
                     <th scope="col" data-sortable="" style="width: 28.0558%">
-                      Date Debut
+                      Logo
                     </th>
                     <th scope="col" data-sortable="" style="width: 37.7949%">
-                      Date Fin
-                    </th>
-                    <th scope="col" data-sortable="" style="width: 19.2995%">
-                      Status
-                    </th>
-                    <th scope="col" data-sortable="" style="width: 19.2995%">
-                      Montant
+                      Domaine
                     </th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let contrat of contrats | searchContrat:searchedContrat">
+                <tbody *ngFor="let club of clubs; let i = index">
                   <tr>
-                    <!--                    <th scope="row">{{ contrat.idContrat }}</th>-->
-                    <td style="color: #256d85">{{ contrat.specialite }}</td>
-                    <td style="color: #7743db">
-                      {{ contrat.dateDebutContrat }}
-                    </td>
-                    <td style="color: #d23369">{{ contrat.dateFinContrat }}</td>
-                    <td
-                      style="font-weight: bold"
-                      [ngStyle]="
-                        contrat.archive ? { color: 'green' } : { color: 'red' }
-                      "
-                    >
-                      {{ contrat.archive ? 'Archive' : 'Not Archive' }}
-                    </td>
+                    <td>{{ club.nomClub }}</td>
                     <td>
-                      {{ contrat.montantContrat }}
-                      <i
-                        style="color: green; font-weight: bold"
-                        class="fa-solid fa-dollar-sign"
-                      ></i>
+                      <img
+                        width="80px"
+                        src="{{ club.logoClub }}"
+                        alt="Logo Club"
+                      />
                     </td>
+                    <td>{{ club.domaine }}</td>
                     <td style="display: flex; gap: 8px">
                       <button
                         mat-fab
-                        (click)="deleteContrat(contrat.idContrat)"
                         style="
                           width: 30px;
                           height: 30px;
@@ -79,7 +60,6 @@
                       </button>
                       <button
                         mat-fab
-                        (click)="openEditContratDialog(contrat)"
                         style="
                           width: 30px;
                           height: 30px;
@@ -100,7 +80,7 @@
             </div>
             <div class="dataTable-bottom">
               <button
-                (click)="openAddContratDialog()"
+                (click)="openAddClubDialog()"
                 mat-raised-button=""
                 color="primary"
                 class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
@@ -108,7 +88,7 @@
                 <span
                   class="mat-mdc-button-persistent-ripple mdc-button__ripple"
                 ></span
-                ><span class="mdc-button__label">Add Contrat</span
+                ><span class="mdc-button__label">Add Club</span
                 ><span class="mat-mdc-focus-indicator"></span
                 ><span
                   matripple=""
@@ -122,10 +102,5 @@
         </div>
       </div>
     </div>
-<!--    <div class="col-md-4 offset-md-3">-->
-<!--      <app-archive-stats></app-archive-stats>-->
-<!--    </div>-->
   </div>
 </section>
-
-

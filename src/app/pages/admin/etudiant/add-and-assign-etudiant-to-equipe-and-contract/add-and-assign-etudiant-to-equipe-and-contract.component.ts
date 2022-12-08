@@ -17,6 +17,7 @@ export class AddAndAssignEtudiantToEquipeAndContractComponent implements OnInit 
   etudiant! :any
   equipe! :any
   contrat! :any
+  etudiantBody: Object
   constructor(private apiService: ApiService, private dialog: MatDialog)
   {
 
@@ -47,26 +48,42 @@ export class AddAndAssignEtudiantToEquipeAndContractComponent implements OnInit 
   {
 
     this.SelectedEtu=e.target.value;
-    this.apiService.getbyID
-    ('getEtudiant',this.SelectedEtu).subscribe((etudiant) => {this.etudiant = etudiant   });
+    this.apiService.getbyName
+    ('findetudiantByName',this.SelectedEtu).subscribe((etudiant) => {this.etudiantBody = etudiant; this.SelectedEtu=this.etudiant ; console.log(this.etudiant)   });
 
   }
   ChangeEqu(e)
   {
     this.SelectedEqu=e.target.value;
     this.apiService.getbyID
-    ('getEquipe',this.SelectedEqu).subscribe((equipe) => {this.equipe = equipe   });
+    ('findEquipeByNomEquipe',this.SelectedEqu).subscribe((equipe) => {this.equipe = equipe;this.SelectedEqu=this.equipe[0].idEquipe;   });
   }
   ChangeCon(e)
   {
     this.SelectedCon=e.target.value;
-    this.apiService.getbyID
-    ('getContrat',this.SelectedCon).subscribe((contrat) => {this.contrat = contrat   });
+   let s = this.SelectedCon.split(/ (.*)/);
+   let x =s[1].split(/ (.*)/);
+   let y = x[1].split(/ (.*)/);
+
+    let datedebut=x[0].replace(/\s/g, "")
+    let specialite=s[0].replace(/\s/g, "")
+    let montant=y[1].replace(/\s/g, "")
+    let datefin=y[0].replace(/\s/g, "")
+    console.log(specialite);
+    console.log(datedebut);
+    console.log(datefin);
+    console.log(montant);
+
+    this.apiService.findContratBySpecialiteAndDateDebutContratAndDateFinContrat
+    ('findContratBySpecialiteAndDateDebutContratAndDateFinContratAndMontantContrat',specialite,datedebut,datefin,montant).subscribe((contrat) => {this.contrat = contrat; this.SelectedCon=this.contrat[0].idContrat   });
   }
   upadteEtudiant()
   {
+    console.log(this.etudiantBody)
+    console.log(this.SelectedEqu)
+    console.log(this.SelectedCon)
     this.apiService.addAndAssignEtudiantToEquipeAndContract(
-      'addAndAssignEtudiantToEquipeAndContract',this.SelectedCon,this.SelectedEqu,this.etudiant).subscribe((ss) =>
+      'addAndAssignEtudiantToEquipeAndContract',this.SelectedCon,this.SelectedEqu,this.etudiantBody).subscribe((ss) =>
     location.reload());
   }
 }

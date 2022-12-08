@@ -2,7 +2,7 @@
     <div class="card-header  pl-1 pb-0 m-0 d-flex align-items-center">
         <div class="row justify-content-start   ">
             <i class='col fas fa-id-card mt-3 mb-0 ' style='font-size:36px '></i>
-            <h2 class="col card-title mb-0 text-nowrap">Etudiants {{receivedRow.departement.nomDepart}} :</h2>
+            <h2 class="col card-title mb-0 text-nowrap">Etudiants {{receivedRow.universite.nomUniv}} :</h2>
         </div>
     </div>
     <div class="card-body">
@@ -29,7 +29,7 @@
                     </thead>
                     <!-- *ngFor="let etudiant of etudiants" -->
                     <tbody *ngFor="let etudiant of etudiants">
-                      
+
                         <tr>
                             <td style="color: #256d85">{{ etudiant.nomE }}</td>
                             <td style="color: #256d85">{{ etudiant.prenomE }}</td>
