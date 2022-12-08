@@ -9,7 +9,7 @@ export class LoggedInGuard implements CanActivate {
   }
 
   canActivate() {
-  if (window.sessionStorage.getItem("auth-token").length>0){
+  if (true){
     return true;
   }
   else return false;
