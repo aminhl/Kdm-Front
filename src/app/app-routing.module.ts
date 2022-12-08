@@ -13,6 +13,7 @@ import { AddEquipeComponent } from "./pages/admin/equipe/add-equipe/add-equipe.c
 import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
 import { UniversiteComponent } from './pages/admin/universite/universite.component';
 import { LoggedInGuard } from "./pages/LoggedInGuard";
+import {DashboardComponent} from "./pages/admin/dashboard/dashboard.component";
 
 
 
@@ -27,11 +28,9 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent, canActivate: [LoggedInGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard] },
   { path: 'register', component: RegisterComponent },
-
   { path: 'departement', loadChildren: () => import('./pages/admin/departement/departement.module').then(m => m.DepartementsModule), canActivate: [LoggedInGuard] },
-
   { path: 'universite', component: UniversiteComponent,canActivate:[LoggedInGuard] },
-
+  {path: 'dashboard', component: DashboardComponent, canActivate: [LoggedInGuard]},
   { path: '**', component: ErrorComponent },
 ];
 

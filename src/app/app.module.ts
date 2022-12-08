@@ -48,6 +48,7 @@ import {EtudiantMailComponent} from './pages/admin/etudiant/etudiant-mail/etudia
 import {ShowUnivEtudiantsComponent} from './pages/admin/universite/show-univ-etudiants/show-univ-etudiants.component';
 import {ShowUnivDepartsComponent} from './pages/admin/universite/show-univ-departs/show-univ-departs.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     SearchContratPipe,
     EtudiantMailComponent,
     ShowUnivEtudiantsComponent,
-    ShowUnivDepartsComponent
+    ShowUnivDepartsComponent,
+    DashboardComponent
   ],
 
   imports: [
