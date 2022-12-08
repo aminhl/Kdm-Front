@@ -40,9 +40,7 @@ import { AssignEtudiantToDepartementComponent } from './pages/admin/etudiant/ass
 import { AddAndAssignEtudiantToEquipeAndContractComponent } from './pages/admin/etudiant/add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component';
 
 
-import {SearchContratPipe} from "./core/search-contrat.pipe";
-// @ts-ignore
-import {Ng2SearchPipeModule} from "ng2-search-filter";
+
 import { SearchContratPipe } from './core/search-contrat.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EtudiantMailComponent } from './pages/admin/etudiant/etudiant-mail/etudiant-mail.component';
