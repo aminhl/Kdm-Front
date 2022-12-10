@@ -5,6 +5,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {AddEquipeComponent} from "./add-equipe/add-equipe.component";
 import {UpdateEquipeComponent} from "./update-equipe/update-equipe.component";
 import {TokenStorageService} from "../../../_services/token-storage.service";
+import {AddDetailEquipeComponent} from "./detail-equipe/add-detail-equipe/add-detail-equipe.component";
+import {DetailEquipeComponent} from "./detail-equipe/detail-equipe.component";
 
 
 @Component({
@@ -17,7 +19,7 @@ export class EquipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEquipes();
-    console.log("token from equipe:: "+this.token.getToken());
+    //console.log("token from equipe:: "+this.token.getToken());
 
   }
 
@@ -37,6 +39,12 @@ export class EquipeComponent implements OnInit {
 
   openAddEquipeDialog() {
     this.dialog.open(AddEquipeComponent, { width: '40%' });
+  }
+  openAddDetailEquipeDialog() {
+    this.dialog.open(AddDetailEquipeComponent, { width: '40%' });
+  }
+  openDetailEquipeDialog() {
+    this.dialog.open(DetailEquipeComponent, { width: '40%' });
   }
 
   openEditEquipeDialog(equipe: Object) {
