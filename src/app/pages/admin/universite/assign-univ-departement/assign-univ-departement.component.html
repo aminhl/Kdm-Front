@@ -1,0 +1,19 @@
+<h2 class="card-title">Affecter une universite a un departement</h2>
+
+<form class="row g-3" >
+  <select  name="cars" class="form-control form-control-lg" (change)="ChangeDep($event)">
+    <option selected="selected">Choisisser un departement</option>
+    <option *ngFor="let departement of departements">{{departement.nomDepart}}</option>
+  </select>
+  <select class="form-control form-control-lg" (change)="ChangeUniv($event)">
+    <option selected="selected">Choisisser une universite</option>
+    <option *ngFor="let universite of universites ;">{{universite.nomUniv}}</option>
+  </select>
+  <button
+    (click)="UpadateUniv()"
+    type="submit"
+    class="btn btn-outline-secondary mx-2"
+  >
+    <i class="fa-solid fa-pen-nib pe-2"></i>Affect
+  </button>
+</form>
