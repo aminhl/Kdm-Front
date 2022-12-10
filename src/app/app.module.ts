@@ -50,6 +50,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ClubComponent } from './pages/admin/club/club.component';
 import { AddClubComponent } from './pages/admin/club/add-club/add-club.component';
+import { AssignUnivEtudiantComponent } from './pages/admin/universite/assign-univ-etudiant/assign-univ-etudiant.component';
+import { AssignUnivDepartementComponent } from './pages/admin/universite/assign-univ-departement/assign-univ-departement.component';
 
 
 @NgModule({
@@ -85,6 +87,8 @@ import { AddClubComponent } from './pages/admin/club/add-club/add-club.component
     DashboardComponent,
     ClubComponent,
     AddClubComponent,
+    AssignUnivEtudiantComponent,
+    AssignUnivDepartementComponent,
   ],
 
   imports: [

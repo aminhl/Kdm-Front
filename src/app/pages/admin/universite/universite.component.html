@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header  p-1 m-0 d-flex align-items-center  justify-content-between p-3">
           <div class="d-flex justify-content-start ">
-            <i class='fa-solid fa-building fa-lg mt-3 col ' style='font-size:36px'></i>
+            <i class='fa fa-university fa-lg padding__right__fa fa-lg mt-3 col p-1 ' style='font-size:36px'></i>
             <h2 class="card-title col ">Universite</h2>
           </div>
             <mat-form-field appearance="outline">
@@ -19,11 +19,25 @@
         <div class="card-body">
         
           <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
-            <div class="dataTable-bottom">
+            <div class="dataTable-bottom d-flex justify-content-between">
               <button (click)="openAddUniversiteDialog()" mat-raised-button="" color="primary"
                 class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
                 <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span
                   class="mdc-button__label">Ajouter Université</span><span class="mat-mdc-focus-indicator"></span><span
+                  matripple="" class="mat-ripple mat-mdc-button-ripple"></span><span
+                  class="mat-mdc-button-touch-target"></span>
+              </button>
+              <button (click)="openAssignUnivEtudiantDialog()" mat-raised-button="" color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
+                <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span
+                  class="mdc-button__label">Assign Universite to etudiant</span><span class="mat-mdc-focus-indicator"></span><span
+                  matripple="" class="mat-ripple mat-mdc-button-ripple"></span><span
+                  class="mat-mdc-button-touch-target"></span>
+              </button>
+              <button (click)="openAssignUnivDepartementDialog()" mat-raised-button="" color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
+                <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span
+                  class="mdc-button__label">Assign Universite to departement</span><span class="mat-mdc-focus-indicator"></span><span
                   matripple="" class="mat-ripple mat-mdc-button-ripple"></span><span
                   class="mat-mdc-button-touch-target"></span>
               </button>
