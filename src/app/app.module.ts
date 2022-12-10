@@ -36,25 +36,22 @@ import {LoggedInGuard} from './pages/LoggedInGuard';
 import {DepartDetailsStudComponent} from './pages/admin/etudiant/depart-details-stud/depart-details-stud.component';
 import {ContratDetailsStudComponent} from './pages/admin/etudiant/contrat-details-stud/contrat-details-stud.component';
 import {EquipeDetailsStudComponent} from './pages/admin/etudiant/equipe-details-stud/equipe-details-stud.component';
-import {
-  AssignEtudiantToDepartementComponent
-} from './pages/admin/etudiant/assign-etudiant-to-departement/assign-etudiant-to-departement.component';
-import {
-  AddAndAssignEtudiantToEquipeAndContractComponent
-} from './pages/admin/etudiant/add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component';
+import { AssignEtudiantToDepartementComponent} from './pages/admin/etudiant/assign-etudiant-to-departement/assign-etudiant-to-departement.component';
+import {AddAndAssignEtudiantToEquipeAndContractComponent} from './pages/admin/etudiant/add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component';
 
-
-import {SearchContratPipe} from "./core/search-contrat.pipe";
-import {Ng2SearchPipeModule} from "ng2-search-filter";
-import {EtudiantMailComponent} from './pages/admin/etudiant/etudiant-mail/etudiant-mail.component';
-import {ShowUnivEtudiantsComponent} from './pages/admin/universite/show-univ-etudiants/show-univ-etudiants.component';
-import {ShowUnivDepartsComponent} from './pages/admin/universite/show-univ-departs/show-univ-departs.component';
-import {NgxPaginationModule} from 'ngx-pagination';
-import {DashboardComponent} from './pages/admin/dashboard/dashboard.component';
-import {ClubComponent} from './pages/admin/club/club.component';
-import {AddClubComponent} from './pages/admin/club/add-club/add-club.component';
 import {DetailEquipeComponent} from './pages/admin/equipe/detail-equipe/detail-equipe.component';
 import { AddDetailEquipeComponent } from './pages/admin/equipe/detail-equipe/add-detail-equipe/add-detail-equipe.component';
+import { SearchContratPipe } from './core/search-contrat.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EtudiantMailComponent } from './pages/admin/etudiant/etudiant-mail/etudiant-mail.component';
+import { ShowUnivEtudiantsComponent } from './pages/admin/universite/show-univ-etudiants/show-univ-etudiants.component';
+import { ShowUnivDepartsComponent } from './pages/admin/universite/show-univ-departs/show-univ-departs.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { ClubComponent } from './pages/admin/club/club.component';
+import { AddClubComponent } from './pages/admin/club/add-club/add-club.component';
+import { AssignUnivEtudiantComponent } from './pages/admin/universite/assign-univ-etudiant/assign-univ-etudiant.component';
+import { AssignUnivDepartementComponent } from './pages/admin/universite/assign-univ-departement/assign-univ-departement.component';
 
 
 @NgModule({
@@ -90,8 +87,12 @@ import { AddDetailEquipeComponent } from './pages/admin/equipe/detail-equipe/add
     DashboardComponent,
     ClubComponent,
     AddClubComponent,
+
     DetailEquipeComponent,
     AddDetailEquipeComponent,
+    AssignUnivEtudiantComponent,
+    AssignUnivDepartementComponent,
+
   ],
 
   imports: [
