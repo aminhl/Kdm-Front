@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Detail Equipes</h2>
+
+        <div
+          class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
+        >
+          <div class="dataTable-container">
+            <table class="table datatable dataTable-table">
+              <thead>
+              <tr>
+                <th scope="col" data-sortable="" style="width: 9.203%">
+                  Salle
+                </th>
+                <th scope="col" data-sortable="" style="width: 28.0558%">
+                  Thematique
+                </th>
+
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody *ngFor="let detailequipe of detailEquipe">
+              <tr>
+
+                <td style="color: #256d85">{{ detailequipe.salle }}</td>
+                <td style="color: #7743db">
+                  {{ detailequipe.thematique }}
+                </td>
+
+                <td style="display: flex; gap: 8px">
+                  <button
+                    mat-fab
+                    (click)="deleteDetailEquipe(detailequipe.idDetailEquipe)"
+                    style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                    color="primary"
+                    aria-label="Example icon button with a delete icon"
+                  >
+                    <mat-icon
+                      style="height: 18px; width: 18px; font-size: 18px"
+                    >delete</mat-icon
+                    >
+                  </button>
+                  <button
+                    mat-fab
+                    (click)="openEditDetailEquipeDialog(detailequipe)"
+                    style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                    color="accent"
+                    aria-label="Example icon button with a delete icon"
+                  >
+                    <i style="font-size: 12px" class="bi bi-gear"></i>
+                  </button>
+                </td>
+                <td></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        <!-- End Table with stripped rows -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,66 @@
+<h2 class="card-title">Add Detail Equipe</h2>
+<!-- Vertical Form -->
+<form class="row g-3" #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="col-6 offset-3">
+      <label  class="form-label">Salle</label>
+      <div class="input-group mb-3">
+        <input
+          name="salle"
+          type="number"
+          class="form-control"
+          required
+          ngModel
+          min="0"
+          #salle="ngModel"
+        />
+      </div>
+      <div class= "message-invalid"
+      *ngIf="salle.invalid && salle.touched"
+      >
+        Salle is a required field
+      </div>
+
+      <div class= "message-valid"
+      *ngIf="salle.valid"
+      >
+        Looks Good
+      </div>
+    </div>
+
+
+  <div class="col-6 offset-3">
+    <label class="form-label">Thematique</label>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        name="thematique"
+        class="form-control"
+        required
+        ngModel
+        #thema="ngModel"
+      />
+    </div>
+
+    <div class= "message-invalid"
+         *ngIf="thema.invalid && thema.touched"
+    >
+      Thematique is a required field
+    </div>
+
+    <div class= "message-valid"
+         *ngIf="thema.valid"
+    >
+      Looks Good
+    </div>
+
+  </div>
+
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary mx-2"
+              [disabled]="f.invalid"
+      >
+        <i class="fa-regular fa-floppy-disk pe-2"></i>Save
+      </button>
+    </div>
+</form>

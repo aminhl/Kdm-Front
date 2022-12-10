@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngKaddem';
+  currentUsername="";
+
+  addUsername(usename:string){
+    this.currentUsername=usename;
+  }
 }

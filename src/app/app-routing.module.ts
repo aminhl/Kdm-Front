@@ -17,7 +17,7 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { ClubComponent } from './pages/admin/club/club.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
   {
     path: 'contrat',
     component: ContratComponent,
@@ -50,7 +50,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [LoggedInGuard],
   },
-  { path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent},
   {
     path: 'departement',
     loadChildren: () =>
