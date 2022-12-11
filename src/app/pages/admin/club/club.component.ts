@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../core/services/admin/api.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AddContratComponent } from '../contrat/add-contrat/add-contrat.component';
 import { AddClubComponent } from './add-club/add-club.component';
+import { Router } from '@angular/router';
+import { EditClubComponent } from './edit-club/edit-club.component';
 
 @Component({
   selector: 'app-club',
@@ -10,7 +11,11 @@ import { AddClubComponent } from './add-club/add-club.component';
   styleUrls: ['./club.component.css'],
 })
 export class ClubComponent implements OnInit {
-  constructor(private apiService: ApiService, private dialog: MatDialog) {}
+  constructor(
+    private apiService: ApiService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getClubs();
@@ -24,5 +29,18 @@ export class ClubComponent implements OnInit {
 
   openAddClubDialog() {
     this.dialog.open(AddClubComponent, { width: '40%' });
+  }
+
+  deleteClub(clubId: number) {
+    this.apiService
+      .delete('deleteClub', clubId)
+      .subscribe(() => location.reload());
+  }
+
+  openEditClubDialog(club: Object) {
+    this.dialog.open(EditClubComponent, {
+      width: '40%',
+      data: { club },
+    });
   }
 }

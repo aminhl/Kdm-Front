@@ -42,6 +42,7 @@
                     <td>{{ club.domaine }}</td>
                     <td style="display: flex; gap: 8px">
                       <button
+                        (click)="deleteClub(club.idClub)"
                         mat-fab
                         style="
                           width: 30px;
@@ -59,6 +60,7 @@
                         >
                       </button>
                       <button
+                        (click)="openEditClubDialog(club)"
                         mat-fab
                         style="
                           width: 30px;
