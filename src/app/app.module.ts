@@ -56,6 +56,7 @@ import { EditClubComponent } from './pages/admin/club/edit-club/edit-club.compon
 import { Router, RouterModule } from '@angular/router';
 import { AssignUnivEtudiantComponent } from './pages/admin/universite/assign-univ-etudiant/assign-univ-etudiant.component';
 import { AssignUnivDepartementComponent } from './pages/admin/universite/assign-univ-departement/assign-univ-departement.component';
+import { AssignEtudiantToClubComponent } from './pages/admin/club/assign-etudiant-to-club/assign-etudiant-to-club.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { AssignUnivDepartementComponent } from './pages/admin/universite/assign-
     AddDetailEquipeComponent,
     AssignUnivEtudiantComponent,
     AssignUnivDepartementComponent,
+    AssignEtudiantToClubComponent,
   ],
 
   imports: [
