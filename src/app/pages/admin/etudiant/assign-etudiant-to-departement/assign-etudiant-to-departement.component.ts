@@ -56,4 +56,6 @@ departements! :any
       'assignEtudiantToDepartement',this.SelectedEtu,this.SelectedDep).subscribe((ss) => location.reload());
   }
 
+  
+
 }

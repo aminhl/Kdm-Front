@@ -5,6 +5,9 @@ import { EditUniversiteComponent } from './edit-universite/edit-universite.compo
 import { AddUniversiteComponent } from './add-universite/add-universite.component';
 import { ShowUnivEtudiantsComponent } from './show-univ-etudiants/show-univ-etudiants.component';
 import { ShowUnivDepartsComponent } from './show-univ-departs/show-univ-departs.component';
+import { AssignEtudiantToDepartementComponent } from '../etudiant/assign-etudiant-to-departement/assign-etudiant-to-departement.component';
+import { AssignUnivEtudiantComponent } from './assign-univ-etudiant/assign-univ-etudiant.component';
+import { AssignUnivDepartementComponent } from './assign-univ-departement/assign-univ-departement.component';
 @Component({
   selector: 'app-universite',
   templateUrl: './universite.component.html',
@@ -48,5 +51,12 @@ export class UniversiteComponent implements OnInit {
 
   openDepartementUnivDialog(universite:Object) {
     this.dialog.open(ShowUnivDepartsComponent, { width: '40%', data: { universite}, })
+  }
+
+  openAssignUnivEtudiantDialog(){
+    this.dialog.open(AssignUnivEtudiantComponent,{width: '60% '})
+  }
+  openAssignUnivDepartementDialog(){
+    this.dialog.open(AssignUnivDepartementComponent,{width: '60% '})
   }
 }

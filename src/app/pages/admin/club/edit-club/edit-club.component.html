@@ -1,0 +1,79 @@
+<h2 class="card-title">Add Contrat</h2>
+<!-- Vertical Form -->
+<form class="row g-3" [formGroup]="editClubForm">
+  <div class="col-6 offset-3">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nom Club"
+        formControlName="nomClub"
+      />
+      <label>Nom Club</label>
+      <!--error message-->
+      <!--      <div-->
+      <!--        class="message-invalid"-->
+      <!--        *ngIf="nomClub.touched && nomClub.hasError('required')"-->
+      <!--      >-->
+      <!--        Nom Club Is Required-->
+      <!--      </div>-->
+      <!--      &lt;!&ndash;success message&ndash;&gt;-->
+      <!--      <div class="message-valid" *ngIf="nomClub.touched && !nomClub.errors">-->
+      <!--        Looks good!-->
+      <!--      </div>-->
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">File Upload</label>
+      <div class="col-sm-10">
+        <input
+          class="form-control"
+          type="file"
+          name="logoClub"
+          formControlName="logoClub"
+        />
+        <!--error message-->
+        <!--        <div-->
+        <!--          class="message-invalid"-->
+        <!--          *ngIf="logoClub.touched && logoClub.hasError('required')"-->
+        <!--        >-->
+        <!--          Nom Club Is Required-->
+        <!--        </div>-->
+        <!--        &lt;!&ndash;success message&ndash;&gt;-->
+        <!--        <div class="message-valid" *ngIf="logoClub.touched && !logoClub.errors">-->
+        <!--          Looks good!-->
+        <!--        </div>-->
+      </div>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Domaine"
+        formControlName="domaine"
+      />
+      <label>Domaine</label>
+      <!--error message-->
+      <!--      <div-->
+      <!--        class="message-invalid"-->
+      <!--        *ngIf="domaine.touched && domaine.hasError('required')"-->
+      <!--      >-->
+      <!--        Nom Club Is Required-->
+      <!--      </div>-->
+      <!--      &lt;!&ndash;success message&ndash;&gt;-->
+      <!--      <div class="message-valid" *ngIf="domaine.touched && !domaine.errors">-->
+      <!--        Looks good!-->
+      <!--      </div>-->
+    </div>
+    <button
+      (click)="updateClub(receivedRow.club.idClub)"
+      type="submit"
+      class="btn btn-primary mx-2"
+      [disabled]="editClubForm.invalid"
+    >
+      <i class="fa-regular fa-floppy-disk pe-2"></i>Save
+    </button>
+    <button type="button" class="btn btn-outline-danger">
+      <i class="fa-solid fa-rotate-left pe-2"></i>Close
+    </button>
+  </div>
+</form>

@@ -45,11 +45,7 @@
                         name="username"
                         class="form-control"
                         id="yourUsername"
-                        required
                       />
-                      <div class="invalid-feedback">
-                        Please enter your username.
-                      </div>
                     </div>
                   </div>
 
@@ -78,7 +74,7 @@
                   <div class="col-12">
                     <p class="small mb-0">
                       Don't have account?
-                      <a [routerLink]="'/register'">Create an account</a>
+                      <a (click)="openRegisterDialog()">Create an account</a>
                     </p>
                   </div>
                 </form>
