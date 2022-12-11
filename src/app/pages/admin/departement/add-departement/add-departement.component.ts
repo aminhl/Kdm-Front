@@ -1,6 +1,5 @@
 import { ApiService } from './../../../../core/services/admin/api.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AddContratComponent } from './../../contrat/add-contrat/add-contrat.component';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -20,10 +19,10 @@ export class AddDepartementComponent implements OnInit {
     private formBuilder: FormBuilder,
     private apiService: ApiService,
     public dialogRef: MatDialogRef<AddDepartementComponent>
-    ) {
-      this.initForm();
-      this.createForm();
-    }
+  ) {
+    this.initForm();
+    this.createForm();
+  }
 
   ngOnInit(): void {
   }
@@ -36,9 +35,9 @@ export class AddDepartementComponent implements OnInit {
 
     // });
 
-   this.nomDepart = new FormControl('', [Validators.required]);
+    this.nomDepart = new FormControl('', [Validators.required]);
 
-  //  this.nomDepart = new FormControl ('', [Validators.required, Validators.pattern('^[a-zA-Z]')])
+    //  this.nomDepart = new FormControl ('', [Validators.required, Validators.pattern('^[a-zA-Z]')])
 
   }
 

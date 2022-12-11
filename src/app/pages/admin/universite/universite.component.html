@@ -1,116 +1,95 @@
 <section class="section" style="margin-top: 100px">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="card-title">Vos Universites</h2>
-  
-            <!-- Table with stripped rows -->
-            <div
-              class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
-            >
-              <!--            <div class="dataTable-top">-->
-              <!--              <div class="dataTable-dropdown">-->
-              <!--                <label-->
-              <!--                  ><select class="dataTable-selector">-->
-              <!--                    <option value="5">5</option>-->
-              <!--                    <option value="10" selected="">10</option>-->
-              <!--                    <option value="15">15</option>-->
-              <!--                    <option value="20">20</option>-->
-              <!--                    <option value="25">25</option>-->
-              <!--                  </select>-->
-              <!--                  entries per page</label-->
-              <!--                >-->
-              <!--              </div>-->
-              <!--              <div class="dataTable-search">-->
-              <!--                <input-->
-              <!--                  class="dataTable-input"-->
-              <!--                  placeholder="Search..."-->
-              <!--                  type="text"-->
-              <!--                />-->
-              <!--              </div>-->
-              <!--            </div>-->
-              <div class="dataTable-container">
-                <table class="table datatable dataTable-table">
-                  <thead>
-                    <tr>
-                      <th scope="col" data-sortable="" style="width: 9.203%">
-                        Nom Université
-                      </th>
-          
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody *ngFor="let universite of universites">
-                    <tr>
-                      <td>
-                        {{ universite.nomUniv }}
-                        
-                      </td>
-                      <td style="display: flex; gap: 8px">
-                        <button
-                          mat-fab
-                          (click)="deleteUniversite(universite.idUniv)"
-                          style="
-                            width: 30px;
-                            height: 30px;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                          "
-                          color="primary"
-                          aria-label="Example icon button with a delete icon"
-                        >
-                          <mat-icon
-                            style="height: 18px; width: 18px; font-size: 18px"
-                            >delete</mat-icon
-                          >
-                        </button>
-                        <button
-                          mat-fab
-                          (click)="openEditUniversiteDialog(universite)"
-                          style="
-                            width: 30px;
-                            height: 30px;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                          "
-                          color="accent"
-                          aria-label="Example icon button with a delete icon"
-                        >
-                          <i style="font-size: 12px" class="bi bi-gear"></i>
-                        </button>
-                      </td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="dataTable-bottom">
-                <button
-                  (click)="openAddUniversiteDialog()"
-                  mat-raised-button=""
-                  color="primary"
-                  class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
-                >
-                  <span
-                    class="mat-mdc-button-persistent-ripple mdc-button__ripple"
-                  ></span
-                  ><span class="mdc-button__label">Add Universite</span
-                  ><span class="mat-mdc-focus-indicator"></span
-                  ><span
-                    matripple=""
-                    class="mat-ripple mat-mdc-button-ripple"
-                  ></span
-                  ><span class="mat-mdc-button-touch-target"></span>
-                </button>
-              </div>
-            </div>
-            <!-- End Table with stripped rows -->
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header  p-1 m-0 d-flex align-items-center  justify-content-between p-3">
+          <div class="d-flex justify-content-start ">
+            <i class='fa fa-university fa-lg padding__right__fa fa-lg mt-3 col p-1 ' style='font-size:36px'></i>
+            <h2 class="card-title col ">Universite</h2>
           </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Rechercher Universite</mat-label>
+              <input matInput  [(ngModel)]="nomUniv">
+              <mat-icon style="color: navy" matSuffix>search</mat-icon>
+            </mat-form-field>
+          </div>
+
+        
+
+        <div class="card-body">
+        
+          <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+            <div class="dataTable-bottom d-flex justify-content-between">
+              <button (click)="openAddUniversiteDialog()" mat-raised-button="" color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
+                <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span
+                  class="mdc-button__label">Ajouter Université</span><span class="mat-mdc-focus-indicator"></span><span
+                  matripple="" class="mat-ripple mat-mdc-button-ripple"></span><span
+                  class="mat-mdc-button-touch-target"></span>
+              </button>
+              <button (click)="openAssignUnivEtudiantDialog()" mat-raised-button="" color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
+                <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span
+                  class="mdc-button__label">Assign Universite to etudiant</span><span class="mat-mdc-focus-indicator"></span><span
+                  matripple="" class="mat-ripple mat-mdc-button-ripple"></span><span
+                  class="mat-mdc-button-touch-target"></span>
+              </button>
+              <button (click)="openAssignUnivDepartementDialog()" mat-raised-button="" color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base">
+                <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span><span
+                  class="mdc-button__label">Assign Universite to departement</span><span class="mat-mdc-focus-indicator"></span><span
+                  matripple="" class="mat-ripple mat-mdc-button-ripple"></span><span
+                  class="mat-mdc-button-touch-target"></span>
+              </button>
+            </div>
+            <div class="dataTable-container">
+              <table class="table datatable dataTable-table ">
+                <thead class="">
+                  <tr>
+                    <th scope="col" data-sortable="" style="width: 75.0537%">
+                      Nom
+                    </th>
+
+                    <th scope="col" data-sortable="" style="width: 9.203%">
+                      Etudiants
+                    </th>
+                    <th scope="col">
+                      Departements
+                    </th>
+                    
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let universite of universites | filter:nomUniv | paginate: { itemsPerPage: 4, currentPage: PageNumber  }">
+                  <tr>
+                    <td style="color: #256d85">{{ universite.nomUniv }}</td>
+                    <td style="color: #256d85"><button type="button" (click)="openEtudiantUnivDialog(universite)" class="btn btn-outline-success"><i
+                          class="fas fa-users	"></i></button></td>
+                    <td style="color: #256d85"><button type="button" (click)="openDepartementUnivDialog(universite)" class="btn btn-outline-primary"><i
+                          class="fas fa-chalkboard-user	"></i></button></td>
+                
+
+                    <td style="display: flex; gap: 8px;" class="mt-2">
+                      <button mat-fab (click)="deleteUniversite(universite.idUniv)"
+                        style="width: 30px; height: 30px;display: flex;justify-content: center;align-items: center;"
+                        color="primary" aria-label="Example icon button with a delete icon">
+                        <mat-icon style="height: 18px; width: 18px; font-size: 18px">delete</mat-icon>
+                      </button>
+                      <button mat-fab (click)="openEditUniversiteDialog(universite)"
+                        style="width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;"
+                        color="accent" aria-label="Example icon button with a delete icon">
+                        <i style="font-size: 12px" class="bi bi-gear"></i>
+                      </button>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <pagination-controls (pageChange)="PageNumber = $event"></pagination-controls>
         </div>
       </div>
     </div>
-  </section>
-
+  </div>
+</section>

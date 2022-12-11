@@ -2,7 +2,7 @@
 <aside id="sidebar" class="sidebar">
   <ul class="sidebar-nav" id="sidebar-nav">
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="''">
+      <a class="nav-link" [routerLink]="'dashboard'">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
@@ -15,8 +15,15 @@
         <i class="fa-solid fa-file-contract fa-lg padding__right__fa"></i>
         <span>Contrat</span>
       </a>
-
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="'club'">
+        <i class="bi bi-suit-club-fill"></i>
+        <span>Club</span>
+      </a>
+    </li>
+    <!-- End Club Nav -->
 
     <li class="nav-item">
       <a class="nav-link collapsed" [routerLink]="'/etudiant'">
@@ -74,45 +81,11 @@
     </li>
     <!-- End Profile Page Nav -->
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLink]="'/contact'">
-        <i class="bi bi-envelope"></i>
-        <span>Contact</span>
-      </a>
-    </li>
-    <!-- End Contact Page Nav -->
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLink]="'/register'">
-        <i class="bi bi-card-list"></i>
-        <span>Register</span>
-      </a>
-    </li>
-    <!-- End Register Page Nav -->
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLink]="'/login'">
-        <i class="bi bi-box-arrow-in-right"></i>
-        <span>Login</span>
-      </a>
-    </li>
-    <!-- End Login Page Nav -->
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLink]="'/error'">
-        <i class="bi bi-dash-circle"></i>
-        <span>Error 404</span>
-      </a>
-    </li>
-    <!-- End Error 404 Page Nav -->
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLink]="'/blank'">
-        <i class="bi bi-file-earmark"></i>
-        <span>Blank</span>
-      </a>
-    </li>
-    <!-- End Blank Page Nav -->
+
   </ul>
 </aside>
 <!-- End Sidebar-->

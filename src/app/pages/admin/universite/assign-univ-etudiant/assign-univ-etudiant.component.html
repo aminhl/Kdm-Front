@@ -1,0 +1,20 @@
+<h2 class="card-title">Affecter une universite a un etudiant</h2>
+
+<form class="row g-3" >
+  <select  name="cars" class="form-control form-control-lg" (change)="ChangeEtu($event)">
+    <option selected="selected">Choisisser un etudiant</option>
+    <option *ngFor="let etudiant of etudiants;">{{etudiant.nomE}} {{etudiant.prenomE}}</option>
+  </select>
+  <select class="form-control form-control-lg" (change)="ChangeUniv($event)">
+    <option selected="selected">Choisisser une universite</option>
+    <option *ngFor="let universite of universites ;">{{universite.nomUniv}}</option>
+  </select>
+  <button
+    (click)="UpadateUniv()"
+    type="submit"
+    class="btn btn-outline-secondary mx-2"
+  >
+    <i class="fa-solid fa-pen-nib pe-2"></i>Affect
+  </button>
+</form>
+

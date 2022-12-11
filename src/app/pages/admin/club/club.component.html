@@ -1,0 +1,108 @@
+<section class="section" style="margin-top: 100px">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Vos Clubs</h2>
+          <mat-form-field appearance="outline">
+            <mat-label>Search Club</mat-label>
+            <input matInput />
+            <mat-icon style="color: navy" matSuffix>search</mat-icon>
+          </mat-form-field>
+          <!-- Table with stripped rows -->
+          <div
+            class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
+          >
+            <div class="dataTable-container">
+              <table class="table datatable dataTable-table">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sortable="" style="width: 9.203%">
+                      Nom
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 28.0558%">
+                      Logo
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 37.7949%">
+                      Domaine
+                    </th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let club of clubs; let i = index">
+                  <tr>
+                    <td>{{ club.nomClub }}</td>
+                    <td>
+                      <img
+                        width="80px"
+                        src="{{ club.logoClub }}"
+                        alt="Logo Club"
+                      />
+                    </td>
+                    <td>{{ club.domaine }}</td>
+                    <td style="display: flex; gap: 8px">
+                      <button
+                        (click)="deleteClub(club.idClub)"
+                        mat-fab
+                        style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                        color="primary"
+                        aria-label="Example icon button with a delete icon"
+                      >
+                        <mat-icon
+                          style="height: 18px; width: 18px; font-size: 18px"
+                          >delete</mat-icon
+                        >
+                      </button>
+                      <button
+                        (click)="openEditClubDialog(club)"
+                        mat-fab
+                        style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                        color="accent"
+                        aria-label="Example icon button with a delete icon"
+                      >
+                        <i style="font-size: 12px" class="bi bi-gear"></i>
+                      </button>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="dataTable-bottom">
+              <button
+                (click)="openAddClubDialog()"
+                mat-raised-button=""
+                color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                ></span
+                ><span class="mdc-button__label">Add Club</span
+                ><span class="mat-mdc-focus-indicator"></span
+                ><span
+                  matripple=""
+                  class="mat-ripple mat-mdc-button-ripple"
+                ></span
+                ><span class="mat-mdc-button-touch-target"></span>
+              </button>
+            </div>
+          </div>
+          <!-- End Table with stripped rows -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

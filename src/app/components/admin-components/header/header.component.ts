@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {TokenStorageService} from "../../../_services/token-storage.service";
 
 @Component({
@@ -8,11 +8,15 @@ import {TokenStorageService} from "../../../_services/token-storage.service";
 })
 export class HeaderComponent implements OnInit {
 
+  @Input() usernameHeader:string="Root";
   constructor( private tokenStorage: TokenStorageService) { }
 token:any=this.tokenStorage.getToken();
   signout(){
     this.tokenStorage.signOut();
+    location.reload();
+    this.usernameHeader="";
   }
+
   ngOnInit(): void {
   }
 

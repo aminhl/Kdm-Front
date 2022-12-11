@@ -39,20 +39,23 @@ departements! :any
   {
 
    this.SelectedEtu=e.target.value;
-    this.apiService.getbyID
-    ('getEtudiant',this.SelectedEtu).subscribe((etudiant) => {this.etudiant = etudiant   });
+    this.apiService.getbyName
+    ('findetudiantByName',this.SelectedEtu).subscribe((etudiant) => {this.etudiant = etudiant; this.SelectedEtu=this.etudiant.idEtudiant ; console.log(this.etudiant)  });
+
 
   }
   ChangeDep(e)
   {
     this.SelectedDep=e.target.value;
     this.apiService.getbyID
-    ('getDepartement',this.SelectedDep).subscribe((departement) => {this.departement = departement   });
+    ('findDepartementByname',this.SelectedDep).subscribe((departement) => {this.departement = departement ; this.SelectedDep=this.departement.idDepart; console.log(this.departement)  });
   }
   upadteEtudiant()
   {
     this.apiService.assignEtudiantToDepartement(
       'assignEtudiantToDepartement',this.SelectedEtu,this.SelectedDep).subscribe((ss) => location.reload());
   }
+
+  
 
 }
