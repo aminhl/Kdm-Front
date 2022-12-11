@@ -47,6 +47,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ClubComponent } from './pages/admin/club/club.component';
 import { AddClubComponent } from './pages/admin/club/add-club/add-club.component';
+import { EditClubComponent } from './pages/admin/club/edit-club/edit-club.component';
+import { Router, RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -81,6 +83,7 @@ import { AddClubComponent } from './pages/admin/club/add-club/add-club.component
     DashboardComponent,
     ClubComponent,
     AddClubComponent,
+    EditClubComponent,
   ],
 
   imports: [
@@ -100,6 +103,7 @@ import { AddClubComponent } from './pages/admin/club/add-club/add-club.component
     NgChartsModule,
     FormsModule,
     Ng2SearchPipeModule,
+    RouterModule,
   ],
   providers: [authInterceptorProviders, LoggedInGuard],
   bootstrap: [AppComponent],
