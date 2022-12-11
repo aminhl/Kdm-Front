@@ -16,6 +16,8 @@ import { UniversiteComponent } from './pages/admin/universite/universite.compone
 import { DepartementComponent } from './pages/admin/departement/departement.component';
 import { AddDepartementComponent } from './pages/admin/departement/add-departement/add-departement.component';
 import {LoggedInGuard} from "./pages/LoggedInGuard";
+import { ProfessorComponent } from './pages/admin/professor/professor.component';
+import { AddProfessorComponent } from './pages/admin/professor/add-professor/add-professor.component';
 
 
 
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent,canActivate:[LoggedInGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'universite', component: UniversiteComponent },
+  { path: 'addprofessor', component: AddProfessorComponent,canActivate:[LoggedInGuard] },
+  { path: 'professor', component: ProfessorComponent },
   { path: '**', component: ErrorComponent },
 ];
 

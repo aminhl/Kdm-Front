@@ -55,6 +55,10 @@ import { AddAndAssignEtudiantToEquipeAndContractComponent } from './pages/admin/
 
 import {SearchContratPipe} from "./core/search-contrat.pipe";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { ProfessorComponent } from './pages/admin/professor/professor.component';
+import { AddProfessorComponent } from './pages/admin/professor/add-professor/add-professor.component';
+import { EditprofessorComponent } from './pages/admin/professor/edit-professor/edit-professor.component';
+
 
 
 @NgModule({
@@ -87,7 +91,10 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     EquipeDetailsStudComponent,
     AssignEtudiantToDepartementComponent,
     AddAndAssignEtudiantToEquipeAndContractComponent,
-    SearchContratPipe
+    SearchContratPipe,
+    ProfessorComponent,
+    AddProfessorComponent,
+    EditprofessorComponent,
   ],
 
     imports: [
