@@ -67,7 +67,7 @@ export class ApiService {
     return this.httpClient.get(environment.apiRoot + path, {responseType: 'blob'});
   }
 
-  
+
 
   register(target: string, requestBody: Object){
     return this.httpClient.post(env.apiRoot + target, requestBody);
@@ -93,5 +93,6 @@ export class ApiService {
   findContratBySpecialiteAndDateDebutContratAndDateFinContrat(target : string, elementId1: string, elementId2: string,elementId3: string,elementId4: string) {
     return this.httpClient.get(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4 )
   }
+
 
 }

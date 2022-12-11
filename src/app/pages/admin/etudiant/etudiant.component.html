@@ -52,6 +52,9 @@
                       <th scope="col" data-sortable="" style="width: 37.7949%">
                         Envoyer un mail
                       </th>
+                      <th scope="col" data-sortable="" style="width: 37.7949%">
+                        Voir les événements
+                      </th>
                       <th scope="col" data-sortable="" style="width: 9.203%">
                         Departement
                       </th>
@@ -64,12 +67,16 @@
                       <th scope="col" data-sortable="" style="width: 9.203%">Action</th>
                     </tr>
                   </thead>
-                  <tbody *ngFor="let etudiant of etudiants | filter:searchText">
+                  <tbody *ngFor="let etudiant of etudiants | filter:searchText |  paginate: { itemsPerPage: 4, currentPage: PageNumber  }">
                     <tr>
                       <td style="color: #256d85">{{ etudiant.nomE }}</td>
                       <td style="color: #256d85">{{ etudiant.prenomE }}</td>
                       <td style="color: #256d85">{{ etudiant.option }}</td>
                       <td style="color: #256d85"><button (click)="openMailDialog(etudiant.emailE)" type="button" class="btn btn-outline-primary"><i class="fas fa-mail-bulk	"></i></button></td>
+                      <td style="color: #256d85">
+
+                        <button (click)="openCalendarDialog(etudiant.idEtudiant)" type="button" class="btn btn-outline-danger"><i class="far fa-calendar-alt	"></i></button></td>
+
                       <td style="color: #256d85">
                         <div *ngIf="etudiant.departement !=null ; else DepnotFound">
                           <button (click)="openDetailsDepartEtudiantDialog(etudiant.departement.idDepart,etudiant.nomE,etudiant.prenomE)"  type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button>
@@ -95,6 +102,9 @@
                 </table>
               </div>
             </div>
+          </div>
+          <div class="card-footer d-flex justify-content-end">
+            <pagination-controls (pageChange)="PageNumber = $event"></pagination-controls>
           </div>
         </div>
       </div>

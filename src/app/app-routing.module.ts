@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'addcontrat', component: AddContratComponent, canActivate: [LoggedInGuard] },
   { path: 'equipe', component: EquipeComponent, canActivate: [LoggedInGuard], },
   { path: 'addequipe', component: AddEquipeComponent, canActivate: [LoggedInGuard] },
-  { path: 'etudiant', component: EtudiantComponent, canActivate: [LoggedInGuard] },
+  { path: 'etudiant', loadChildren: () => import('./pages/admin/etudiant/etudiant.module').then(e =>e.EtudiantModule) , canActivate: [LoggedInGuard] },
   { path: 'login', component: LoginComponent, },
   { path: 'contact', component: ContactComponent, canActivate: [LoggedInGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard] },

@@ -19,6 +19,7 @@ export class EquipeDetailsStudComponent implements OnInit {
     this.getDetails()
     this.nomE=this.data.nomE;
     this.prenomE=this.data.prenomE;
+    this.equipes= [];
 
   }
   getDetails()
@@ -27,7 +28,7 @@ export class EquipeDetailsStudComponent implements OnInit {
     ('getEtudiant',this.data.etudiantID).subscribe((equipe) =>
     {this.etudiant = equipe ;
       this.equipes=this.etudiant.equipes
-      console.log(this.equipes.length) });
+       });
   }
   openDetailsEquipeDetaileeDialog(idEquipe: number)
   {}

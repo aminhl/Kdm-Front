@@ -21,7 +21,9 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "@fortawesome/fontawesome-free": "^6.2.1",
-
+    "@fullcalendar/angular": "^5.11.3",
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/interaction": "^5.11.3",
     "chart.js": "^4.0.1",
     "jspdf": "^2.5.1",
     "ng2-charts": "^3.1.2",
