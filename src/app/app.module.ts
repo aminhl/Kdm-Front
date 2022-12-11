@@ -43,7 +43,7 @@ import { AssignEtudiantToDepartementComponent} from './pages/admin/etudiant/assi
 import {AddAndAssignEtudiantToEquipeAndContractComponent} from './pages/admin/etudiant/add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component';
 import {DetailEquipeComponent} from './pages/admin/equipe/detail-equipe/detail-equipe.component';
 import { AddDetailEquipeComponent } from './pages/admin/equipe/detail-equipe/add-detail-equipe/add-detail-equipe.component';
-import { SearchContratPipe } from './core/search-contrat.pipe';
+import { SearchCustomPipe } from './core/search-custom.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EtudiantMailComponent } from './pages/admin/etudiant/etudiant-mail/etudiant-mail.component';
 import { ShowUnivEtudiantsComponent } from './pages/admin/universite/show-univ-etudiants/show-univ-etudiants.component';
@@ -83,8 +83,7 @@ import { AssignUnivDepartementComponent } from './pages/admin/universite/assign-
     EquipeDetailsStudComponent,
     AssignEtudiantToDepartementComponent,
     AddAndAssignEtudiantToEquipeAndContractComponent,
-    SearchContratPipe,
-
+    SearchCustomPipe,
     ProfessorComponent,
     AddProfessorComponent,
     EditprofessorComponent,
