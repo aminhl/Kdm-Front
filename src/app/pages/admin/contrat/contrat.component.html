@@ -35,7 +35,7 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let contrat of contrats | searchContrat:searchedContrat">
+                <tbody *ngFor="let contrat of contrats | searchTarget:searchedContrat">
                   <tr>
                     <!--                    <th scope="row">{{ contrat.idContrat }}</th>-->
                     <td style="color: #256d85">{{ contrat.specialite }}</td>
