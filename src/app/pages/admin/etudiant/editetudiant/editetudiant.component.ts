@@ -28,7 +28,7 @@ export class EditetudiantComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  initForm() 
+  initForm()
   {
     this.nomE = new FormControl(this.receivedRow.etudiant.nomE, [Validators.required]);
     this.prenomE = new FormControl(this.receivedRow.etudiant.prenomE, [Validators.required]);
@@ -48,13 +48,12 @@ export class EditetudiantComponent implements OnInit {
       prenomE: this.etudiantFrom.value.prenomE,
       nomE: this.etudiantFrom.value.nomE,
       option: this.etudiantFrom.value.option,
-      
+
     };
     this.apiService
       .update('updateEtudiant', etudiantId, etudiantUpdated)
       .subscribe(() => {
         this.closeDialog();
-        location.reload();
       });
   }
   resetControls() {

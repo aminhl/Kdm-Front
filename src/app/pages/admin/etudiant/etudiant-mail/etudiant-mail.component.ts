@@ -13,7 +13,7 @@ export class EtudiantMailComponent implements OnInit {
   etudiantEmail : any;
   object: FormControl;
   message: FormControl;
-  destinataire: FormControl;
+
   constructor(private apiService: ApiService,@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
@@ -28,7 +28,6 @@ export class EtudiantMailComponent implements OnInit {
       message: this.emailForm.value.message,
     };
     this.sendMail(emailFormtoSend);
-    location.reload();
 
   }
   sendMail(MailBody:any)

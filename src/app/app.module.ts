@@ -1,4 +1,7 @@
 import {NgModule} from '@angular/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -26,6 +29,22 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AddEquipeComponent} from './pages/admin/equipe/add-equipe/add-equipe.component';
 import {UpdateEquipeComponent} from './pages/admin/equipe/update-equipe/update-equipe.component';
+import {ArchiveStatsComponent} from "./pages/admin/contrat/archive-stats/archive-stats.component";
+import {NgChartsModule} from "ng2-charts";
+import {UniversiteComponent} from './pages/admin/universite/universite.component';
+import {AddUniversiteComponent} from './pages/admin/universite/add-universite/add-universite.component';
+import {EditUniversiteComponent} from './pages/admin/universite/edit-universite/edit-universite.component';
+import {authInterceptorProviders} from "./_helpers/auth.interceptor";
+import {LoggedInGuard} from "./pages/LoggedInGuard";
+import {SearchContratPipe} from "./core/search-contrat.pipe";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {ShowUnivEtudiantsComponent} from './pages/admin/universite/show-univ-etudiants/show-univ-etudiants.component';
+import {ShowUnivDepartsComponent} from './pages/admin/universite/show-univ-departs/show-univ-departs.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {EventCalendarComponent} from "./pages/admin/event-calendar/event-calendar.component";
+
+FullCalendarModule.registerPlugins([dayGridPlugin,interactionPlugin]);
+
 import {EtudiantComponent} from './pages/admin/etudiant/etudiant.component';
 import {AddetudiantComponent} from './pages/admin/etudiant/addetudiant/addetudiant.component';
 import {EditetudiantComponent} from './pages/admin/etudiant/editetudiant/editetudiant.component';
@@ -58,6 +77,7 @@ import { AssignUnivEtudiantComponent } from './pages/admin/universite/assign-uni
 import { AssignUnivDepartementComponent } from './pages/admin/universite/assign-univ-departement/assign-univ-departement.component';
 import { AssignEtudiantToClubComponent } from './pages/admin/club/assign-etudiant-to-club/assign-etudiant-to-club.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,13 +92,14 @@ import { AssignEtudiantToClubComponent } from './pages/admin/club/assign-etudian
     EditContratComponent,
     AddEquipeComponent,
     UpdateEquipeComponent,
-    EtudiantComponent,
-    AddetudiantComponent,
-    EditetudiantComponent,
     ArchiveStatsComponent,
     UniversiteComponent,
     AddUniversiteComponent,
     EditUniversiteComponent,
+    SearchContratPipe,
+    ShowUnivEtudiantsComponent,
+    ShowUnivDepartsComponent,
+    EventCalendarComponent
     DepartDetailsStudComponent,
     ContratDetailsStudComponent,
     EquipeDetailsStudComponent,
@@ -119,7 +140,11 @@ import { AssignEtudiantToClubComponent } from './pages/admin/club/assign-etudian
     NgChartsModule,
     FormsModule,
     Ng2SearchPipeModule,
+
+    FullCalendarModule
+
     RouterModule,
+
   ],
   providers: [authInterceptorProviders, LoggedInGuard],
   bootstrap: [AppComponent],

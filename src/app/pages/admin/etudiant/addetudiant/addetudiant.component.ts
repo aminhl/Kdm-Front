@@ -12,17 +12,18 @@ export class AddetudiantComponent implements OnInit {
   nomE!: FormControl;
   prenomE!: FormControl;
   option!: FormControl;
+  etudiants: any;
 
   constructor(private apiService: ApiService,
-    public dialogRef: MatDialogRef<AddetudiantComponent>) 
-    { 
+    public dialogRef: MatDialogRef<AddetudiantComponent>)
+    {
       this.initForm();
       this.createForm();
     }
 
   ngOnInit(): void {
   }
-  initForm() 
+  initForm()
   {
     this.nomE = new FormControl('', [Validators.required]);
     this.prenomE = new FormControl('', [Validators.required]);
@@ -44,11 +45,11 @@ export class AddetudiantComponent implements OnInit {
     this.addEtudiant(etudianttoAdd);
     this.resetControls();
     this.closeDialog();
-    location.reload();
   }
 
   addEtudiant(etudiantBody: Object) {
-    this.apiService.add('addEtudiant', etudiantBody).subscribe((etudiant) => null);
+    this.apiService.add('addEtudiant', etudiantBody).subscribe((etudiant) => this.apiService.get
+    ('getEtudiants').subscribe((etudiants) => (this.etudiants = etudiants)));
   }
   resetControls() {
     this.etudiantFrom.reset();

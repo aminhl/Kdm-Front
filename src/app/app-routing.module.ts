@@ -18,6 +18,19 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { ClubComponent } from './pages/admin/club/club.component';
 
 const routes: Routes = [
+
+  { path: '', component: LoginComponent },
+  { path: 'contrat', component: ContratComponent, canActivate: [LoggedInGuard] },
+  { path: 'addcontrat', component: AddContratComponent, canActivate: [LoggedInGuard] },
+  { path: 'equipe', component: EquipeComponent, canActivate: [LoggedInGuard], },
+  { path: 'addequipe', component: AddEquipeComponent, canActivate: [LoggedInGuard] },
+  { path: 'etudiant', loadChildren: () => import('./pages/admin/etudiant/etudiant.module').then(e =>e.EtudiantModule) , canActivate: [LoggedInGuard] },
+  { path: 'login', component: LoginComponent, },
+  { path: 'contact', component: ContactComponent, canActivate: [LoggedInGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard] },
+  { path: 'register', component: RegisterComponent },
+  { path: 'departement', loadChildren: () => import('./pages/admin/departement/departement.module').then(m => m.DepartementsModule), canActivate: [LoggedInGuard] },
+  { path: 'universite', component: UniversiteComponent,canActivate:[LoggedInGuard] },
   { path: 'profile', component: ProfileComponent },
   {
     path: 'contrat',
@@ -71,6 +84,7 @@ const routes: Routes = [
     canActivate: [LoggedInGuard],
   },
   { path: 'club', component: ClubComponent, canActivate: [LoggedInGuard] },
+
   { path: '**', component: ErrorComponent },
 ];
 

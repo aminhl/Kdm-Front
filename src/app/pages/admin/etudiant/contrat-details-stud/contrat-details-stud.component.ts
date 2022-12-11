@@ -22,6 +22,7 @@ export class ContratDetailsStudComponent implements OnInit {
     this.getDetails()
     this.nomE=this.data.nomE;
     this.prenomE=this.data.prenomE;
+    this.contrats = [];
 
   }
   getDetails()
