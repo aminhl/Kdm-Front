@@ -11,6 +11,9 @@ import {ContratComponent} from './pages/admin/contrat/contrat.component';
 import {AdminComponentsModule} from './components/admin-components/admin-components.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ProfessorComponent } from './pages/admin/professor/professor.component';
+import { AddProfessorComponent } from './pages/admin/professor/add-professor/add-professor.component';
+import { EditprofessorComponent } from './pages/admin/professor/edit-professor/edit-professor.component';
 import {AddContratComponent} from './pages/admin/contrat/add-contrat/add-contrat.component';
 import {EquipeComponent} from './pages/admin/equipe/equipe.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -38,7 +41,6 @@ import {ContratDetailsStudComponent} from './pages/admin/etudiant/contrat-detail
 import {EquipeDetailsStudComponent} from './pages/admin/etudiant/equipe-details-stud/equipe-details-stud.component';
 import { AssignEtudiantToDepartementComponent} from './pages/admin/etudiant/assign-etudiant-to-departement/assign-etudiant-to-departement.component';
 import {AddAndAssignEtudiantToEquipeAndContractComponent} from './pages/admin/etudiant/add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component';
-
 import {DetailEquipeComponent} from './pages/admin/equipe/detail-equipe/detail-equipe.component';
 import { AddDetailEquipeComponent } from './pages/admin/equipe/detail-equipe/add-detail-equipe/add-detail-equipe.component';
 import { SearchContratPipe } from './core/search-contrat.pipe';
@@ -82,6 +84,10 @@ import { AssignUnivDepartementComponent } from './pages/admin/universite/assign-
     AssignEtudiantToDepartementComponent,
     AddAndAssignEtudiantToEquipeAndContractComponent,
     SearchContratPipe,
+
+    ProfessorComponent,
+    AddProfessorComponent,
+    EditprofessorComponent,
     EtudiantMailComponent,
     ShowUnivEtudiantsComponent,
     ShowUnivDepartsComponent,

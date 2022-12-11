@@ -1,0 +1,114 @@
+<section class="section" style="margin-top: 100px">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Professors List</h2>
+
+          <!-- Table with stripped rows -->
+          <div
+            class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+            <div class="dataTable-container">
+              <table class="table datatable dataTable-table">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sortable="" style="width: 9.203%">
+                      First Name
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 28.0558%">
+                      Last Name
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 37.7949%">
+                      Email
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 19.2995%">
+                      Phone
+                    </th>
+                    <th scope="col" data-sortable="" style="width: 19.2995%">
+                      speciality
+                    </th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let professor of professors">
+                  <tr>
+                    <!--                    <th scope="row">{{ professor }}</th>-->
+                    <td style="color: #256d85">{{ professor.firstName }}</td>
+                    <td style="color: #7743db">
+                      {{ professor.lastName }}
+                    </td>
+                    <td style="color: #d23369">{{ professor.email }}</td>
+                    <td>
+                      {{ professor.phone }}
+                      <i
+                        style="color: green; font-weight: bold"
+
+                      ></i>
+                    </td>
+                    <td style="color: #256d85">{{professor.speciality}}</td>
+                    <td style="display: flex; gap: 8px">
+                      <button
+                        mat-fab
+                        (click)="deleteProfessor(professor.idProfessor)"
+                        style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                        color="primary"
+                        aria-label="Example icon button with a delete icon"
+                      >
+                        <mat-icon
+                          style="height: 18px; width: 18px; font-size: 18px"
+                          >delete</mat-icon
+                        >
+                      </button>
+                      <button
+                        mat-fab
+                        (click)="openEditProfessorDialog(professor)"
+                        style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                        color="accent"
+                        aria-label="Example icon button with a delete icon"
+                      >
+                        <i style="font-size: 12px" class="bi bi-gear"></i>
+                      </button>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="dataTable-bottom">
+              <button
+                (click)="openAddProfessorDialog()"
+                mat-raised-button=""
+                color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                ></span
+                ><span class="mdc-button__label">Add Professor</span
+                ><span class="mat-mdc-focus-indicator"></span
+                ><span
+                  matripple=""
+                  class="mat-ripple mat-mdc-button-ripple"
+                ></span
+                ><span class="mat-mdc-button-touch-target"></span>
+              </button>
+            </div>
+          </div>
+          <!-- End Table with stripped rows -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

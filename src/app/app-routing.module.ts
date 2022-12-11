@@ -11,6 +11,8 @@ import { EquipeComponent } from './pages/admin/equipe/equipe.component';
 import { AddEquipeComponent } from './pages/admin/equipe/add-equipe/add-equipe.component';
 import { EtudiantComponent } from './pages/admin/etudiant/etudiant.component';
 import { UniversiteComponent } from './pages/admin/universite/universite.component';
+import { ProfessorComponent } from './pages/admin/professor/professor.component';
+import { AddProfessorComponent } from './pages/admin/professor/add-professor/add-professor.component';
 import { LoggedInGuard } from './pages/LoggedInGuard';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ClubComponent } from './pages/admin/club/club.component';

@@ -1,0 +1,87 @@
+<!--<main id="main" class="main">-->
+<!--  <section class="section">-->
+<!--    <div class="card">-->
+<!--      <div class="card-body">-->
+<h2 class="card-title">Edit Professor</h2>
+<!-- Vertical Form -->
+<form class="row g-3" [formGroup]="professorForm">
+
+  <div class="col-6 offset-3">
+        <label class="form-label">First Name</label>
+        <input tab index="-1" type="text" class="form-control position-relative"formControlName="firstName" [ngClass]="{'input-invalid': firstName.touched && firstName.invalid,'input-valid': firstName.touched && firstName.valid}"/>
+        <!--error message-->
+        <div class="message-invalid"*ngIf="firstName.touched && firstName.hasError('required')">First Name Is Required</div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="firstName.touched && !firstName.errors">Looks good!</div>
+      </div>
+
+      <div class="col-6 offset-3">
+        <label class="form-label">Last Name</label>
+        <input tab index="-1" type="text" class="form-control position-relative"formControlName="lastName" [ngClass]="{'input-invalid': lastName.touched && lastName.invalid,'input-valid': lastName.touched && lastName.valid}"/>
+        <!--error message-->
+        <div class="message-invalid"*ngIf="lastName.touched && lastName.hasError('required')">lastName Is Required</div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="lastName.touched && !lastName.errors">Looks good!</div>
+      </div>
+      <div class="col-6 offset-3">
+        <label class="form-label">Email</label>
+        <input tab index="-1" type="text" class="form-control position-relative"formControlName="email" [ngClass]="{'input-invalid': email.touched && email.invalid,'input-valid': email.touched && email.valid}"/>
+        <!--error message-->
+        <div class="message-invalid"*ngIf="email.touched && email.hasError('required')">email Is Required</div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="email.touched && !email.errors">Looks good!</div>
+      </div>
+      <div class="col-6 offset-3">
+        <label class="form-label">Phone</label>
+        <input tab index="-1" type="text" class="form-control position-relative"formControlName="phone"[ngClass]="{'input-invalid': phone.touched && phone.invalid,'input-valid': phone.touched && phone.valid}"/>
+        <!--error message-->
+        <div class="message-invalid"*ngIf="phone.touched && phone.hasError('required')">phone Is Required</div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="phone.touched && !phone.errors">Looks good!</div>
+      </div>
+
+  <div class="col-6 offset-3">
+        <label class="form-label">Option</label>
+        <select tab index="-1" [ngClass]="{ 'input-invalid': speciality.touched && speciality.invalid, 'input-valid': speciality.touched && speciality.valid}" class="form-select"aria-label="Default select example"formControlName="speciality">
+          <option value="IA" selected>IA</option>
+          <option value="RESEAUX">RESEAUX</option>
+          <option value="CLOUD">CLOUD</option>
+          <option value="SECURITE">SECURITE</option>
+          <option value="MATHEMATICS">MATHEMATICS</option>
+          <option value="PHYSICS">PHYSICS</option>
+        </select>
+        <div class="message-invalid"*ngIf="speciality.touched && speciality.hasError('required')">speciality Is Required
+        </div>
+        <!--success message-->
+        <div class="message-valid" *ngIf="speciality.touched && !speciality.errors">
+          Looks good!
+        </div>
+      </div>
+
+  <!--          [disabled]="this.professorForm.status == 'INVALID'"-->
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary mx-2" (click)="upadteProfessor(receivedRow.professor.idProfessor)" [disabled]="!professorForm.valid">
+      <i class="fa-regular fa-floppy-disk pe-2"></i>Edit
+    </button>
+    <button
+      type="button"
+      class="btn btn-warning mx-2"
+      (click)="resetControls()"
+    >
+      <i class="fa-solid fa-broom pe-2"></i>
+      Reset
+    </button>
+    <button
+      (click)="closeDialog()"
+      type="button"
+      class="btn btn-outline-danger"
+    >
+      <i class="fa-solid fa-rotate-left pe-2"></i>Back To Contracts Page
+    </button>
+  </div>
+</form>
+<!-- Vertical Form -->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--</main>-->
