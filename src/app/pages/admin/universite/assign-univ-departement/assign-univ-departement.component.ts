@@ -51,5 +51,6 @@ export class AssignUnivDepartementComponent implements OnInit {
   }
   closeDialog() {
     this.dialog.closeAll();
+
   }
 }

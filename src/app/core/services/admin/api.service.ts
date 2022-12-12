@@ -123,6 +123,10 @@ private _refreshNeeded=new Subject<void>();
     );
   }
 
+  assignProfessorToDepartement(target : string, elementId1: number, elementId2: number)
+  {
+    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null);
+  }
 
 
 }
