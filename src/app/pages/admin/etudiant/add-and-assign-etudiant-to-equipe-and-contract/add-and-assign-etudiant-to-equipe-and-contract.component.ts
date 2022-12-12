@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../../../core/services/admin/api.service";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-add-and-assign-etudiant-to-equipe-and-contract',
@@ -18,7 +18,7 @@ export class AddAndAssignEtudiantToEquipeAndContractComponent implements OnInit 
   equipe! :any
   contrat! :any
   etudiantBody: Object
-  constructor(private apiService: ApiService, private dialog: MatDialog) {}
+  constructor(private apiService: ApiService, private dialog: MatDialog,public dialogRef: MatDialogRef<AddAndAssignEtudiantToEquipeAndContractComponent>) {}
   ngOnInit(): void
   {
     this.getEtudiant();
@@ -74,7 +74,10 @@ export class AddAndAssignEtudiantToEquipeAndContractComponent implements OnInit 
   {
 
     this.apiService.addAndAssignEtudiantToEquipeAndContract(
-      'addAndAssignEtudiantToEquipeAndContract',this.SelectedCon,this.SelectedEqu,this.etudiantBody).subscribe((ss) =>
-    location.reload());
+      'addAndAssignEtudiantToEquipeAndContract',this.SelectedCon,this.SelectedEqu,this.etudiantBody).subscribe((ss) => this.closeDialog());
   }
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
 }

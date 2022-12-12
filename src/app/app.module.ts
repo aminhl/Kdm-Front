@@ -30,15 +30,15 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AddEquipeComponent} from './pages/admin/equipe/add-equipe/add-equipe.component';
 import {UpdateEquipeComponent} from './pages/admin/equipe/update-equipe/update-equipe.component';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
-import {ShowUnivEtudiantsComponent} from './pages/admin/universite/show-univ-etudiants/show-univ-etudiants.component';
-import {ShowUnivDepartsComponent} from './pages/admin/universite/show-univ-departs/show-univ-departs.component';
+
+
 import {NgxPaginationModule} from 'ngx-pagination';
 import {EventCalendarComponent} from "./pages/admin/event-calendar/event-calendar.component";
 import {ArchiveStatsComponent} from './pages/admin/contrat/archive-stats/archive-stats.component';
 import {NgChartsModule} from 'ng2-charts';
-import {UniversiteComponent} from './pages/admin/universite/universite.component';
-import {AddUniversiteComponent} from './pages/admin/universite/add-universite/add-universite.component';
-import {EditUniversiteComponent} from './pages/admin/universite/edit-universite/edit-universite.component';
+
+
+
 import {authInterceptorProviders} from './_helpers/auth.interceptor';
 import {LoggedInGuard} from './pages/LoggedInGuard';
 import {DetailEquipeComponent} from './pages/admin/equipe/detail-equipe/detail-equipe.component';
@@ -51,12 +51,7 @@ import {ClubComponent} from './pages/admin/club/club.component';
 import {AddClubComponent} from './pages/admin/club/add-club/add-club.component';
 import {EditClubComponent} from './pages/admin/club/edit-club/edit-club.component';
 import {RouterModule} from '@angular/router';
-import {
-  AssignUnivEtudiantComponent
-} from './pages/admin/universite/assign-univ-etudiant/assign-univ-etudiant.component';
-import {
-  AssignUnivDepartementComponent
-} from './pages/admin/universite/assign-univ-departement/assign-univ-departement.component';
+
 import {
   AssignEtudiantToClubComponent
 } from './pages/admin/club/assign-etudiant-to-club/assign-etudiant-to-club.component';
@@ -81,25 +76,17 @@ FullCalendarModule.registerPlugins([dayGridPlugin,interactionPlugin]);
     AddEquipeComponent,
     UpdateEquipeComponent,
     ArchiveStatsComponent,
-    UniversiteComponent,
-    AddUniversiteComponent,
-    EditUniversiteComponent,
-    ShowUnivEtudiantsComponent,
-    ShowUnivDepartsComponent,
     EventCalendarComponent,
     SearchCustomPipe,
     ProfessorComponent,
     AddProfessorComponent,
     EditprofessorComponent,
-    ShowUnivDepartsComponent,
     DashboardComponent,
     ClubComponent,
     AddClubComponent,
     EditClubComponent,
     DetailEquipeComponent,
     AddDetailEquipeComponent,
-    AssignUnivEtudiantComponent,
-    AssignUnivDepartementComponent,
     AssignEtudiantToClubComponent,
     AssignProfessorToDepartmentComponent,
     AssignProfessorToContractComponent,

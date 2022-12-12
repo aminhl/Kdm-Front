@@ -18,7 +18,12 @@ export class UniversiteComponent implements OnInit {
   constructor(private apiService: ApiService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.apiService.refreshNeeded.subscribe(
+      () => {
     this.getUniversites();
+  }
+  )
+  this.getUniversites();
   }
   nomUniv!: any;
   universites!: any;
@@ -31,8 +36,8 @@ export class UniversiteComponent implements OnInit {
   }
 
   deleteUniversite(elementId: number) {
-    this.apiService.delete('deleteUniversite', elementId).subscribe(() => null);
-    location.reload();
+    this.apiService.delete('deleteUniversite', elementId).subscribe((u) => this.universites=u);
+
   }
 
   openAddUniversiteDialog() {

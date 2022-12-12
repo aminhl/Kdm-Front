@@ -16,6 +16,12 @@ export class ContratComponent implements OnInit {
   constructor(private apiService: ApiService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
+
+    this.apiService.refreshNeeded.subscribe(
+      () => {
+        this.getContrats();
+      }
+    )
     this.getContrats();
   }
 
@@ -32,7 +38,7 @@ export class ContratComponent implements OnInit {
   deleteContrat(elementId: number) {
     this.apiService
       .delete('deleteContrat', elementId)
-      .subscribe(() => location.reload());
+      .subscribe();
   }
 
   openAddContratDialog() {

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services/admin/api.service';
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {an} from "chart.js/dist/chunks/helpers.core";
+import {ContratComponent} from "../../contrat/contrat.component";
 
 @Component({
   selector: 'app-assign-etudiant-to-departement',
@@ -15,7 +16,7 @@ departements! :any
   SelectedDep! :any
   etudiant! :any
   departement! :any
-  constructor(private apiService: ApiService, private dialog: MatDialog)
+  constructor(private apiService: ApiService, private dialog: MatDialog, public dialogRef: MatDialogRef<AssignEtudiantToDepartementComponent>)
   {
 
   }
@@ -53,9 +54,11 @@ departements! :any
   upadteEtudiant()
   {
     this.apiService.assignEtudiantToDepartement(
-      'assignEtudiantToDepartement',this.SelectedEtu,this.SelectedDep).subscribe((ss) => location.reload());
+      'assignEtudiantToDepartement',this.SelectedEtu,this.SelectedDep).subscribe(()=>this.closeDialog());
+  }
+  closeDialog() {
+    this.dialogRef.close();
   }
 
-  
 
 }

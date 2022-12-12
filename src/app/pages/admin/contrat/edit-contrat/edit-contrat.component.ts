@@ -75,7 +75,7 @@ export class EditContratComponent implements OnInit {
       .update('updateContrat', contratId, contratUpdated)
       .subscribe(() => {
         this.closeDialog();
-        location.reload();
+
       });
   }
 
