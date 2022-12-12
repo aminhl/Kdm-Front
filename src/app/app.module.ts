@@ -58,14 +58,8 @@ import {
 import { AssignEquipeDetailEquipeComponent } from './pages/admin/equipe/assign-equipe-detail-equipe/assign-equipe-detail-equipe.component';
 import { AssignProfessorToDepartmentComponent } from './pages/admin/professor/assign-professor-to-department/assign-professor-to-department.component';
 import { AssignProfessorToContractComponent } from './pages/admin/professor/assign-professor-to-contract/assign-professor-to-contract.component';
-<<<<<<< HEAD
 import { DepartmentDetailsProfComponent } from './pages/admin/professor/department-details-prof/department-details-prof.component';
-
-=======
->>>>>>> 85f301c41d8b58d4b2b3111d32355ff96ec66719
 FullCalendarModule.registerPlugins([dayGridPlugin,interactionPlugin]);
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,11 +90,7 @@ FullCalendarModule.registerPlugins([dayGridPlugin,interactionPlugin]);
     AssignEquipeDetailEquipeComponent,
     AssignProfessorToDepartmentComponent,
     AssignProfessorToContractComponent,
-<<<<<<< HEAD
     DepartmentDetailsProfComponent,
-=======
-
->>>>>>> 85f301c41d8b58d4b2b3111d32355ff96ec66719
   ],
 
   imports: [

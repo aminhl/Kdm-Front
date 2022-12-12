@@ -133,5 +133,9 @@ private _refreshNeeded=new Subject<void>();
     return this.httpClient.put(env.apiRoot+target +'/'+element1+ '/' +element2,null )
   }
 
+  assignEquipeToDetailEquipe(target : string, element1: string, element2: string) {
+    return this.httpClient.put(env.apiRoot+target +'/'+element1+ '/' +element2,null )
+  }
+
 
 }
