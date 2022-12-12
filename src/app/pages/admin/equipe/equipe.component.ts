@@ -16,7 +16,9 @@ import {AssignEquipeDetailEquipeComponent} from "./assign-equipe-detail-equipe/a
   styleUrls: ['./equipe.component.css']
 })
 export class EquipeComponent implements OnInit {
-  constructor(private apiService: ApiService, private dialog: MatDialog,private token: TokenStorageService) {}
+  constructor(private apiService: ApiService,
+              private dialog: MatDialog
+              ,private token: TokenStorageService) {}
 
   ngOnInit(): void {
     this.getEquipes();
