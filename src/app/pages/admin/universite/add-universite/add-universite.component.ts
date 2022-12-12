@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services/admin/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { A } from 'chart.js/dist/chunks/helpers.core';
 @Component({
   selector: 'app-add-universite',
   templateUrl: './add-universite.component.html',
@@ -10,6 +11,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class AddUniversiteComponent implements OnInit {
   universiteForm!:FormGroup;
   nomUniv!: FormControl;
+  universites !:any;
 
 
   constructor(private apiService: ApiService,public dialogRef: MatDialogRef<AddUniversiteComponent>) {
@@ -35,11 +37,10 @@ export class AddUniversiteComponent implements OnInit {
     };
     this.addUniversite(universiteToAdd);
     this.closeDialog();
-    location.reload();
     this.resetControls();
   }
   addUniversite(universiteBody: Object) {
-    this.apiService.add('addUniversite', universiteBody).subscribe((universite) => null);
+    this.apiService.add('addUniversite', universiteBody).subscribe((universite) => this.apiService.get('getUniversitiesSorted').subscribe((universites)=>(this.universites=universites)));
   }
   resetControls() {
     this.universiteForm.reset();

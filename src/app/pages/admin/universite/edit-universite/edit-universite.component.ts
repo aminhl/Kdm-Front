@@ -46,7 +46,6 @@ export class EditUniversiteComponent implements OnInit {
       .update('updateUniversite', univId, universiteUpdated)
       .subscribe(() => {
         this.closeDialog();
-        location.reload();
       });
   }
   closeDialog() {

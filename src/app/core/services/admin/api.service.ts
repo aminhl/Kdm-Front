@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { environment as env, environment } from '../../../../environments/environment';
-import {map, Observable} from "rxjs";
+import {map, Observable, Subject, tap} from "rxjs";
 import {IArchivePercentType} from "../../models/ArchivePercentType";
 
 
@@ -16,24 +16,41 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {
   }
+private _refreshNeeded=new Subject<void>();
 
+  get refreshNeeded()
+  {
+    return this._refreshNeeded;
+  }
   get(target: string) {
     return this.httpClient.get(env.apiRoot + target);
   }
 
 
   add(target: string, requestBody: Object) {
-    return this.httpClient.post(env.apiRoot + target, requestBody);
+    return this.httpClient.post(env.apiRoot + target, requestBody).pipe(
+      tap(()=>{
+        this._refreshNeeded.next();
+      })
+    );
   }
 
   delete(target: string, elementId: number) {
-    return this.httpClient.delete(env.apiRoot + target + '/' + elementId);
+    return this.httpClient.delete(env.apiRoot + target + '/' + elementId).pipe(
+      tap(()=>{
+        this._refreshNeeded.next();
+      })
+    );
   }
 
   update(target: string, elementId: number, requestBody: Object) {
     return this.httpClient.put(
       env.apiRoot + target + '/' + elementId,
       requestBody
+    ).pipe(
+      tap(()=>{
+        this._refreshNeeded.next();
+      })
     );
   }
 
@@ -84,14 +101,31 @@ export class ApiService {
   // assignEtudiantToDepartement
   assignEtudiantToDepartement(target : string, elementId1: number, elementId2: number)
   {
-    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null);
+    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null).pipe(
+      tap(()=>{
+        this._refreshNeeded.next();
+      })
+    );
   }
 
   addAndAssignEtudiantToEquipeAndContract(target : string, elementId1: number, elementId2: number,requestBody: Object) {
-    return this.httpClient.put(env.apiRoot+target +'/'+elementId1+ '/' +elementId2,requestBody )
+    return this.httpClient.put(env.apiRoot+target +'/'+elementId1+ '/' +elementId2,requestBody ).pipe(
+      tap(()=>{
+        this._refreshNeeded.next();
+      })
+    );
   }
   findContratBySpecialiteAndDateDebutContratAndDateFinContrat(target : string, elementId1: string, elementId2: string,elementId3: string,elementId4: string) {
-    return this.httpClient.get(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4 )
+    return this.httpClient.get(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4 ).pipe(
+      tap(()=>{
+        this._refreshNeeded.next();
+      })
+    );
+  }
+
+  assignProfessorToDepartement(target : string, elementId1: number, elementId2: number)
+  {
+    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null);
   }
 
   assignEquipeToDetailEquipe(target : string, element1: string, element2: string) {
