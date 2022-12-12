@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {FullCalendarModule} from '@fullcalendar/angular';
+import { NgModule } from '@angular/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import {BrowserModule} from '@angular/platform-browser';
@@ -30,31 +30,21 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AddEquipeComponent} from './pages/admin/equipe/add-equipe/add-equipe.component';
 import {UpdateEquipeComponent} from './pages/admin/equipe/update-equipe/update-equipe.component';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
-
-
 import {NgxPaginationModule} from 'ngx-pagination';
 import {EventCalendarComponent} from "./pages/admin/event-calendar/event-calendar.component";
 import {ArchiveStatsComponent} from './pages/admin/contrat/archive-stats/archive-stats.component';
 import {NgChartsModule} from 'ng2-charts';
-
-
-
 import {authInterceptorProviders} from './_helpers/auth.interceptor';
 import {LoggedInGuard} from './pages/LoggedInGuard';
 import {DetailEquipeComponent} from './pages/admin/equipe/detail-equipe/detail-equipe.component';
-import {
-  AddDetailEquipeComponent
-} from './pages/admin/equipe/detail-equipe/add-detail-equipe/add-detail-equipe.component';
+import {AddDetailEquipeComponent} from './pages/admin/equipe/detail-equipe/add-detail-equipe/add-detail-equipe.component';
 import {SearchCustomPipe} from './core/search-custom.pipe';
 import {DashboardComponent} from './pages/admin/dashboard/dashboard.component';
 import {ClubComponent} from './pages/admin/club/club.component';
 import {AddClubComponent} from './pages/admin/club/add-club/add-club.component';
 import {EditClubComponent} from './pages/admin/club/edit-club/edit-club.component';
 import {RouterModule} from '@angular/router';
-
-import {
-  AssignEtudiantToClubComponent
-} from './pages/admin/club/assign-etudiant-to-club/assign-etudiant-to-club.component';
+import {AssignEtudiantToClubComponent} from './pages/admin/club/assign-etudiant-to-club/assign-etudiant-to-club.component';
 import { AssignEquipeDetailEquipeComponent } from './pages/admin/equipe/assign-equipe-detail-equipe/assign-equipe-detail-equipe.component';
 import { AssignProfessorToDepartmentComponent } from './pages/admin/professor/assign-professor-to-department/assign-professor-to-department.component';
 import { AssignProfessorToContractComponent } from './pages/admin/professor/assign-professor-to-contract/assign-professor-to-contract.component';
