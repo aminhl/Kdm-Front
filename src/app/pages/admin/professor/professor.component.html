@@ -4,6 +4,11 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title">Professors List</h2>
+          <mat-form-field appearance="outline">
+            <mat-label>Search for Professors</mat-label>
+            <input matInput  [(ngModel)]="firstName">
+            <mat-icon style="color: navy" matSuffix>search</mat-icon>
+          </mat-form-field>
 
           <!-- Table with stripped rows -->
           <div

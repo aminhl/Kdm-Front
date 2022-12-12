@@ -71,6 +71,7 @@ const routes: Routes = [
     canActivate: [LoggedInGuard],
   },
   { path: 'club', component: ClubComponent, canActivate: [LoggedInGuard] },
+  { path: 'professor', component: ProfessorComponent, canActivate: [LoggedInGuard] },
   { path: '**', component: ErrorComponent },
 ];
 
