@@ -11,8 +11,13 @@ export class DetailEquipeComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.getDetailEquipes();
-  }
+
+
+    this.apiService.refreshNeeded.subscribe(
+      () => {
+        this.getDetailEquipes();      }
+    )
+    this.getDetailEquipes();  }
   getDetailEquipes()
   {
     this.apiService.get
@@ -21,7 +26,7 @@ export class DetailEquipeComponent implements OnInit {
   }
 
   deleteDetailEquipe(idDetailEquipe: any) {
-    this.apiService.delete("deleteDetailEquipe",idDetailEquipe).subscribe(()=>location.reload())
+    this.apiService.delete("deleteDetailEquipe",idDetailEquipe).subscribe()
   }
 
   openEditDetailEquipeDialog(detailequipe: any) {

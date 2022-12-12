@@ -44,11 +44,11 @@ export class AddEquipeComponent implements OnInit {
   onSubmit() {
    this.addEquipe(this.equipeForm.value);
    this.closeDialog();
-   location.reload();
+
   }
 
   addEquipe(equipeBody: Object) {
-    this.apiService.add('addEquipe', equipeBody).subscribe((contrat) => null);
+    this.apiService.add('addEquipe', equipeBody).subscribe();
   }
 
   resetControls() {

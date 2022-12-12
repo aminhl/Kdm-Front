@@ -28,6 +28,6 @@ export class AddDetailEquipeComponent implements OnInit {
   }
 
   addDetailEquipe(detailBody: Object) {
-    this.apiService.add('addDetailEquipe', detailBody).subscribe((detail) => null);
+    this.apiService.add('addDetailEquipe', detailBody).subscribe();
   }
 }

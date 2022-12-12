@@ -171,6 +171,10 @@ export class ApiService {
     return this.httpClient.put(
       env.apiRoot + target + '/' + element1 + '/' + element2,
       null
+    ).pipe(
+      tap(() => {
+        this._refreshNeeded.next();
+      })
     );
   }
 }
