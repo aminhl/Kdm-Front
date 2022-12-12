@@ -85,6 +85,10 @@ const routes: Routes = [
   },
   { path: 'club', component: ClubComponent, canActivate: [LoggedInGuard] },
 
+  { path: 'professor', component: ProfessorComponent, canActivate: [LoggedInGuard] },
+
+
+
   { path: '**', component: ErrorComponent },
 ];
 

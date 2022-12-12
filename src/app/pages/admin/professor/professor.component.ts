@@ -20,6 +20,7 @@ export class ProfessorComponent implements OnInit {
     this.getProfessors();
   }
   professors!: any;
+  firstName!: any;
 
   getProfessors() {
     this.apiService
