@@ -4,9 +4,6 @@ import { environment as env, environment } from '../../../../environments/enviro
 import {map, Observable, Subject, tap} from "rxjs";
 import {IArchivePercentType} from "../../models/ArchivePercentType";
 
-
-
-
 @Injectable({
   providedIn: 'root',
 })
@@ -123,9 +120,17 @@ private _refreshNeeded=new Subject<void>();
     );
   }
 
-  assignProfessorToDepartement(target : string, elementId1: number, elementId2: number)
+   assignProfessorToDepartement(target : string, elementId1: number, elementId2: number)
   {
-    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null);
+    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null).pipe(
+      tap(()=>{
+        this._refreshNeeded.next();
+      })
+    );
+  }
+
+  assignEquipeToDetailEquipe(target : string, element1: string, element2: string) {
+    return this.httpClient.put(env.apiRoot+target +'/'+element1+ '/' +element2,null )
   }
 
   assignEquipeToDetailEquipe(target : string, element1: string, element2: string) {
