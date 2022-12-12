@@ -55,7 +55,10 @@ export class AssignUnivEtudiantComponent implements OnInit {
   {
     this.apiService.assignEtudiantToDepartement(
       'assignUniversiteToEtudiant',this.SelectedUniv,this.SelectedEtu).subscribe(() => null);
-      location.reload();
+      this.closeDialog();
+  }
+  closeDialog() {
+    this.dialog.closeAll();
   }
 
 }
