@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/admin/api.service';
 import { DepartementComponent } from '../departement.component';
 
@@ -21,6 +22,8 @@ export class EditDepartementComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DepartementComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private toastrService: ToastrService,
+
     private apiService: ApiService
   ) {
     this.receivedRow = data;
@@ -47,6 +50,8 @@ export class EditDepartementComponent implements OnInit {
       nomDepart: this.departementForm.value.nomDepart
     };
     this.apiService.update('updateDepartement', idDepart, departementUpdated).subscribe(() => {
+      this.toastrService.success("Departement bien modifié");
+
       this.closeDialog(); 
     });
 

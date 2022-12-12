@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.component';
 import { ShowProfessorComponent } from './show-professor/show-professor.component';
 import { AssignchefdepartementComponent } from './assignchefdepartement/assignchefdepartement.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-departement',
@@ -16,7 +17,7 @@ import { AssignchefdepartementComponent } from './assignchefdepartement/assignch
 })
 export class DepartementComponent implements OnInit {
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) { }
+  constructor(private apiService: ApiService,private toastrService: ToastrService,private dialog: MatDialog) { }
   nomDepartement!: any;
   departements!: any;
   nbrPage!: any;
@@ -40,6 +41,8 @@ export class DepartementComponent implements OnInit {
     this.apiService
       .delete('deleteDepartement', elementId)
       .subscribe((e) =>e );
+      this.toastrService.success("Departement supprimé");
+
   }
 
   openAddDepartementDialog() {

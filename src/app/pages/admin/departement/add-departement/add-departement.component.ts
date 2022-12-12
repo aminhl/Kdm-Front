@@ -2,6 +2,7 @@ import { ApiService } from './../../../../core/services/admin/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, Inject, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-departement',
@@ -11,12 +12,13 @@ import { Component, Inject, OnInit } from '@angular/core';
 export class AddDepartementComponent implements OnInit {
   departementForm!: FormGroup;
   nomDepart!: FormControl;
-  departements!:any;
+  departements!: any;
   receivedRow: any;
 
   constructor(
     public dialogRef: MatDialogRef<AddDepartementComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private toastrService: ToastrService,
     private apiService: ApiService
   ) {
     this.receivedRow = data;
@@ -44,15 +46,16 @@ export class AddDepartementComponent implements OnInit {
       nomDepart: this.departementForm.value.nomDepart,
     };
     this.addDepartement(departementToAdd);
+    this.toastrService.success("Departement bien ajouté");
     this.resetControls();
     this.closeDialog();
-    
+
   }
 
   addDepartement(departBody: Object) {
-    this.apiService.add('addDepartement', departBody).subscribe((departement) => 
-    this.apiService.get
-    ('getDepartements').subscribe((departements) => (this.departements = departements))
+    this.apiService.add('addDepartement', departBody).subscribe((departement) =>
+      this.apiService.get
+        ('getDepartements').subscribe((departements) => (this.departements = departements))
     );
   }
 
