@@ -94,5 +94,9 @@ export class ApiService {
     return this.httpClient.get(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4 )
   }
 
+  assignEquipeToDetailEquipe(target : string, element1: string, element2: string) {
+    return this.httpClient.put(env.apiRoot+target +'/'+element1+ '/' +element2,null )
+  }
+
 
 }

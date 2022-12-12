@@ -60,6 +60,7 @@ import {
 import {
   AssignEtudiantToClubComponent
 } from './pages/admin/club/assign-etudiant-to-club/assign-etudiant-to-club.component';
+import { AssignEquipeDetailEquipeComponent } from './pages/admin/equipe/assign-equipe-detail-equipe/assign-equipe-detail-equipe.component';
 
 FullCalendarModule.registerPlugins([dayGridPlugin,interactionPlugin]);
 
@@ -99,6 +100,7 @@ FullCalendarModule.registerPlugins([dayGridPlugin,interactionPlugin]);
     AssignUnivEtudiantComponent,
     AssignUnivDepartementComponent,
     AssignEtudiantToClubComponent,
+    AssignEquipeDetailEquipeComponent,
   ],
 
   imports: [
