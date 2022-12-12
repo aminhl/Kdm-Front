@@ -38,6 +38,10 @@
                     <th scope="col" data-sortable="" style="width: 19.2995%">
                       speciality
                     </th>
+                    <th scope="col" data-sortable="" style="width: 9.203%">
+                        Department
+                      </th>
+
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -57,6 +61,12 @@
                       ></i>
                     </td>
                     <td style="color: #256d85">{{professor.speciality}}</td>
+                    <td style="color: #256d85">
+                          <button (click)="openDetailsDepartProfessorDialog(professor.departementId.idDepart,professor.firstName,professor.lastName)"  type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button>
+                      </td>
+                        <!-- <ng-template #DepnotFound>
+                      <td style="color: #256d85">Not assigned </td>
+                        </ng-template> -->
                     <td style="display: flex; gap: 8px">
                       <button
                         mat-fab
