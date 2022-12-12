@@ -47,7 +47,7 @@ export class EditDepartementComponent implements OnInit {
       nomDepart: this.departementForm.value.nomDepart
     };
     this.apiService.update('updateDepartement', idDepart, departementUpdated).subscribe(() => {
-      this.closeDialog(); location.reload()
+      this.closeDialog(); 
     });
 
   }

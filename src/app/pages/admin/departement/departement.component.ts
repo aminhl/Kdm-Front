@@ -7,6 +7,7 @@ import { ApiService } from './../../../core/services/admin/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.component';
 import { ShowProfessorComponent } from './show-professor/show-professor.component';
+import { AssignchefdepartementComponent } from './assignchefdepartement/assignchefdepartement.component';
 
 @Component({
   selector: 'app-departement',
@@ -21,7 +22,12 @@ export class DepartementComponent implements OnInit {
   nbrPage!: any;
 
   ngOnInit(): void {
-    this.getDepartements()
+    this.apiService.refreshNeeded.subscribe(
+      () => {
+    this.getDepartements();
+  }
+  )
+  this.getDepartements();
   }
 
   getDepartements() {
@@ -33,7 +39,7 @@ export class DepartementComponent implements OnInit {
   deleteDepartement(elementId: number) {
     this.apiService
       .delete('deleteDepartement', elementId)
-      .subscribe(() => location.reload());
+      .subscribe((e) =>e );
   }
 
   openAddDepartementDialog() {
@@ -55,7 +61,9 @@ export class DepartementComponent implements OnInit {
     this.dialog.open(ShowProfessorComponent, { width: '60%', data: { departement } })
   }
 
-
+  openAssignChefDialog() {
+    this.dialog.open(AssignchefdepartementComponent, { width: '60%'})
+  }
   exportPDF() {
     this.apiService
       .exportPDF('exportdepartpdf/')

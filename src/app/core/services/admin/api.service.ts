@@ -84,6 +84,10 @@ private _refreshNeeded=new Subject<void>();
     return this.httpClient.get(environment.apiRoot + path, {responseType: 'blob'});
   }
 
+  assignchefdepartement(target : string, elementId1: string, elementId2: number)
+  {
+    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null);
+  }
 
 
   register(target: string, requestBody: Object){
