@@ -85,7 +85,12 @@ const routes: Routes = [
     component: AddContratComponent,
     canActivate: [LoggedInGuard],
   },
-  { path: 'equipe', component: EquipeComponent, canActivate: [LoggedInGuard] },
+  {
+    path: 'equipe',
+    loadChildren: () =>
+      import('./pages/admin/equipe/equipe.module').then((e) => e.EquipeModule),
+    canActivate: [LoggedInGuard],
+  },
   {
     path: 'addequipe',
     component: AddEquipeComponent,
