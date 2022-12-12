@@ -14,6 +14,7 @@ import {
 } from "./add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component";
 import {EtudiantMailComponent} from "./etudiant-mail/etudiant-mail.component";
 import {EventCalendarComponent} from "../event-calendar/event-calendar.component";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-etudiant',
@@ -26,12 +27,21 @@ export class EtudiantComponent implements OnInit {
   searchText:any;
   PageNumber!: any;
 
+
   constructor(private apiService: ApiService, private dialog: MatDialog)
   {
 
   }
 
-  ngOnInit(): void {this.getEtudiant();}
+  ngOnInit(): void
+  {
+    this.apiService.refreshNeeded.subscribe(
+      () => {
+        this.getEtudiant();
+      }
+    )
+    this.getEtudiant();
+  }
 
   getEtudiant()
   {
@@ -42,10 +52,11 @@ export class EtudiantComponent implements OnInit {
 
   deleteEtudiants(etudiantid: number) {
     this.apiService
-      .delete('deleteEtudiant', etudiantid)
-      .subscribe(() => this.getEtudiant());
+      .delete('deleteEtudiant', etudiantid).subscribe((e) => this.etudiants=e)
+
   }
   openAddEtudiantDialog() {
+
     this.dialog.open(AddetudiantComponent, { width: '40%' });
   }
 
