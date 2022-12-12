@@ -49,7 +49,7 @@ export class AssignProfessorToDepartmentComponent implements OnInit {
     this.apiService.getbyID
     ('findDepartementByname',this.selectedD).subscribe((departement) => {this.departement = departement ; this.selectedD=this.departement.idDepart;  });
   }
-  upadteProfessor()
+  updateProfessor()
   {
     this.apiService.assignProfessorToDepartement(
       'assignProfessorToDepartment',this.selectedP,this.selectedD).subscribe(() => null);

@@ -4,7 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddClubComponent } from './add-club/add-club.component';
 import { Router } from '@angular/router';
 import { EditClubComponent } from './edit-club/edit-club.component';
-import {AssignEtudiantToClubComponent} from "./assign-etudiant-to-club/assign-etudiant-to-club.component";
+import { AssignEtudiantToClubComponent } from './assign-etudiant-to-club/assign-etudiant-to-club.component';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-club',
@@ -50,4 +51,25 @@ export class ClubComponent implements OnInit {
     this.dialog.open(AssignEtudiantToClubComponent);
   }
 
+  generateClubPDF(idClub: number) {
+    for (let i = 0; i < this.clubs.length; i++) {
+      if (this.clubs[i].idClub == idClub) {
+        let pdf = new jsPDF({
+          orientation: 'l',
+          format: 'a4',
+        });
+        pdf.setFont('helvetica');
+        pdf.setFontSize(20);
+        pdf.text('Club', 140, 10);
+        pdf.text('Nom : ', 20, 30);
+        pdf.text(this.clubs[i].nomClub, 100, 30);
+        pdf.text('Logo: ', 20, 50);
+        let img = this.clubs[i].logoClub;
+        pdf.addImage(img, 'JPEG', 100, 40, 20, 20);
+        pdf.text('Domaine : ', 20, 70);
+        pdf.text(this.clubs[i].domaine, 100, 70);
+        pdf.save('Club.pdf');
+      }
+    }
+  }
 }

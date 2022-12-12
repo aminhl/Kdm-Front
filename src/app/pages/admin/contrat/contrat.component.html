@@ -9,10 +9,28 @@
             <input matInput  [(ngModel)]="searchedContrat">
             <mat-icon style="color: navy" matSuffix>search</mat-icon>
           </mat-form-field>
+
           <!-- Table with stripped rows -->
           <div
             class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
           >
+            <button
+              (click)="openAddContratDialog()"
+              mat-raised-button=""
+              color="primary"
+              class="mb-4 mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+            >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                ></span
+                ><i class="fa-solid fa-plus" style="margin-right: 10px"></i><span class="mdc-button__label">Add Contrat</span
+            ><span class="mat-mdc-focus-indicator"></span
+            ><span
+              matripple=""
+              class="mat-ripple mat-mdc-button-ripple"
+            ></span
+            ><span class="mat-mdc-button-touch-target"></span>
+            </button>
             <div class="dataTable-container">
               <table class="table datatable dataTable-table">
                 <thead>
@@ -92,6 +110,23 @@
                       >
                         <i style="font-size: 12px" class="bi bi-gear"></i>
                       </button>
+
+                      <button
+                        mat-fab
+                        (click)="generateContratPDF(contrat.idContrat)"
+                        style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                        color="warn"
+                        aria-label="Example icon button with a delete icon"
+                      >
+                        <mat-icon>print</mat-icon>
+                      </button>
+
                     </td>
                     <td></td>
                   </tr>
@@ -99,23 +134,8 @@
               </table>
             </div>
             <div class="dataTable-bottom">
-              <button
-                (click)="openAddContratDialog()"
-                mat-raised-button=""
-                color="primary"
-                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
-              >
-                <span
-                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
-                ></span
-                ><span class="mdc-button__label">Add Contrat</span
-                ><span class="mat-mdc-focus-indicator"></span
-                ><span
-                  matripple=""
-                  class="mat-ripple mat-mdc-button-ripple"
-                ></span
-                ><span class="mat-mdc-button-touch-target"></span>
-              </button>
+
+
             </div>
           </div>
           <!-- End Table with stripped rows -->

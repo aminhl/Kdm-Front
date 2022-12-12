@@ -13,7 +13,7 @@
           <div
             class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
           >
-            <div class="dataTable-bottom d-flex">
+            <div class="dataTable-bottom d-flex mb-4">
               <button
                 (click)="openAddClubDialog()"
                 mat-raised-button=""
@@ -109,6 +109,21 @@
                         aria-label="Example icon button with a delete icon"
                       >
                         <i style="font-size: 12px" class="bi bi-gear"></i>
+                      </button>
+                      <button
+                        mat-fab
+                        (click)="generateClubPDF(club.idClub)"
+                        style="
+                          width: 30px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                        color="warn"
+                        aria-label="Example icon button with a delete icon"
+                      >
+                        <mat-icon>print</mat-icon>
                       </button>
                     </td>
                     <td></td>

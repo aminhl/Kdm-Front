@@ -1,0 +1,67 @@
+<h2 class="card-title">Affecter un Equipe a Detail Equipe</h2>
+
+<form class="row g-3"  #f="ngForm" (ngSubmit)="submit(f)">
+
+  <div class="col-6 offset-3">
+    <label class="form-label">Equipe</label>
+    <select
+      tabindex="-1"
+      class="form-select"
+      aria-label="Default select example"
+      name="equipe"
+      ngModel
+      #equipe="ngModel"
+      required
+    >
+
+      <option *ngFor="let e of equipes"  data-mce-placeholder="Equipe">{{e.nomEquipe}}</option>
+
+    </select>
+
+  </div>
+  <div class= "message-invalid"
+       *ngIf="equipe.invalid && equipe.touched"
+  >
+    Salle is a required field
+  </div>
+
+  <div class= "message-valid"
+       *ngIf="equipe.valid"
+  >
+    Looks Good
+  </div>
+  <div class="col-6 offset-3">
+    <label class="form-label"> Detail Equipe</label>
+    <select
+      tabindex="-1"
+      class="form-select"
+      aria-label="Default select example"
+      name="thematique"
+      ngModel
+      #thematique="ngModel"
+      required
+    >
+      <option *ngFor="let d of detailEquipe"  data-mce-placeholder="Thematique">{{d.thematique}}</option>
+    </select>
+  </div>
+  <div class= "message-invalid"
+       *ngIf="thematique.invalid && thematique.touched"
+  >
+    Salle is a required field
+  </div>
+
+  <div class= "message-valid"
+       *ngIf="thematique.valid"
+  >
+    Looks Good
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary mx-2"
+            [disabled]="f.invalid"
+    >
+      <i class="fa-regular fa-floppy-disk pe-2"></i>Affect
+    </button>
+  </div>
+
+</form>
