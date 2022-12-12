@@ -47,6 +47,8 @@ export class AssignUnivDepartementComponent implements OnInit {
   {
     this.apiService.assignEtudiantToDepartement(
       'assignUniversiteToDepartement',this.SelectedUniv,this.SelectedDep).subscribe(() => null);
-      location.reload();
+    location.reload();
+    console.log(this.SelectedDep);
+    console.log(this.SelectedUniv);
   }
 }

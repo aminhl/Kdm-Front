@@ -2,13 +2,19 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">Professors List</h2>
-          <mat-form-field appearance="outline">
-            <mat-label>Search for Professors</mat-label>
-            <input matInput  [(ngModel)]="firstName">
-            <mat-icon style="color: navy" matSuffix>search</mat-icon>
-          </mat-form-field>
+        <div class="card-header  p-1 m-0 d-flex align-items-center  justify-content-between p-3">
+          <div class="d-flex justify-content-start ">
+            <i class="fa-solid fa-user-tie fa-lg padding__right__fa" style="font-size: 30px;">
+
+            </i>
+            <h2 class="card-title col ">Professors List</h2>
+          </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Search For Professors</mat-label>
+              <input matInput  [(ngModel)]="firstName">
+              <mat-icon style="color: navy" matSuffix>search</mat-icon>
+            </mat-form-field>
+          </div>
 
           <!-- Table with stripped rows -->
           <div
@@ -35,7 +41,7 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let professor of professors">
+                <tbody *ngFor="let professor of professors | filter: firstName">
                   <tr>
                     <!--                    <th scope="row">{{ professor }}</th>-->
                     <td style="color: #256d85">{{ professor.firstName }}</td>
@@ -91,7 +97,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="dataTable-bottom">
+            <div class="dataTable-bottom" style="display: flex ; gap: 20px;">
               <button
                 (click)="openAddProfessorDialog()"
                 mat-raised-button=""
@@ -109,11 +115,45 @@
                 ></span
                 ><span class="mat-mdc-button-touch-target"></span>
               </button>
+              <button
+
+                mat-raised-button=""
+                color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                ></span
+                ><span class="mdc-button__label">Assign Contract To Professor</span
+                ><span class="mat-mdc-focus-indicator"></span
+                ><span
+                  matripple=""
+                  class="mat-ripple mat-mdc-button-ripple"
+                ></span
+                ><span class="mat-mdc-button-touch-target"></span>
+              </button>
+              <button (click)="openAssignProfessorToDepartementDialog()"
+
+                mat-raised-button=""
+                color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                ></span
+                ><span class="mdc-button__label">Assign Professor To Department </span
+                ><span class="mat-mdc-focus-indicator"></span
+                ><span
+                  matripple=""
+                  class="mat-ripple mat-mdc-button-ripple"
+                ></span
+                ><span class="mat-mdc-button-touch-target"></span>
+              </button>
             </div>
           </div>
           <!-- End Table with stripped rows -->
         </div>
       </div>
     </div>
-  </div>
+
 </section>

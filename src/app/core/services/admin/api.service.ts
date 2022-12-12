@@ -94,5 +94,9 @@ export class ApiService {
     return this.httpClient.get(env.apiRoot+target +'/'+elementId1+ '/' +elementId2+ '/' +elementId3+ '/' +elementId4 )
   }
 
+  assignProfessorToDepartement(target : string, elementId1: number, elementId2: number)
+  {
+    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null);
+  }
 
 }

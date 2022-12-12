@@ -60,6 +60,8 @@ import {
 import {
   AssignEtudiantToClubComponent
 } from './pages/admin/club/assign-etudiant-to-club/assign-etudiant-to-club.component';
+import { AssignProfessorToDepartmentComponent } from './pages/admin/professor/assign-professor-to-department/assign-professor-to-department.component';
+import { AssignProfessorToContractComponent } from './pages/admin/professor/assign-professor-to-contract/assign-professor-to-contract.component';
 
 FullCalendarModule.registerPlugins([dayGridPlugin,interactionPlugin]);
 
@@ -99,6 +101,8 @@ FullCalendarModule.registerPlugins([dayGridPlugin,interactionPlugin]);
     AssignUnivEtudiantComponent,
     AssignUnivDepartementComponent,
     AssignEtudiantToClubComponent,
+    AssignProfessorToDepartmentComponent,
+    AssignProfessorToContractComponent,
   ],
 
   imports: [
