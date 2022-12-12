@@ -37,11 +37,14 @@ import { AssignProfessorToContractComponent } from './pages/admin/professor/assi
 
 import { ToastrModule } from 'ngx-toastr';
 import { DepartmentDetailsProfComponent } from './pages/admin/professor/department-details-prof/department-details-prof.component';
+
+import { ShowDetailsEquipeToEquipeComponent } from './pages/admin/equipe/show-details-equipe-to-equipe/show-details-equipe-to-equipe.component';
+
+
 import { ContratModule } from './pages/admin/contrat/contrat.module';
 import { ClubModule } from './pages/admin/club/club.module';
-
-
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
+
 
 @NgModule({
   declarations: [
@@ -60,6 +63,7 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     AssignProfessorToDepartmentComponent,
     AssignProfessorToContractComponent,
     DepartmentDetailsProfComponent,
+    ShowDetailsEquipeToEquipeComponent,
   ],
 
   imports: [

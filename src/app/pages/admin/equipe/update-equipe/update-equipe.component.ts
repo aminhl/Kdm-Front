@@ -56,7 +56,6 @@ export class UpdateEquipeComponent implements OnInit {
       .update('updateEquipe', idEquipe, equipeUpdated)
       .subscribe(() => {
         this.closeDialog();
-        location.reload();
       });
   }
 
