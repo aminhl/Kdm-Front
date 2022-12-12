@@ -32,13 +32,12 @@ export class AssignEquipeDetailEquipeComponent implements OnInit {
 
   }
 
-
   submit(f: NgForm) {
-    const assign = {
-      thematique: f.value.thematique,
-      equipe: f.value.equipe,
-    };
-    this.apiService.assignEquipeToDetailEquipe("assignEquipeToDetialEquipe",assign.equipe,assign.thematique);
+
+    //console.log(f.value.thematique);
+    this.apiService.assignEquipeToDetailEquipe("assignEquipeToDetialEquipe",
+      f.value.equipe,f.value.thematique).subscribe();
 this.dialogRef.close();
+console.log(f.value.equipe,f.value.thematique);
   }
 }
