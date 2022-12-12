@@ -13,6 +13,7 @@ import {
   AddAndAssignEtudiantToEquipeAndContractComponent
 } from "./add-and-assign-etudiant-to-equipe-and-contract/add-and-assign-etudiant-to-equipe-and-contract.component";
 import {EtudiantMailComponent} from "./etudiant-mail/etudiant-mail.component";
+import {EventCalendarComponent} from "../event-calendar/event-calendar.component";
 
 @Component({
   selector: 'app-etudiant',
@@ -23,7 +24,8 @@ export class EtudiantComponent implements OnInit {
  etudiants! : any;
  departement! :any
   searchText:any;
- userloggedOut
+  PageNumber!: any;
+
   constructor(private apiService: ApiService, private dialog: MatDialog)
   {
 
@@ -41,7 +43,7 @@ export class EtudiantComponent implements OnInit {
   deleteEtudiants(etudiantid: number) {
     this.apiService
       .delete('deleteEtudiant', etudiantid)
-      .subscribe(() => location.reload());
+      .subscribe(() => this.getEtudiant());
   }
   openAddEtudiantDialog() {
     this.dialog.open(AddetudiantComponent, { width: '40%' });
@@ -56,7 +58,7 @@ export class EtudiantComponent implements OnInit {
 
   openDetailsDepartEtudiantDialog(departementId: number,nomE : string,prenomE : string)
   {
-console.log(departementId)
+
     this.dialog.open(DepartDetailsStudComponent, {
       width: '20%',
       data: { departementId,
@@ -67,7 +69,7 @@ console.log(departementId)
   }
   openDetailsContratEtudiantDialog(etudiantID: number,nomE : string,prenomE : string)
   {
-console.log()
+
     this.dialog.open(ContratDetailsStudComponent, {
       width: '50%',
       data: { etudiantID,
@@ -106,4 +108,15 @@ console.log()
     },
   });
 }
+
+  openCalendarDialog(idEtudiant: any) {
+    this.dialog.open(EventCalendarComponent,
+      {
+        width: '80%',
+        height: '80%',
+        data: { idEtudiant,
+        },
+      }
+      )
+  }
 }

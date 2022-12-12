@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddClubComponent } from './add-club/add-club.component';
 import { Router } from '@angular/router';
 import { EditClubComponent } from './edit-club/edit-club.component';
+import {AssignEtudiantToClubComponent} from "./assign-etudiant-to-club/assign-etudiant-to-club.component";
 
 @Component({
   selector: 'app-club',
@@ -22,6 +23,7 @@ export class ClubComponent implements OnInit {
   }
 
   clubs: any;
+  searchedClub: any;
 
   getClubs() {
     this.apiService.get('getClubs').subscribe((clubs) => (this.clubs = clubs));
@@ -43,4 +45,9 @@ export class ClubComponent implements OnInit {
       data: { club },
     });
   }
+
+  openAssignEtudiantClubDialog() {
+    this.dialog.open(AssignEtudiantToClubComponent);
+  }
+
 }

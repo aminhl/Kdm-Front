@@ -18,11 +18,7 @@ export class AddAndAssignEtudiantToEquipeAndContractComponent implements OnInit 
   equipe! :any
   contrat! :any
   etudiantBody: Object
-  constructor(private apiService: ApiService, private dialog: MatDialog)
-  {
-
-  }
-
+  constructor(private apiService: ApiService, private dialog: MatDialog) {}
   ngOnInit(): void
   {
     this.getEtudiant();
@@ -32,24 +28,24 @@ export class AddAndAssignEtudiantToEquipeAndContractComponent implements OnInit 
   getEtudiant()
   {
     this.apiService.get
-    ('getEtudiants').subscribe((etudiants) => {this.etudiants = etudiants ;console.log(etudiants) });
+    ('getEtudiants').subscribe((etudiants) => {this.etudiants = etudiants ; });
   }
   getEquipes()
   {
     this.apiService.get
-    ('getEquipes').subscribe((equipes) => {this.equipes = equipes;console.log(equipes) });
+    ('getEquipes').subscribe((equipes) => {this.equipes = equipes; });
   }
   getContrats()
   {
     this.apiService.get
-    ('getContrats').subscribe((contrats) => {this.contrats = contrats ;console.log(contrats) });
+    ('getContrats').subscribe((contrats) => {this.contrats = contrats ; });
   }
   ChangeEtu(e)
   {
 
     this.SelectedEtu=e.target.value;
     this.apiService.getbyName
-    ('findetudiantByName',this.SelectedEtu).subscribe((etudiant) => {this.etudiantBody = etudiant; this.SelectedEtu=this.etudiant ; console.log(this.etudiant)   });
+    ('findetudiantByName',this.SelectedEtu).subscribe((etudiant) => {this.etudiantBody = etudiant; this.SelectedEtu=this.etudiant ;   });
 
   }
   ChangeEqu(e)
@@ -69,19 +65,14 @@ export class AddAndAssignEtudiantToEquipeAndContractComponent implements OnInit 
     let specialite=s[0].replace(/\s/g, "")
     let montant=y[1].replace(/\s/g, "")
     let datefin=y[0].replace(/\s/g, "")
-    console.log(specialite);
-    console.log(datedebut);
-    console.log(datefin);
-    console.log(montant);
+
 
     this.apiService.findContratBySpecialiteAndDateDebutContratAndDateFinContrat
     ('findContratBySpecialiteAndDateDebutContratAndDateFinContratAndMontantContrat',specialite,datedebut,datefin,montant).subscribe((contrat) => {this.contrat = contrat; this.SelectedCon=this.contrat[0].idContrat   });
   }
   upadteEtudiant()
   {
-    console.log(this.etudiantBody)
-    console.log(this.SelectedEqu)
-    console.log(this.SelectedCon)
+
     this.apiService.addAndAssignEtudiantToEquipeAndContract(
       'addAndAssignEtudiantToEquipeAndContract',this.SelectedCon,this.SelectedEqu,this.etudiantBody).subscribe((ss) =>
     location.reload());

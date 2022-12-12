@@ -6,13 +6,49 @@
           <h2 class="card-title">Vos Clubs</h2>
           <mat-form-field appearance="outline">
             <mat-label>Search Club</mat-label>
-            <input matInput />
+            <input matInput [(ngModel)]="searchedClub" />
             <mat-icon style="color: navy" matSuffix>search</mat-icon>
           </mat-form-field>
           <!-- Table with stripped rows -->
           <div
             class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"
           >
+            <div class="dataTable-bottom d-flex">
+              <button
+                (click)="openAddClubDialog()"
+                mat-raised-button=""
+                color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                ></span
+                ><i class="fa-solid fa-plus" style="margin-right: 10px"></i><span class="mdc-button__label">Add Club</span
+              ><span class="mat-mdc-focus-indicator"></span
+              ><span
+                matripple=""
+                class="mat-ripple mat-mdc-button-ripple"
+              ></span
+              ><span class="mat-mdc-button-touch-target"></span>
+              </button>
+              <button
+                (click)="openAssignEtudiantClubDialog()"
+                mat-raised-button=""
+                color="primary"
+                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base mx-2"
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                ></span
+                ><i class="fa-brands fa-atlassian" style="margin-right: 10px"></i><span class="mdc-button__label">Assign Etudiant To Club</span
+              ><span class="mat-mdc-focus-indicator"></span
+              ><span
+                matripple=""
+                class="mat-ripple mat-mdc-button-ripple"
+              ></span
+              ><span class="mat-mdc-button-touch-target"></span>
+              </button>
+            </div>
             <div class="dataTable-container">
               <table class="table datatable dataTable-table">
                 <thead>
@@ -29,12 +65,12 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let club of clubs; let i = index">
+                <tbody *ngFor="let club of clubs | searchTarget: searchedClub; let i = index">
                   <tr>
                     <td>{{ club.nomClub }}</td>
                     <td>
                       <img
-                        width="80px"
+                        style="height: 30px; width: 60px"
                         src="{{ club.logoClub }}"
                         alt="Logo Club"
                       />
@@ -80,25 +116,9 @@
                 </tbody>
               </table>
             </div>
-            <div class="dataTable-bottom">
-              <button
-                (click)="openAddClubDialog()"
-                mat-raised-button=""
-                color="primary"
-                class="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
-              >
-                <span
-                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
-                ></span
-                ><span class="mdc-button__label">Add Club</span
-                ><span class="mat-mdc-focus-indicator"></span
-                ><span
-                  matripple=""
-                  class="mat-ripple mat-mdc-button-ripple"
-                ></span
-                ><span class="mat-mdc-button-touch-target"></span>
-              </button>
-            </div>
+<!--            <div class="dataTable-bottom">-->
+<!--              -->
+<!--            </div>-->
           </div>
           <!-- End Table with stripped rows -->
         </div>

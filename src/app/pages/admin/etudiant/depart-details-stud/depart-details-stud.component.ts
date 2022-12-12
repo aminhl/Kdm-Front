@@ -19,7 +19,7 @@ export class DepartDetailsStudComponent implements OnInit {
 this.getDetails()
 this.nomE=this.data.nomE;
 this.prenomE=this.data.prenomE;
-
+    this.departement=[];
 
   }
   getDetails()
