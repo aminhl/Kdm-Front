@@ -17,11 +17,13 @@ import { EditDepartementComponent } from './edit-departement/edit-departement.co
 import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ShowProfessorComponent } from './show-professor/show-professor.component';
+import { AssignchefdepartementComponent } from './assignchefdepartement/assignchefdepartement.component';
+import { ShowChefdepartementComponent } from './show-chefdepartement/show-chefdepartement.component';
 
 
 @NgModule({
   declarations: [
-    DepartementComponent, AddDepartementComponent, EditDepartementComponent, ShowEtudiantsComponent, ShowProfessorComponent
+    DepartementComponent, AddDepartementComponent, EditDepartementComponent, ShowEtudiantsComponent, ShowProfessorComponent, AssignchefdepartementComponent, ShowChefdepartementComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,21 @@
+<h2 class="card-title">Affecter un chef departement a un departement</h2>
+
+<form class="row g-3" >
+  <select  name="cars" class="form-control form-control-lg" (change)="ChangeDep($event)">
+    <option selected="selected">Choisissez un departement</option>
+    <option *ngFor="let departement of departements">{{departement.nomDepart}}</option>
+  </select>
+  <select class="form-control form-control-lg" (change)="ChangeProf($event)">
+  
+    <option selected="selected">Choisissez un professor</option>
+    <option *ngFor="let professor of professors ;"  [value]="professor.idProfessor">{{professor.firstName}} {{professor.lastName}}</option>
+  </select>
+  <button
+  (click)="UpadateDep()"
+
+    type="submit"
+    class="btn btn-outline-secondary mx-2"
+  >
+    <i class="fa-solid fa-pen-nib pe-2"></i>Affect
+  </button>
+</form>

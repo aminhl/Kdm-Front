@@ -79,6 +79,14 @@ export class ApiService {
     });
   }
 
+
+  assignchefdepartement(target : string, elementId1: string, elementId2: number)
+  {
+    return this.httpClient.put(env.apiRoot +target +'/'+elementId1+ '/' +elementId2,null);
+  }
+
+
+  
   register(target: string, requestBody: Object) {
     return this.httpClient.post(env.apiRoot + target, requestBody);
   }

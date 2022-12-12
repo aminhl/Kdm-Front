@@ -34,9 +34,12 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { RouterModule } from '@angular/router';
 import { AssignProfessorToDepartmentComponent } from './pages/admin/professor/assign-professor-to-department/assign-professor-to-department.component';
 import { AssignProfessorToContractComponent } from './pages/admin/professor/assign-professor-to-contract/assign-professor-to-contract.component';
+
+import { ToastrModule } from 'ngx-toastr';
 import { DepartmentDetailsProfComponent } from './pages/admin/professor/department-details-prof/department-details-prof.component';
 import { ContratModule } from './pages/admin/contrat/contrat.module';
 import { ClubModule } from './pages/admin/club/club.module';
+
 
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
@@ -78,8 +81,11 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     Ng2SearchPipeModule,
     FullCalendarModule,
     RouterModule,
+    ToastrModule.forRoot(),
+
     ContratModule,
     ClubModule,
+
   ],
   providers: [authInterceptorProviders, LoggedInGuard],
   bootstrap: [AppComponent],

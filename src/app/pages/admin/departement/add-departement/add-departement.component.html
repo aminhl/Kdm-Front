@@ -1,59 +1,60 @@
+<h2 class="card-title">Ajouter Departement</h2>
+<!-- Vertical Form -->
+<form class="row g-3" [formGroup]="departementForm" (ngSubmit)="onSubmit()">
 
-  <h2 class="card-title">Add Departement</h2>
-  <!-- Vertical Form -->
-  <form class="row g-3" [formGroup]="departementForm" (ngSubmit)="onSubmit()">
-
-    <div class="col-6 offset-3">
-      <label class="form-label">Nom Departement</label>
-      <div class="input-group mb-3">
-        <input
-          [ngClass]="{
-            'input-invalid': nomDepart.touched && nomDepart.invalid,
-            'input-valid': nomDepart.touched && nomDepart.valid
-          }"
-          type="text"
-          class="form-control"
-          formControlName="nomDepart"
-          pattern="^departement +[a-zA-Z ]*"
-        />
-        <div
-          class="message-invalid"
-          *ngIf="nomDepart.touched && nomDepart.hasError('required')"
-        >
-          Nom  Departement Is Required
-        </div>
-        <div
-          class="message-invalid"
-          *ngIf="nomDepart.touched && nomDepart.hasError('pattern')"
-        >
-          Nom  Departement en lettre et commence par departement
-        </div>
-        <!--success message-->
-        <div class="message-valid" *ngIf="nomDepart.touched && !nomDepart.errors">
-          Looks good!
-        </div>
-
+  <div class="col-6 offset-3">
+    <label class="form-label">Nom Departement</label>
+    <div class="input-group mb-3">
+      <input
+        [ngClass]="{
+          'input-invalid': nomDepart.touched && nomDepart.invalid,
+          'input-valid': nomDepart.touched && nomDepart.valid
+        }"
+        type="text"
+        name="nomDepart"
+        class="form-control"
+        formControlName="nomDepart"
+      />
+      <div
+        class="message-invalid"
+        *ngIf="departementForm.controls['nomDepart'].invalid && departementForm.controls['nomDepart'].touched">
+          <div  *ngIf="departementForm.controls['nomDepart'].hasError('required')">
+            il faut ajouter le nom  departement
+          </div>
+          <div *ngIf="departementForm.controls['nomDepart'].hasError('pattern')">
+            Nom  Departement doit être des lettres et commencant par departement
+          </div>
+          <div *ngIf="departementForm.controls['nomDepart'].hasError('minlength')">
+            minlength 15 lettres
+          </div>
+      </div>
+      <div class="message-valid" *ngIf="departementForm.controls['nomDepart'].touched
+              && !departementForm.controls['nomDepart'].errors">
+        Bien saisie!
       </div>
     </div>
-    
-    <div class="text-center">
-      <button type="submit" class="btn btn-primary mx-2"  [disabled]="!departementForm.valid">
-        <i class="fa-regular fa-floppy-disk pe-2" ></i>Save
-      </button>
-      <button
-        type="button"
-        class="btn btn-warning mx-2"
-        (click)="resetControls()"
-      >
-        <i class="fa-solid fa-broom pe-2"></i>
-        Reset
-      </button>
-      <button
-        (click)="closeDialog()"
-        type="button"
-        class="btn btn-outline-danger"
-      >
-        <i class="fa-solid fa-rotate-left pe-2"></i>Back
-      </button>
-    </div>
-  </form>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary mx-2"  [disabled]="!departementForm.valid">
+      <i class="fa-regular fa-floppy-disk pe-2" ></i>
+      Save
+    </button>
+    <button
+      type="button"
+      class="btn btn-warning mx-2"
+      (click)="resetControls()"
+    >
+      <i class="fa-solid fa-broom pe-2"></i>
+      Reset
+    </button>
+    <button
+      (click)="closeDialog()"
+      type="button"
+      class="btn btn-outline-danger"
+    >
+      <i class="fa-solid fa-rotate-left pe-2"></i>
+      Back
+    </button>
+  </div>
+</form>
