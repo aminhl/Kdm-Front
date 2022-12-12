@@ -7,6 +7,7 @@ import {UpdateEquipeComponent} from "./update-equipe/update-equipe.component";
 import {TokenStorageService} from "../../../_services/token-storage.service";
 import {AddDetailEquipeComponent} from "./detail-equipe/add-detail-equipe/add-detail-equipe.component";
 import {DetailEquipeComponent} from "./detail-equipe/detail-equipe.component";
+import {AssignEquipeDetailEquipeComponent} from "./assign-equipe-detail-equipe/assign-equipe-detail-equipe.component";
 
 
 @Component({
@@ -53,5 +54,10 @@ export class EquipeComponent implements OnInit {
       data: { equipe },
     });
   }
+
+  openAffectEquipeToDetailEquipe() {
+    this.dialog.open(AssignEquipeDetailEquipeComponent, { width: '40%' });
+  }
+
 
 }

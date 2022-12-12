@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/core/services/admin/api.service';
 import { AddProfessorComponent } from './add-professor/add-professor.component';
+import { AssignProfessorToDepartmentComponent } from './assign-professor-to-department/assign-professor-to-department.component';
+import { DepartmentDetailsProfComponent } from './department-details-prof/department-details-prof.component';
 import { EditprofessorComponent } from './edit-professor/edit-professor.component';
 
 
@@ -20,6 +22,7 @@ export class ProfessorComponent implements OnInit {
     this.getProfessors();
   }
   professors!: any;
+  firstName!: any;
 
   getProfessors() {
     this.apiService
@@ -41,6 +44,23 @@ export class ProfessorComponent implements OnInit {
     this.dialog.open(EditprofessorComponent, {
       width: '40%',
       data: { professor },
+    });
+  }
+  openAssignProfessorToDepartementDialog() {
+    this.dialog.open(AssignProfessorToDepartmentComponent, {
+      width: '40%',
+
+    });
+  }
+  openDetailsDepartProfessorDialog(departementId: number,firstName : string,lastName : string)
+  {
+
+    this.dialog.open(DepartmentDetailsProfComponent, {
+      width: '20%',
+      data: { departementId,
+        firstName,
+        lastName
+      },
     });
   }
 }

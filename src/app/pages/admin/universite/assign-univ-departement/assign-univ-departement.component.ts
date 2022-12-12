@@ -46,7 +46,11 @@ export class AssignUnivDepartementComponent implements OnInit {
   UpadateUniv()
   {
     this.apiService.assignEtudiantToDepartement(
-      'assignUniversiteToDepartement',this.SelectedUniv,this.SelectedDep).subscribe(() => null);
-      location.reload();
+      'assignUniversiteToDepartement',this.SelectedUniv,this.SelectedDep).subscribe((universite) => this.apiService.get('getUniversitiesSorted').subscribe((universites)=>(this.universites=universites)));
+      this.closeDialog();
+  }
+  closeDialog() {
+    this.dialog.closeAll();
+
   }
 }

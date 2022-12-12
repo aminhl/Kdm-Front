@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'departement', loadChildren: () => import('./pages/admin/departement/departement.module').then(m => m.DepartementsModule), canActivate: [LoggedInGuard] },
-  { path: 'universite', component: UniversiteComponent,canActivate:[LoggedInGuard] },
+  { path: 'universite',loadChildren: () => import('./pages/admin/universite/universite.module').then(u =>u.UniversiteModule),canActivate:[LoggedInGuard] },
   { path: 'profile', component: ProfileComponent },
   {
     path: 'contrat',
@@ -75,7 +75,7 @@ const routes: Routes = [
   },
   {
     path: 'universite',
-    component: UniversiteComponent,
+    loadChildren: () => import('./pages/admin/universite/universite.module').then((u) =>u.UniversiteModule),
     canActivate: [LoggedInGuard],
   },
   {
@@ -84,6 +84,10 @@ const routes: Routes = [
     canActivate: [LoggedInGuard],
   },
   { path: 'club', component: ClubComponent, canActivate: [LoggedInGuard] },
+
+  { path: 'professor', component: ProfessorComponent, canActivate: [LoggedInGuard] },
+
+
 
   { path: '**', component: ErrorComponent },
 ];

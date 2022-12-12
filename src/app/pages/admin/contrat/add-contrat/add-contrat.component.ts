@@ -56,7 +56,7 @@ export class AddContratComponent implements OnInit {
     this.addContrat(contratToAdd);
     this.resetControls();
     this.closeDialog();
-    location.reload();
+
   }
 
   addContrat(contratBody: Object) {
