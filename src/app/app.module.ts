@@ -92,7 +92,7 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     Ng2SearchPipeModule,
     FullCalendarModule,
     RouterModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
 
     ContratModule,
     ClubModule,
