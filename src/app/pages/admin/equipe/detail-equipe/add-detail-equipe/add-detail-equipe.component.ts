@@ -10,7 +10,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class AddDetailEquipeComponent implements OnInit {
 
-  constructor(private apiService: ApiService,  public dialogRef: MatDialogRef<AddDetailEquipeComponent>) { }
+  constructor(private apiService: ApiService,  private dialogRef: MatDialogRef<AddDetailEquipeComponent>) { }
 
   ngOnInit(): void {
   }

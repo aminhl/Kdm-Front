@@ -10,6 +10,7 @@ import { UniversiteComponent } from '../universite.component';
 export class ShowUnivDepartsComponent implements OnInit {
   receivedRow!: any
   departements!: any
+  nbrUniv!:any
   constructor(public dialogRef: MatDialogRef<UniversiteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private apiService: ApiService) { 
@@ -18,11 +19,16 @@ export class ShowUnivDepartsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDepartementsByUniversite(this.receivedRow.universite.idUniv)
+    this.nbrDepartementsByUniversite(this.receivedRow.universite.idUniv)
   }
 
   getDepartementsByUniversite(idUniv :number){
     this.apiService.get('retreiveDepartementsByUniversity/' + idUniv)
     .subscribe((departements) => this.departements = departements)
 
+  }
+  nbrDepartementsByUniversite(idUniv :number){
+    this.apiService.get('nbrDepartementsByUniversite/' + idUniv)
+    .subscribe((nbrUniv) => this.nbrUniv = nbrUniv)
   }
 }
