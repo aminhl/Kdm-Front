@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header  pl-1 pb-0 m-0 d-flex align-items-center">
+        <div class="row justify-content-start   ">
+            <i class='col fas fa-id-card mt-3 mb-0 ' style='font-size:36px '></i>
+            <h2 class="col card-title mb-0 text-nowrap">chef departement {{receivedRow.departement.nomDepart}} :</h2>
+        </div>
+    </div>
+    <div class="card-body">
+
+
+
+        <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+
+            <div class="dataTable-container">
+                <table class="table datatable dataTable-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-sortable="" style="width: 9.203%">
+                                Nom
+                            </th>
+                            <th scope="col" data-sortable="" style="width: 28.0558%">
+                                Prenom
+                            </th>
+                            <th scope="col" data-sortable="" style="width: 37.7949%">
+                                email
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <!-- *ngFor="let etudiant of etudiants" -->
+                    <tbody *ngIf="Professor" >
+                      
+                        <tr>
+                            <td style="color: #256d85">{{ Professor.firstName }}</td>
+                            <td style="color: #256d85">{{ Professor.lastName }}</td>
+                            <td style="color: #256d85">{{ Professor.email }}</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

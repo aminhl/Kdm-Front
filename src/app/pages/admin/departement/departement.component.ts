@@ -9,6 +9,7 @@ import { ShowEtudiantsComponent } from './show-etudiants/show-etudiants.componen
 import { ShowProfessorComponent } from './show-professor/show-professor.component';
 import { AssignchefdepartementComponent } from './assignchefdepartement/assignchefdepartement.component';
 import { ToastrService } from 'ngx-toastr';
+import { ShowChefdepartementComponent } from './show-chefdepartement/show-chefdepartement.component';
 
 @Component({
   selector: 'app-departement',
@@ -17,7 +18,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DepartementComponent implements OnInit {
 
-  constructor(private apiService: ApiService,private toastrService: ToastrService,private dialog: MatDialog) { }
+  constructor(private apiService: ApiService, private toastrService: ToastrService, private dialog: MatDialog) { }
   nomDepartement!: any;
   departements!: any;
   nbrPage!: any;
@@ -25,10 +26,10 @@ export class DepartementComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.refreshNeeded.subscribe(
       () => {
+        this.getDepartements();
+      }
+    )
     this.getDepartements();
-  }
-  )
-  this.getDepartements();
   }
 
   getDepartements() {
@@ -40,8 +41,8 @@ export class DepartementComponent implements OnInit {
   deleteDepartement(elementId: number) {
     this.apiService
       .delete('deleteDepartement', elementId)
-      .subscribe((e) =>e );
-      this.toastrService.success("Departement supprimé");
+      .subscribe((e) => e);
+    this.toastrService.success("Departement supprimé");
 
   }
 
@@ -59,29 +60,31 @@ export class DepartementComponent implements OnInit {
       data: { departement },
     });
   }
-
+  openchefDialog(departement: Object) {
+    this.dialog.open(ShowChefdepartementComponent, { width: '60%', data: { departement } })
+  }
   openProfessorDialog(departement: Object) {
     this.dialog.open(ShowProfessorComponent, { width: '60%', data: { departement } })
   }
 
   openAssignChefDialog() {
-    this.dialog.open(AssignchefdepartementComponent, { width: '60%'})
+    this.dialog.open(AssignchefdepartementComponent, { width: '60%' })
   }
   exportPDF() {
     this.apiService
       .exportPDF('exportdepartpdf/')
-      .subscribe(x =>{
-          const blob = new Blob([x], {type: 'application/pdf'});
-          const data = window.URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = data;
-          link.download = 'departements.pdf';
-          link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
- 
-          setTimeout(function() {
-            window.URL.revokeObjectURL(data);
-            link.remove();
-          }, 100 );
+      .subscribe(x => {
+        const blob = new Blob([x], { type: 'application/pdf' });
+        const data = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = data;
+        link.download = 'departements.pdf';
+        link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+        setTimeout(function () {
+          window.URL.revokeObjectURL(data);
+          link.remove();
+        }, 100);
       })
   }
 

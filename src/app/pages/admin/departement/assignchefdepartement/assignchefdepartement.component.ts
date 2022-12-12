@@ -33,17 +33,19 @@ export class AssignchefdepartementComponent implements OnInit {
   ChangeDep(e) {
     this.SelectedDep = e.target.value;
     this.apiService.getbyID
-      ('findDepartByname', this.SelectedDep).subscribe((departement) => { this.departement = departement; this.SelectedDep = this.departement.idDepart; console.log(this.departement) });
+      ('findDepartByname', this.SelectedDep).subscribe((departement) => { this.departement = departement; this.SelectedDep = this.departement.idDepart; });
   }
   ChangeProf(e) {
-    console.log('e'+e.target.value);
+
     this.SelectedProf = e.target.value;
     this.apiService.getbyID
-      ('getProfessorById', this.SelectedProf).subscribe((Professor) => { this.Professor = Professor; this.SelectedProf = this.Professor.idProfessor;console.log(this.Professor) })
+      ('getProfessorById', this.SelectedProf).subscribe((Professor) => { this.Professor = Professor; this.SelectedProf = this.Professor.idProfessor; })
   }
   UpadateDep() {
+
+
     this.apiService.assignchefdepartement(
-      'ajouterchefdepartemnt',this.SelectedDep ,this.SelectedProf).subscribe((departement) => this.apiService.get('getDepartements').subscribe((departement) => (this.departement = departement)));
+      'ajouterchefdepartemnt', this.SelectedDep, this.SelectedProf).subscribe((departement) => this.apiService.get('getDepartements').subscribe((departement) => (this.departement = departement)));
     this.closeDialog();
   }
   closeDialog() {
