@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services/admin/api.service';
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-assign-professor-to-department',
@@ -15,7 +15,7 @@ export class AssignProfessorToDepartmentComponent implements OnInit {
   selectedD! :any
   professor! :any
   departement! :any
-  constructor(private apiService: ApiService, private dialog: MatDialog)
+  constructor(private apiService: ApiService, private dialog: MatDialog,public dialogRef: MatDialogRef<AssignProfessorToDepartmentComponent>)
   {
 
   }
@@ -52,10 +52,10 @@ export class AssignProfessorToDepartmentComponent implements OnInit {
   updateProfessor()
   {
     this.apiService.assignProfessorToDepartement(
-      'assignProfessorToDepartment',this.selectedP,this.selectedD).subscribe(() => null);
-
-    console.log(this.selectedD);
-    console.log(this.selectedP);
+      'assignProfessorToDepartment',this.selectedP,this.selectedD).subscribe(()=>this.closeDialog());
+  }
+  closeDialog() {
+    this.dialogRef.close();
   }
 
 }

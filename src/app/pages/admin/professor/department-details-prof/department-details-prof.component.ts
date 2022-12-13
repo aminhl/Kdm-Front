@@ -23,6 +23,6 @@ this.lastName=this.data.lastName;
   getDetails()
   {
     this.apiService.getbyID
-    ('getProfessorsByDepartmentId',this.data.departementId).subscribe((departement) => {this.departement = departement });
+    ('ShowDepartementProfDetails',this.data.departementId).subscribe((departement) => {this.departement = departement });
   }
 }
