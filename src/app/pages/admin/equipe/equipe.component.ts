@@ -36,6 +36,7 @@ export class EquipeComponent implements OnInit {
   }
 
   equipes!: any;
+  PageNumber: any;
 
   getEquipes() {
     this.apiService

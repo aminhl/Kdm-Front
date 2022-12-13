@@ -53,7 +53,7 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let contrat of contrats | searchTarget:searchedContrat">
+                <tbody *ngFor="let contrat of contrats | searchTarget:searchedContrat |  paginate: { itemsPerPage: 2, currentPage: PageNumber}">
                   <tr>
                     <!--                    <th scope="row">{{ contrat.idContrat }}</th>-->
                     <td style="color: #256d85">{{ contrat.specialite }}</td>
@@ -139,6 +139,9 @@
             </div>
           </div>
           <!-- End Table with stripped rows -->
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <pagination-controls (pageChange)="PageNumber = $event"></pagination-controls>
         </div>
       </div>
     </div>

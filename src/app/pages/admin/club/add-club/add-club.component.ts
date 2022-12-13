@@ -29,7 +29,6 @@ export class AddClubComponent implements OnInit {
     };
     this.addClub(clubToAdd);
     this.closeDialog();
-    location.reload();
   }
 
   closeDialog() {

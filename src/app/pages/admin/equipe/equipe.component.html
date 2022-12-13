@@ -28,7 +28,7 @@
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody *ngFor="let equipe of equipes">
+                <tbody *ngFor="let equipe of equipes |  paginate: { itemsPerPage: 2, currentPage: PageNumber}">
                 <tr>
 
                   <td style="color: #256d85">{{ equipe.nomEquipe }}</td>
@@ -158,6 +158,9 @@
             </div>
           </div>
           <!-- End Table with stripped rows -->
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <pagination-controls (pageChange)="PageNumber = $event"></pagination-controls>
         </div>
       </div>
     </div>
