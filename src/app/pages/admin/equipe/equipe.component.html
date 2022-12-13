@@ -22,16 +22,21 @@
                   <th scope="col" data-sortable="" style="width: 28.0558%">
                     Niveau
                   </th>
-
+                  <th scope="col" data-sortable="" style="width: 28.0558%">
+                    Detail Equipe
+                  </th>
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody *ngFor="let equipe of equipes">
+                <tbody *ngFor="let equipe of equipes |  paginate: { itemsPerPage: 2, currentPage: PageNumber}">
                 <tr>
 
                   <td style="color: #256d85">{{ equipe.nomEquipe }}</td>
-                  <td style="color: #7743db">
-                    {{ equipe.niveau }}
+                  <td style="color: #256d85">{{ equipe.niveau }}</td>
+                  <td style="color: #256d85">
+
+                      <button (click)="openDetailsDepartEtudiantDialog(equipe.idEquipe)"  type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button>
+
                   </td>
 
                   <td style="display: flex; gap: 8px">
@@ -153,6 +158,9 @@
             </div>
           </div>
           <!-- End Table with stripped rows -->
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <pagination-controls (pageChange)="PageNumber = $event"></pagination-controls>
         </div>
       </div>
     </div>

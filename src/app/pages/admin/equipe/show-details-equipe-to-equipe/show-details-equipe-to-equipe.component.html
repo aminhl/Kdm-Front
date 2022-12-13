@@ -1,0 +1,39 @@
+<div *ngIf="equipesDetails !=null; else NoOneDetails">
+    <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
+    <div class="card-body" >
+
+      <div  id="content" #content >
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Salle</th>
+            <th>Thematique</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>{{equipesDetails.salle}}</td>
+            <td>{{equipesDetails.thematique}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+</div>
+<ng-template #NoOneDetails>
+  <div >
+    <div class="card" >
+      <i class='fas fa-id-card-alt	' style='font-size:100px'></i>
+      <div class="card-body">
+        <div class="alert alert-danger" role="alert">
+          NO DETAILS FOUND
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+

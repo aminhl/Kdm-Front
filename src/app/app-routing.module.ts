@@ -18,19 +18,62 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { ClubComponent } from './pages/admin/club/club.component';
 
 const routes: Routes = [
-
   { path: '', component: LoginComponent },
-  { path: 'contrat', component: ContratComponent, canActivate: [LoggedInGuard] },
-  { path: 'addcontrat', component: AddContratComponent, canActivate: [LoggedInGuard] },
-  { path: 'equipe', component: EquipeComponent, canActivate: [LoggedInGuard], },
-  { path: 'addequipe', component: AddEquipeComponent, canActivate: [LoggedInGuard] },
-  { path: 'etudiant', loadChildren: () => import('./pages/admin/etudiant/etudiant.module').then(e =>e.EtudiantModule) , canActivate: [LoggedInGuard] },
-  { path: 'login', component: LoginComponent, },
-  { path: 'contact', component: ContactComponent, canActivate: [LoggedInGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard] },
+  {
+    path: 'contrat',
+    loadChildren: () =>
+      import('./pages/admin/contrat/contrat.module').then(
+        (c) => c.ContratModule
+      ),
+    canActivate: [LoggedInGuard],
+  },
+  {
+    path: 'addcontrat',
+    component: AddContratComponent,
+    canActivate: [LoggedInGuard],
+  },
+  { path: 'equipe', component: EquipeComponent, canActivate: [LoggedInGuard] },
+  {
+    path: 'addequipe',
+    component: AddEquipeComponent,
+    canActivate: [LoggedInGuard],
+  },
+  {
+    path: 'etudiant',
+    loadChildren: () =>
+      import('./pages/admin/etudiant/etudiant.module').then(
+        (e) => e.EtudiantModule
+      ),
+    canActivate: [LoggedInGuard],
+  },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    canActivate: [LoggedInGuard],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [LoggedInGuard],
+  },
   { path: 'register', component: RegisterComponent },
-  { path: 'departement', loadChildren: () => import('./pages/admin/departement/departement.module').then(m => m.DepartementsModule), canActivate: [LoggedInGuard] },
-  { path: 'universite',loadChildren: () => import('./pages/admin/universite/universite.module').then(u =>u.UniversiteModule),canActivate:[LoggedInGuard] },
+  {
+    path: 'departement',
+    loadChildren: () =>
+      import('./pages/admin/departement/departement.module').then(
+        (m) => m.DepartementsModule
+      ),
+    canActivate: [LoggedInGuard],
+  },
+  {
+    path: 'universite',
+    loadChildren: () =>
+      import('./pages/admin/universite/universite.module').then(
+        (u) => u.UniversiteModule
+      ),
+    canActivate: [LoggedInGuard],
+  },
   { path: 'profile', component: ProfileComponent },
   {
     path: 'contrat',
@@ -42,7 +85,12 @@ const routes: Routes = [
     component: AddContratComponent,
     canActivate: [LoggedInGuard],
   },
-  { path: 'equipe', component: EquipeComponent, canActivate: [LoggedInGuard] },
+  {
+    path: 'equipe',
+    loadChildren: () =>
+      import('./pages/admin/equipe/equipe.module').then((e) => e.EquipeModule),
+    canActivate: [LoggedInGuard],
+  },
   {
     path: 'addequipe',
     component: AddEquipeComponent,
@@ -64,7 +112,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [LoggedInGuard],
   },
-  { path: 'register', component: RegisterComponent},
+  { path: 'register', component: RegisterComponent },
   {
     path: 'departement',
     loadChildren: () =>
@@ -75,7 +123,10 @@ const routes: Routes = [
   },
   {
     path: 'universite',
-    loadChildren: () => import('./pages/admin/universite/universite.module').then((u) =>u.UniversiteModule),
+    loadChildren: () =>
+      import('./pages/admin/universite/universite.module').then(
+        (u) => u.UniversiteModule
+      ),
     canActivate: [LoggedInGuard],
   },
   {
@@ -83,11 +134,18 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [LoggedInGuard],
   },
-  { path: 'club', component: ClubComponent, canActivate: [LoggedInGuard] },
+  {
+    path: 'club',
+    loadChildren: () =>
+      import('./pages/admin/club/club.module').then((c) => c.ClubModule),
+    canActivate: [LoggedInGuard],
+  },
 
-  { path: 'professor', component: ProfessorComponent, canActivate: [LoggedInGuard] },
-
-
+  {
+    path: 'professor',
+    component: ProfessorComponent,
+    canActivate: [LoggedInGuard],
+  },
 
   { path: '**', component: ErrorComponent },
 ];

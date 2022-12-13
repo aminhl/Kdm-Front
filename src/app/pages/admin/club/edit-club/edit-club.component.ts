@@ -45,7 +45,6 @@ export class EditClubComponent implements OnInit {
     };
     this.apiService.update('updateClub', clubId, clubUpdated).subscribe(() => {
       this.closeDialog();
-      location.reload();
     });
   }
 

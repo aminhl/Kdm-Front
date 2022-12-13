@@ -1,25 +1,7 @@
-<main>
-  <div class="container">
-    <section
-      class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4"
-    >
-      <div class="container">
-        <div class="row justify-content-center">
-          <div
-            class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center"
-          >
-            <div class="d-flex justify-content-center py-4">
-              <a
-                href="../../../../index.html"
-                class="logo d-flex align-items-center w-auto"
-              >
-                <img src="assets/img/logo.png" alt="" />
-                <span class="d-none d-lg-block">NextHope</span>
-              </a>
-            </div>
-            <!-- End Logo -->
 
-            <div class="card mb-3">
+
+
+            <div class="card mb-4">
               <div class="card-body">
                 <div class="pt-4 pb-2">
                   <h5 class="card-title text-center pb-0 fs-4">
@@ -30,62 +12,67 @@
                   </p>
                 </div>
 
-                <form class="row g-3 needs-validation" novalidate [formGroup]="form" (submit)="submit()">
+                <form class="row g-3 needs-validation"  #f="ngForm" (ngSubmit)="submit(f)">
                   <div class="col-12">
-                    <label for="yourName" class="form-label">Username</label>
+                    <label  class="form-label">Username</label>
                     <input
-                      formControlName="username"
                       type="text"
-                      name="name"
+                      name="username"
                       class="form-control"
-                      id="yourName"
+                      ngModel
                       required
+                      #username="ngModel"
                     />
-                    <div class="invalid-feedback">Please, enter your Username!</div>
+                    <div class= "message-invalid" *ngIf="username.invalid && username.touched">
+                      Please, enter your Username!</div>
                   </div>
 
                   <div class="col-12">
-                    <label for="yourEmail" class="form-label">Your Email</label>
+                    <label  class="form-label">Your Email</label>
                     <input
-                      formControlName="email"
                       type="email"
                       name="email"
                       class="form-control"
-                      id="yourEmail"
+                      ngModel
+                      #email="ngModel"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                       required
                     />
-                    <div class="invalid-feedback">
+
+                    <div class= "message-invalid" *ngIf="email.invalid && email.touched" >
                       Please enter a valid Email address!
                     </div>
                   </div>
 
 
                   <div class="col-12">
-                    <label for="yourPassword" class="form-label"
+                    <label  class="form-label"
                       >Password</label
                     >
                     <input
-                      formControlName="password"
                       type="password"
                       name="password"
                       class="form-control"
-                      id="yourPassword"
+                      ngModel
+                      #password="ngModel"
                       required
                     />
-                    <div class="invalid-feedback">
+                    <div class= "message-invalid" *ngIf="password.invalid && password.touched">
                       Please enter your password!
                     </div>
                   </div>
 
                   <div class="col-12">
-                    <button class="btn btn-primary w-100" type="submit">
+                    <button class="btn btn-primary w-100" type="submit"
+                            [disabled]="f.invalid">
+
                       Create Account
                     </button>
                   </div>
                   <div class="col-12">
                     <p class="small mb-0">
                       Already have an account?
-                      <a [routerLink]="'/login'">Log in</a>
+                      <a (click)="close()">Log in</a>
                     </p>
                   </div>
                 </form>
@@ -93,14 +80,11 @@
             </div>
 
             <div class="credits">
-              Designed by <a href="https://NextHope.com/">NextHope</a>
+              Designed by <a >NextHope</a>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</main>
+
+
+
 <!-- End #main -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"

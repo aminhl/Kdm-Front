@@ -8,6 +8,9 @@ import {TokenStorageService} from "../../../_services/token-storage.service";
 import {AddDetailEquipeComponent} from "./detail-equipe/add-detail-equipe/add-detail-equipe.component";
 import {DetailEquipeComponent} from "./detail-equipe/detail-equipe.component";
 import {AssignEquipeDetailEquipeComponent} from "./assign-equipe-detail-equipe/assign-equipe-detail-equipe.component";
+import {
+  ShowDetailsEquipeToEquipeComponent
+} from "./show-details-equipe-to-equipe/show-details-equipe-to-equipe.component";
 
 
 @Component({
@@ -16,26 +19,35 @@ import {AssignEquipeDetailEquipeComponent} from "./assign-equipe-detail-equipe/a
   styleUrls: ['./equipe.component.css']
 })
 export class EquipeComponent implements OnInit {
-  constructor(private apiService: ApiService, private dialog: MatDialog,private token: TokenStorageService) {}
+  constructor(private apiService: ApiService,
+              private dialog: MatDialog
+              ,private token: TokenStorageService) {}
 
   ngOnInit(): void {
+
+    this.apiService.refreshNeeded.subscribe(
+      () => {
+        this.getEquipes();
+      }
+    )
     this.getEquipes();
     //console.log("token from equipe:: "+this.token.getToken());
 
   }
 
   equipes!: any;
+  PageNumber: any;
 
   getEquipes() {
     this.apiService
       .get('getEquipes')
-      .subscribe((equipes) => (this.equipes = equipes));
+      .subscribe((equipes) => {this.equipes = equipes ; console.log(equipes)});
   }
 
   deleteEquipe(elementId: number) {
     this.apiService
       .delete('deleteEquipe', elementId)
-      .subscribe(() => location.reload());
+      .subscribe();
   }
 
   openAddEquipeDialog() {
@@ -60,4 +72,14 @@ export class EquipeComponent implements OnInit {
   }
 
 
+  openDetailsDepartEtudiantDialog(idequipe: number) {
+
+    this.dialog.open(ShowDetailsEquipeToEquipeComponent,
+      {
+        width: '50%',
+        data : idequipe,
+      }
+      )
+
+  }
 }

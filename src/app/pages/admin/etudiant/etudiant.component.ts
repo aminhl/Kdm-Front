@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ApiService } from 'src/app/core/services/admin/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddetudiantComponent } from './addetudiant/addetudiant.component';
@@ -27,7 +27,6 @@ export class EtudiantComponent implements OnInit {
   searchText:any;
   PageNumber!: any;
 
-
   constructor(private apiService: ApiService, private dialog: MatDialog)
   {
 
@@ -41,12 +40,13 @@ export class EtudiantComponent implements OnInit {
       }
     )
     this.getEtudiant();
+
   }
 
   getEtudiant()
   {
     this.apiService.get
-    ('getEtudiants').subscribe((etudiants) => (this.etudiants = etudiants));
+    ('getEtudiants').subscribe((etudiants) => {this.etudiants = etudiants });
 
   }
 
@@ -71,7 +71,7 @@ export class EtudiantComponent implements OnInit {
   {
 
     this.dialog.open(DepartDetailsStudComponent, {
-      width: '20%',
+      width: '50%',
       data: { departementId,
         nomE,
         prenomE
