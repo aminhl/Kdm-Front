@@ -31,6 +31,7 @@ export class ContratComponent implements OnInit {
   contrats!: any;
   searchedContrat: any;
   floatLabelControl = new FormControl('auto' as FloatLabelType);
+  PageNumber: any;
 
   getContrats() {
     this.apiService

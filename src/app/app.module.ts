@@ -34,15 +34,12 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { RouterModule } from '@angular/router';
 import { AssignProfessorToDepartmentComponent } from './pages/admin/professor/assign-professor-to-department/assign-professor-to-department.component';
 import { AssignProfessorToContractComponent } from './pages/admin/professor/assign-professor-to-contract/assign-professor-to-contract.component';
-
 import { ToastrModule } from 'ngx-toastr';
 import { DepartmentDetailsProfComponent } from './pages/admin/professor/department-details-prof/department-details-prof.component';
-
 import { ShowDetailsEquipeToEquipeComponent } from './pages/admin/equipe/show-details-equipe-to-equipe/show-details-equipe-to-equipe.component';
-
-
 import { ContratModule } from './pages/admin/contrat/contrat.module';
 import { ClubModule } from './pages/admin/club/club.module';
+import {EquipeModule} from "./pages/admin/equipe/equipe.module";
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
 
@@ -86,10 +83,9 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     FullCalendarModule,
     RouterModule,
     ToastrModule.forRoot(),
-
     ContratModule,
     ClubModule,
-
+    EquipeModule
   ],
   providers: [authInterceptorProviders, LoggedInGuard],
   bootstrap: [AppComponent],

@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -24,19 +25,20 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     DetailEquipeComponent,
     UpdateEquipeComponent,
   ],
-  imports: [
-    CommonModule,
-    EquipeRoutingModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    FormsModule,
-    MatIconModule,
-  ],
+    imports: [
+        CommonModule,
+        EquipeRoutingModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        MatIconModule,
+        MatButtonModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        FormsModule,
+        MatIconModule,
+        NgxPaginationModule,
+    ],
 })
 export class EquipeModule {}

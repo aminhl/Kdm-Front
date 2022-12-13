@@ -20,6 +20,11 @@ export class ClubComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.apiService.refreshNeeded.subscribe(
+      () => {
+        this.getClubs();
+      }
+    )
     this.getClubs();
   }
 
@@ -37,7 +42,7 @@ export class ClubComponent implements OnInit {
   deleteClub(clubId: number) {
     this.apiService
       .delete('deleteClub', clubId)
-      .subscribe(() => location.reload());
+      .subscribe();
   }
 
   openEditClubDialog(club: Object) {
