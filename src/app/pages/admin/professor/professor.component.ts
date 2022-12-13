@@ -19,10 +19,17 @@ export class ProfessorComponent implements OnInit {
   constructor(private apiService: ApiService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.apiService.refreshNeeded.subscribe(
+      () => {
+        this.getProfessors();
+      }
+    )
     this.getProfessors();
   }
   professors!: any;
   firstName!: any;
+  departement!: any;
+  lastName!: any;
 
   getProfessors() {
     this.apiService

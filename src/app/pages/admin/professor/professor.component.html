@@ -62,11 +62,16 @@
                     </td>
                     <td style="color: #256d85">{{professor.speciality}}</td>
                     <td style="color: #256d85">
-                          <button (click)="openDetailsDepartProfessorDialog(professor.departementId.idDepart,professor.firstName,professor.lastName)"  type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button>
+
+                          <div *ngIf="professor.departement !=null ; else DepnotFound">
+
+                          <button (click)="openDetailsDepartProfessorDialog(professor.departement.idDepart,professor.firstName,professor.lastName)"  type="button" class="btn btn-outline-primary"><i class="fas fa-school	"></i></button>
+                        </div>
+
                       </td>
-                        <!-- <ng-template #DepnotFound>
+                        <ng-template #DepnotFound>
                       <td style="color: #256d85">Not assigned </td>
-                        </ng-template> -->
+                        </ng-template>
                     <td style="display: flex; gap: 8px">
                       <button
                         mat-fab
